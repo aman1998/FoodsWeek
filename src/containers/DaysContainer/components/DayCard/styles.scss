@@ -1,0 +1,24 @@
+.day-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    height: 80px;
+    color: $gray;
+    box-shadow: 0 4px 22px -6px rgb(6 5 50 / 15%);
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        background: $blue-3;
+    }
+    &__img {
+        border-radius: 8px;
+        width: 30px;
+        height: 30px;
+    }
+    &__latestPrice {
+        margin-left: 4px;
+    }
+    &__changePercent {
+        margin-left: auto;
+    }
+}

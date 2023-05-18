@@ -1,0 +1,6 @@
+.day-sticky-skeleton {
+    min-width: 500px;
+    @media screen and (max-width: $lg-media) {
+        min-width: auto;
+    }
+}

@@ -1,0 +1,53 @@
+$green: #137333;
+$green-2: #e6f4ea;
+$gray: #777777;
+$gray-2: #e5e5e5;
+$black: #0e0e0e;
+$white: #efecec;
+$white-2: #F2F2F2;
+$blue: #1cb0f6;
+$blue-2: #84d8ff;
+$blue-3: #ddf4ff;
+$red: #a50e0e;
+$red-2: #fce8e6;
+
+$color-main: $blue;
+$bg-main: $white-2;
+$font: $black;
+$errorColor: $red;
+$errorBg: $red-2;
+$successColor: $green;
+$successBg: $green-2;
+
+// *** Media width *** //
+$xs-media: 0px;
+$more-xs-media: 320px;
+$md-xs-media: 360px;
+$sub-sm-media: 430px;
+$sub-sm-media-50: 450px;
+$sub-lm-media: 486px;
+$sm-media: 576px;
+$more-sm-media: 706px;
+$md-media: 768px;
+$more-md-media: 868px;
+$lg-media: 992px;
+$x-media: 1024px;
+$xl-media: 1200px;
+$xxl-media: 1400px;
+
+// *** Max Media width *** //
+$max-xs-media: 319.99px;
+$max-more-xs-media: 575.99px;
+$max-sm-media: 767.99px;
+$max-md-media: 1023.99px;
+$max-lg-media: 1199.99px;
+$min-xl-media: 1399.99px;
+
+// *** Font-sizes *** //
+$fs-rem-xl: 16px;
+$fs-rem-lg: 14px;
+$fs-rem-md: 12px;
+$fs-rem-sm: 10px;
+$fs-rem-xs: 8px;
+
+

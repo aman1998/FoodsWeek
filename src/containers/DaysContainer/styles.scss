@@ -1,0 +1,15 @@
+.stocks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    grid-gap: 10px;
+    width: 100%;
+}
+
+.stocks-wrapper {
+    display: flex;
+    gap: 10px;
+    @media screen and (max-width: $lg-media) {
+        flex-direction: column-reverse;
+    }
+}

@@ -1,0 +1,26 @@
+.navigation {
+    &-item {
+        margin-bottom: 16px;
+        height: 40px;
+        &__link {
+            display: flex;
+            align-items: center;
+            padding: 4px 8px;
+            &--active {
+                color: $blue;
+                border-radius: 12px;
+                border: 2px solid $blue-2;
+                background: $blue-3;
+            }
+        }
+        &__icon-wrapper {
+            margin-right: 20px;
+        }
+        &__title {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+    }
+}
