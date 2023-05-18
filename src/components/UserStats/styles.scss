@@ -1,0 +1,16 @@
+.user-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 8px;
+    color: $gray;
+    box-shadow: 0 4px 22px -6px rgb(6 5 50 / 15%);
+    border-radius: 12px;
+    border: 2px solid $gray-2;
+    width: 300px;
+    height: 150px;
+    @media screen and (max-width: $lg-media) {
+        min-width: auto;
+        position: static;
+    }
+}

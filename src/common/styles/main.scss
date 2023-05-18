@@ -8,12 +8,11 @@
 @import "../../components/Logo/styles.scss";
 @import "../../components/Navigation/styles.scss";
 @import "../../components/ChangePercent/styles.scss";
+@import "../../components/UserStats/styles.scss";
+@import "../../components/UserStats/Skeleton/styles.scss";
+
 @import "../../containers/DaysContainer/styles.scss";
 @import "../../containers/DaysContainer/components/DayCard/styles.scss";
-// @import "../../containers/DaysContainer/components/DaysChart/styles.scss";
-// @import "../../containers/DaysContainer/components/DaysSticky/styles.scss";
-// @import "../../containers/DaysContainer/components/DaysSticky/Skeleton/styles.scss";
 @import "../../containers/DaysContainer/components/Skeleton/styles.scss";
-// @import "../../containers/DaysContainer/components/DaysStats/styles.scss";
 @import "../../containers/SingleDayContainer/styles.scss";
 @import "../../containers/SingleDayContainer/components/Skeleton/styles.scss";

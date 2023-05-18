@@ -1,35 +1,22 @@
-import { FC, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { FC } from "react";
 
-import List from "../../components/List";
-import DragDrop from "../../components/DragDrop";
+import { days } from "../../components/Navigation/constants";
 
-import { stocksListFetching, stocksNewList } from "./store/reducers";
-import { stocksFetchingSelector, stocksDataSelector } from "./store/selectors";
-import DaysSkeleton from "./components/Skeleton";
 import DayCard from "./components/DayCard";
-import { IDayData } from "./store/types";
 
-const DaysContainer: FC = () => {
-  const loading = useSelector(stocksFetchingSelector);
-  const stocks = useSelector(stocksDataSelector);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!stocks?.length) {
-      dispatch(stocksListFetching());
-    }
-  }, [dispatch, stocks]);
-
-  const handleNewList = (newList: IDayData[]) => {
-    dispatch(stocksNewList(newList));
-  };
-
-  return (
-    <section className="stocks-wrapper">
-      <div style={{ width: "100%" }}>
-        <List
+const DaysContainer: FC = () => (
+  <section className="days-wrapper">
+    <div className="days">
+      {days.map(item => (
+        <DayCard
+          key={item}
+          logoUrl="https://cdn-icons-png.flaticon.com/512/5783/5783182.png"
+          title={item}
+          link={item.toLowerCase()}
+        />
+      ))}
+    </div>
+    {/* <List
           component={
             <>
               <DragDrop<IDayData>
@@ -51,11 +38,8 @@ const DaysContainer: FC = () => {
           data={stocks}
           preloader={<DaysSkeleton />}
           loading={loading}
-        />
-      </div>
-      {/* <DaysSticky /> */}
-    </section>
-  );
-};
+        /> */}
+  </section>
+);
 
 export default DaysContainer;

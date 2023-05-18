@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Logo: FC = () => (
   <Link to="/" className="logo">
-    AmanRossoneri
+    FOODWEEK
   </Link>
 );
 
