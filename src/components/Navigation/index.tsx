@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
-import DaysIcon from "../icons/DaysIcon";
+// import DaysIcon from "../icons/DaysIcon";
 
 import { links } from "./constants";
 
@@ -15,7 +15,8 @@ const Navigation: FC = () => (
             className={({ isActive }) => `navigation-item__link ${isActive ? "navigation-item__link--active" : ""}`}
           >
             <div className="navigation-item__icon-wrapper">
-              <DaysIcon />
+              <img className="navigation-item__icon" src={require("../../common/images/monday.png")} />
+              {/* <DaysIcon /> */}
             </div>
             <span className="navigation-item__title">{item.title}</span>
           </NavLink>

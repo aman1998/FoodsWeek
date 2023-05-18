@@ -8,12 +8,7 @@ const DaysContainer: FC = () => (
   <section className="days-wrapper">
     <div className="days">
       {days.map(item => (
-        <DayCard
-          key={item}
-          logoUrl="https://cdn-icons-png.flaticon.com/512/5783/5783182.png"
-          title={item}
-          link={item.toLowerCase()}
-        />
+        <DayCard key={item} title={item} link={item.toLowerCase()} />
       ))}
     </div>
     {/* <List
