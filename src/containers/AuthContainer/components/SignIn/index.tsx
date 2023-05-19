@@ -11,7 +11,6 @@ import { signInFetching } from "../../store/reducers";
 
 import { TSignIn } from "./types";
 import { signInSchema } from "./validations";
-import styles from "./styles.module.scss";
 
 const SignIn: FC = () => {
   const loading = useSelector(signInFetchingSelector);
@@ -31,7 +30,7 @@ const SignIn: FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+    <form onSubmit={handleSubmit(onSubmit)} className="signIn-form">
       <TextFieldControl
         name="email"
         labelText="Почта"
@@ -39,7 +38,7 @@ const SignIn: FC = () => {
         control={control}
         margin="normal"
         errorMessage={errors?.email?.message}
-        className={styles["form__field"]}
+        className="signIn-form__field"
       />
 
       <TextFieldControl
@@ -50,10 +49,10 @@ const SignIn: FC = () => {
         control={control}
         margin="dense"
         errorMessage={errors?.password?.message}
-        className={styles["form__field"]}
+        className="signIn-form__field"
       />
 
-      <Button type="submit" disabled={loading} variant="contained" className={styles["form__button"]} text="Войти" />
+      <Button type="submit" disabled={loading} variant="contained" className="signIn-form__button" text="Войти" />
     </form>
   );
 };

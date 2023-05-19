@@ -13,7 +13,6 @@ import { updateUserInfoFetchingSelector } from "../../../UserInfoContainer/store
 
 import { ISignUp } from "./types";
 import { signUpSchema } from "./validations";
-import styles from "./styles.module.scss";
 
 const SignUp: FC = () => {
   const loading = useSelector(signUpFetchingSelector);
@@ -34,14 +33,14 @@ const SignUp: FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+    <form onSubmit={handleSubmit(onSubmit)} className="signUp-form">
       <TextFieldControl
         name="email"
         labelText="Почта"
         placeholder="Почта"
         control={control}
         autoComplete="off"
-        className={styles["form__field"]}
+        className="signUp-form__field"
         errorMessage={errors?.email?.message}
       />
 
@@ -52,7 +51,7 @@ const SignUp: FC = () => {
         type="password"
         control={control}
         autoComplete="off"
-        className={styles["form__field"]}
+        className="signUp-form__field"
         errorMessage={errors?.password?.message}
       />
 
@@ -62,7 +61,7 @@ const SignUp: FC = () => {
         placeholder="Подтвердите пароль"
         type="password"
         control={control}
-        className={styles["form__field"]}
+        className="signUp-form__field"
         errorMessage={errors?.confirm_password?.message}
       />
 
@@ -70,7 +69,7 @@ const SignUp: FC = () => {
         type="submit"
         disabled={loading || updateLoading}
         variant="contained"
-        className={styles["form__button"]}
+        className="signUp-form__button"
         text="Регистрация"
       />
     </form>

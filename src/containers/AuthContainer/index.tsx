@@ -9,7 +9,6 @@ import { changeAuthModalIsOpen } from "./store/reducers";
 import SignIn from "./components/SignIn";
 import { EAuthTypes } from "./types";
 import SignUp from "./components/SignUp";
-import styles from "./styles.module.scss";
 import AuthFormText from "./components/AuthFormText";
 import { getTitle } from "./utils";
 import ResetEmailPassword from "./components/ResetEmailPassword";
@@ -35,8 +34,8 @@ const AuthForm: FC = () => {
           }}
           classNames="fade"
         >
-          <div className={styles["auth-form"]} ref={nodeRef}>
-            <h1 className={styles["auth-form__title"]}>{getTitle(authType)}</h1>
+          <div className="auth-form" ref={nodeRef}>
+            <h1 className="auth-form__title">{getTitle(authType)}</h1>
             {authType === EAuthTypes.signin ? (
               <SignIn />
             ) : authType === EAuthTypes.signup ? (

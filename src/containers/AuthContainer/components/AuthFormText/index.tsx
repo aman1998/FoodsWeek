@@ -6,8 +6,6 @@ import Button from "../../../../UI/Button";
 import { EAuthTypes } from "../../types";
 import { changeAuthType } from "../../store/reducers";
 
-import styles from "./text.module.scss";
-
 const AuthFormText: FC<{ type: string }> = ({ type }) => {
   const dispatch = useDispatch();
 
@@ -20,45 +18,45 @@ const AuthFormText: FC<{ type: string }> = ({ type }) => {
       case EAuthTypes.signin:
         return (
           <>
-            <p className={styles.text}>
+            <p className="auth-form-text">
               Нет аккаунта?{" "}
               <Button
                 variant="text"
                 text="Регистрация"
                 onClick={() => handleForm(EAuthTypes.signup)}
-                className={styles.btn}
+                className="auth-form-btn"
               />
             </p>
-            <p className={styles.text}>
+            <p className="auth-form-text">
               Забыли пароль{" "}
               <Button
                 variant="text"
                 text="Сброс пароля"
                 onClick={() => handleForm(EAuthTypes.reset)}
-                className={styles.btn}
+                className="auth-form-btn"
               />
             </p>
           </>
         );
       case EAuthTypes.signup:
         return (
-          <p className={styles.text}>
+          <p className="auth-form-text">
             Есть аккаунт?{" "}
             <Button
               variant="text"
               text="Вход в аккаунт"
-              className={styles.btn}
+              className="auth-form-btn"
               onClick={() => handleForm(EAuthTypes.signin)}
             />
           </p>
         );
       case EAuthTypes.reset:
         return (
-          <p className={styles.text}>
+          <p className="auth-form-text">
             <Button
               variant="text"
               text="Вернуться назад"
-              className={styles.btn}
+              className="auth-form-btn"
               onClick={() => handleForm(EAuthTypes.signin)}
             />
           </p>

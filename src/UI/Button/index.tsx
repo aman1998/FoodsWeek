@@ -1,11 +1,11 @@
 import MUIButton from "@mui/material/Button";
+import cn from "classnames";
 import { FC } from "react";
 
-import styles from "./styles.module.scss";
 import { IButton } from "./types";
 
-const Button: FC<IButton> = ({ text, ...props }) => (
-  <MUIButton className={styles.button} {...props}>
+const Button: FC<IButton> = ({ text, className, ...props }) => (
+  <MUIButton className={cn("button", className)} {...props}>
     <span>{text}</span>
   </MUIButton>
 );

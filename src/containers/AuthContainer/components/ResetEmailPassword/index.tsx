@@ -11,7 +11,6 @@ import { resetEmailPasswordFetchingSelector } from "../../store/selectors";
 import { resetEmailPasswordFetching } from "../../store/reducers";
 
 import { resetEmailPasswordSchema } from "./validations";
-import styles from "./styles.module.scss";
 
 const ResetEmailPassword: FC = () => {
   const loading = useSelector(resetEmailPasswordFetchingSelector);
@@ -31,7 +30,7 @@ const ResetEmailPassword: FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+    <form onSubmit={handleSubmit(onSubmit)} className="reset-form">
       <TextFieldControl
         name="email"
         labelText="Почта"
@@ -39,16 +38,10 @@ const ResetEmailPassword: FC = () => {
         control={control}
         margin="normal"
         errorMessage={errors?.email?.message}
-        className={styles["form__field"]}
+        className="reset-form__field"
       />
 
-      <Button
-        type="submit"
-        disabled={loading}
-        variant="contained"
-        className={styles["form__button"]}
-        text="Отправить"
-      />
+      <Button type="submit" disabled={loading} variant="contained" className="reset-form__button" text="Отправить" />
     </form>
   );
 };

@@ -12,8 +12,21 @@
 @import "../../components/UserStats/styles.scss";
 @import "../../components/UserStats/Skeleton/styles.scss";
 
+// UI
+@import "../../UI/Button/styles.scss";
+
+// Days container
 @import "../../containers/DaysContainer/styles.scss";
 @import "../../containers/DaysContainer/components/DayCard/styles.scss";
 @import "../../containers/DaysContainer/components/Skeleton/styles.scss";
+
+// Single Day container
 @import "../../containers/SingleDayContainer/styles.scss";
 @import "../../containers/SingleDayContainer/components/Skeleton/styles.scss";
+
+// Auth container 
+@import "../../containers/AuthContainer/styles.scss";
+@import "../../containers/AuthContainer/components/SignUp/styles.scss";
+@import "../../containers/AuthContainer/components/SignIn/styles.scss";
+@import "../../containers/AuthContainer/components/ResetEmailPassword/styles.scss";
+@import "../../containers/AuthContainer/components/AuthFormText/styles.scss";
