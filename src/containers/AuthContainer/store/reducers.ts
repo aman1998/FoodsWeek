@@ -5,10 +5,11 @@ import { EAuthTypes } from "../types";
 import { IPayloadAction } from "../../../store/types";
 import { defaultState } from "../../../store/constants";
 
-import { IAuthInfo } from "./../../UserInfoContainer/store/types";
-import { IAuthState } from "./types";
+import { IAuthState, IAuthInfo } from "./types";
 
 const initialState: IAuthState = {
+  authInfo: defaultState,
+  isAuth: false,
   signIn: defaultState,
   signUp: defaultState,
   signOut: defaultState,
@@ -21,6 +22,20 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
+    authInfoFetching(state) {
+      state.authInfo.fetching = true;
+    },
+    authInfoSuccess(state, action: IPayloadAction<IAuthInfo>) {
+      state.authInfo = { ...defaultState, data: action.payload };
+    },
+    authInfoError(state, action) {
+      state.authInfo = { ...defaultState, error: action.payload };
+    },
+
+    changeIsAuth(state, action: IPayloadAction<boolean>) {
+      state.isAuth = action.payload;
+    },
+
     changeAuthModalIsOpen(state: IAuthState, action: IPayloadAction<boolean>) {
       state.authModalIsOpen = action.payload;
       state.authType = EAuthTypes.signin;
@@ -76,6 +91,12 @@ const authSlice = createSlice({
 });
 
 export const {
+  authInfoError,
+  authInfoFetching,
+  authInfoSuccess,
+
+  changeIsAuth,
+
   changeAuthModalIsOpen,
   changeAuthType,
 

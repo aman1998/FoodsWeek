@@ -5,11 +5,6 @@ export interface IUserInfoDefaultData {
   text: string;
 }
 
-export interface IAuthInfo {
-  email: string;
-  id: string;
-}
-
 export interface IUserInfo {
   id: string;
 }
@@ -17,6 +12,4 @@ export interface IUserInfo {
 export interface IUserState {
   userInfo: IRequestHandler<IUserInfo>;
   updateUserInfo: IRequestHandler<unknown>;
-  authInfo: IRequestHandler<IAuthInfo>;
-  isAuth: boolean;
 }

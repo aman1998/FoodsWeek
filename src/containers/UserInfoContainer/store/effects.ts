@@ -1,13 +1,7 @@
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
-import { put, takeLatest, all, select, call } from "redux-saga/effects";
+import { put, takeLatest, all, select } from "redux-saga/effects";
 import { query, where, getDocs, collection, Query, doc, setDoc } from "firebase/firestore";
 
 import {
-  authInfoError,
-  authInfoFetching,
-  authInfoSuccess,
-  changeIsAuth,
-  resetUserInfo,
   updateUserError,
   updateUserInfoFetching,
   updateUserSuccess,
@@ -15,44 +9,18 @@ import {
   userInfoFetching,
   userInfoSuccess,
 } from "../store/reducers";
-import { IAuthInfo, IUserInfo } from "../store/types";
+import { IUserInfo } from "../store/types";
+
+import { authInfoSelector } from "../../AuthContainer/store/selectors";
 
 import { database } from "../../../firebase-config";
 import { IPayloadAction } from "../../../store/types";
 
-import { authInfoSelector, userInfoSelector } from "./selectors";
-
-const getAuthChannel = () => {
-  const auth = getAuth();
-
-  return new Promise((resolve, reject) => {
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        resolve(user);
-      } else {
-        reject(new Error("Ops!"));
-      }
-    });
-  });
-};
-
-function* authInfo() {
-  try {
-    const user: User = yield call(getAuthChannel);
-    if (user) {
-      yield put(changeIsAuth(true));
-      yield put(authInfoSuccess({ id: user.uid, email: user.email || "" }));
-    } else {
-      put(resetUserInfo());
-    }
-  } catch (error) {
-    yield put(authInfoError(String(error)));
-  }
-}
+import { userInfoSelector } from "./selectors";
 
 function* userInfo() {
   try {
-    const { id }: IAuthInfo = yield select(authInfoSelector);
+    const { id } = yield select(authInfoSelector);
 
     const usersRef: Query<unknown> = yield collection(database, "users");
 
@@ -70,7 +38,7 @@ function* userInfo() {
 
 function* updateUserInfo(action: IPayloadAction<any>) {
   try {
-    const { id }: IAuthInfo = yield select(authInfoSelector);
+    const { id } = yield select(authInfoSelector);
     const user: IUserInfo = yield select(userInfoSelector);
 
     const userRef = doc(database, "users", id);
@@ -85,7 +53,6 @@ function* updateUserInfo(action: IPayloadAction<any>) {
 function* Saga(): Generator {
   yield all([takeLatest(updateUserInfoFetching.type, updateUserInfo)]);
   yield all([takeLatest(userInfoFetching.type, userInfo)]);
-  yield all([takeLatest(authInfoFetching.type, authInfo)]);
 }
 
 export default Saga;

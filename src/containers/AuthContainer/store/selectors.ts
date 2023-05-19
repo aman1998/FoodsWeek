@@ -2,21 +2,25 @@ import { createSelector } from "@reduxjs/toolkit";
 
 import { IApplicationState } from "../../../store/types";
 
-import { IAuthState } from "./types";
-
 const selectState = (state: IApplicationState) => state.auth;
 
-export const authModalIsOpenSelector = createSelector(selectState, (state: IAuthState) => state.authModalIsOpen);
+export const authInfoFetchingSelector = createSelector(selectState, state => state.authInfo.fetching);
+export const authInfoerrorSelector = createSelector(selectState, state => state.authInfo.error);
+export const authInfoSelector = createSelector(selectState, state => state.authInfo.data);
 
-export const signInFetchingSelector = createSelector(selectState, (state: IAuthState) => state.signIn.fetching);
+export const isAuthSelector = createSelector(selectState, state => state.isAuth);
 
-export const signUpFetchingSelector = createSelector(selectState, (state: IAuthState) => state.signUp.fetching);
+export const authModalIsOpenSelector = createSelector(selectState, state => state.authModalIsOpen);
 
-export const signOutFetchingSelector = createSelector(selectState, (state: IAuthState) => state.signOut.fetching);
+export const signInFetchingSelector = createSelector(selectState, state => state.signIn.fetching);
+
+export const signUpFetchingSelector = createSelector(selectState, state => state.signUp.fetching);
+
+export const signOutFetchingSelector = createSelector(selectState, state => state.signOut.fetching);
 
 export const resetEmailPasswordFetchingSelector = createSelector(
   selectState,
-  (state: IAuthState) => state.resetEmailPassword.fetching
+  state => state.resetEmailPassword.fetching
 );
 
-export const authTypeSelector = createSelector(selectState, (state: IAuthState) => state.authType);
+export const authTypeSelector = createSelector(selectState, state => state.authType);

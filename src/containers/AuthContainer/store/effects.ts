@@ -1,23 +1,24 @@
-import { put, takeLatest, all } from "redux-saga/effects";
+import { put, takeLatest, all, call } from "redux-saga/effects";
 import {
+  getAuth,
+  onAuthStateChanged,
+  User,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut as signOutFirebase,
   sendPasswordResetEmail,
 } from "firebase/auth";
 
-import {
-  changeIsAuth,
-  authInfoSuccess,
-  updateUserInfoFetching,
-  resetUserInfo,
-} from "../../UserInfoContainer/store/reducers";
+import { updateUserInfoFetching, resetUserInfo } from "../../UserInfoContainer/store/reducers";
 
 import { auth } from "../../../firebase-config";
 import { IPayloadAction } from "../../../store/types";
 
-import { IEmailPassword, IFirebaseAuth, ISignOut, TEmailPasswordReset } from "./types";
 import {
+  authInfoError,
+  authInfoFetching,
+  authInfoSuccess,
+  changeIsAuth,
   changeAuthModalIsOpen,
   signInError,
   signInFetching,
@@ -30,6 +31,36 @@ import {
   resetEmailPasswordFetching,
   resetEmailPasswordSuccess,
 } from "./reducers";
+import { IEmailPassword, IFirebaseAuth, ISignOut, TEmailPasswordReset } from "./types";
+
+const getAuthChannel = () => {
+  const auth = getAuth();
+
+  return new Promise((resolve, reject) => {
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        resolve(user);
+      } else {
+        reject(new Error("Ops!"));
+      }
+    });
+  });
+};
+
+function* authInfo() {
+  try {
+    const user: User = yield call(getAuthChannel);
+    if (user) {
+      yield put(changeIsAuth(true));
+      yield put(authInfoSuccess({ id: user.uid, email: user.email || "" }));
+    } else {
+      put(resetUserInfo());
+      put(changeIsAuth(false));
+    }
+  } catch (error) {
+    yield put(authInfoError(String(error)));
+  }
+}
 
 function* signIn(action: IPayloadAction<IEmailPassword>) {
   try {
@@ -74,6 +105,7 @@ function* signOut(action: IPayloadAction<ISignOut>) {
     const { callback } = action.payload;
     yield callback();
     yield put(resetUserInfo());
+    yield put(changeIsAuth(false));
   } catch (e) {
     console.error(e);
   }
@@ -92,6 +124,7 @@ function* resetEmailPassword(action: IPayloadAction<TEmailPasswordReset>) {
 }
 
 function* Saga(): Generator {
+  yield all([takeLatest(authInfoFetching.type, authInfo)]);
   yield all([takeLatest(signInFetching.type, signIn)]);
   yield all([takeLatest(signUpFetching.type, signUp)]);
   yield all([takeLatest(signOutFetching.type, signOut)]);

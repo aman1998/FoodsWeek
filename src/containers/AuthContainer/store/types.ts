@@ -2,6 +2,11 @@ import { EAuthTypes } from "../types";
 
 import { TRecordOf, IRequestHandler } from "../../../store/types";
 
+export interface IAuthInfo {
+  email: string;
+  id: string;
+}
+
 export interface IEmailPassword {
   email: string;
   password: string;
@@ -21,6 +26,8 @@ export interface ISignOut {
 }
 
 export interface IAuthState {
+  authInfo: IRequestHandler<IAuthInfo>;
+  isAuth: boolean;
   signIn: IRequestHandler<unknown>;
   signUp: IRequestHandler<unknown>;
   signOut: IRequestHandler<unknown>;

@@ -1,13 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { IUserState, IUserInfo, IUserInfoDefaultData, IAuthInfo } from "../store/types";
+import { IUserState, IUserInfo, IUserInfoDefaultData } from "../store/types";
 
 import { IPayloadAction } from "../../../store/types";
 import { defaultState } from "../../../store/constants";
 
 const initialState: IUserState = {
-  authInfo: { ...defaultState, fetching: true }, // probably need refactoring
-  isAuth: false,
   userInfo: defaultState,
   updateUserInfo: defaultState,
 };
@@ -16,20 +14,6 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    authInfoFetching(state: IUserState) {
-      state.authInfo.fetching = true;
-    },
-    authInfoSuccess(state: IUserState, action: IPayloadAction<IAuthInfo>) {
-      state.authInfo = { ...defaultState, data: action.payload };
-    },
-    authInfoError(state: IUserState, action) {
-      state.authInfo = { ...defaultState, error: action.payload };
-    },
-
-    changeIsAuth(state: IUserState, action: IPayloadAction<boolean>) {
-      state.isAuth = action.payload;
-    },
-
     userInfoFetching(state: IUserState) {
       state.userInfo.fetching = true;
     },
@@ -54,18 +38,11 @@ const userSlice = createSlice({
     resetUserInfo(state: IUserState) {
       state.userInfo = defaultState;
       state.updateUserInfo = defaultState;
-      state.isAuth = false;
     },
   },
 });
 
 export const {
-  authInfoError,
-  authInfoFetching,
-  authInfoSuccess,
-
-  changeIsAuth,
-
   userInfoFetching,
   userInfoSuccess,
   userInfoError,
