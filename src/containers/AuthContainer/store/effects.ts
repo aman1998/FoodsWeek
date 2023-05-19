@@ -19,6 +19,7 @@ import {
   authInfoFetching,
   authInfoSuccess,
   changeIsAuth,
+  isAuthCheckDone,
   changeAuthModalIsOpen,
   signInError,
   signInFetching,
@@ -59,6 +60,8 @@ function* authInfo() {
     }
   } catch (error) {
     yield put(authInfoError(String(error)));
+  } finally {
+    yield put(isAuthCheckDone(true));
   }
 }
 

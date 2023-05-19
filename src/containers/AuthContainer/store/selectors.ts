@@ -9,6 +9,7 @@ export const authInfoerrorSelector = createSelector(selectState, state => state.
 export const authInfoSelector = createSelector(selectState, state => state.authInfo.data);
 
 export const isAuthSelector = createSelector(selectState, state => state.isAuth);
+export const isAuthCheckDoneSelector = createSelector(selectState, state => state.isAuthCheckDone);
 
 export const authModalIsOpenSelector = createSelector(selectState, state => state.authModalIsOpen);
 

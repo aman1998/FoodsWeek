@@ -28,6 +28,7 @@ export interface ISignOut {
 export interface IAuthState {
   authInfo: IRequestHandler<IAuthInfo>;
   isAuth: boolean;
+  isAuthCheckDone: boolean;
   signIn: IRequestHandler<unknown>;
   signUp: IRequestHandler<unknown>;
   signOut: IRequestHandler<unknown>;

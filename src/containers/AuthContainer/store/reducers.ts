@@ -10,6 +10,7 @@ import { IAuthState, IAuthInfo } from "./types";
 const initialState: IAuthState = {
   authInfo: defaultState,
   isAuth: false,
+  isAuthCheckDone: false,
   signIn: defaultState,
   signUp: defaultState,
   signOut: defaultState,
@@ -34,6 +35,10 @@ const authSlice = createSlice({
 
     changeIsAuth(state, action: IPayloadAction<boolean>) {
       state.isAuth = action.payload;
+    },
+
+    isAuthCheckDone(state, action: IPayloadAction<boolean>) {
+      state.isAuthCheckDone = action.payload;
     },
 
     changeAuthModalIsOpen(state: IAuthState, action: IPayloadAction<boolean>) {
@@ -96,6 +101,7 @@ export const {
   authInfoSuccess,
 
   changeIsAuth,
+  isAuthCheckDone,
 
   changeAuthModalIsOpen,
   changeAuthType,
