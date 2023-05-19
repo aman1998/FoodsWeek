@@ -1,6 +1,7 @@
 .navigation {
     &-item {
         margin-bottom: 8px;
+        cursor: pointer;
         &__link {
             display: flex;
             align-items: center;

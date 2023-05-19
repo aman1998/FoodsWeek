@@ -5,6 +5,8 @@ import UserStats from "../UserStats";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 
+import AuthForm from "../../containers/AuthContainer";
+
 const Layout: FC = () => (
   <>
     <Header />
@@ -17,6 +19,7 @@ const Layout: FC = () => (
         <UserStats />
       </div>
     </main>
+    <AuthForm />
   </>
 );
 
