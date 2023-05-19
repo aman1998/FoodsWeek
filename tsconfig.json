@@ -3,7 +3,8 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    "jsx": "preserve",
+    // "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowJs": true,
     "strict": true,
     "noImplicitAny": true,
@@ -61,7 +62,8 @@
     "node_modules",
   ],
   "include": [
-    "src",
-    "src/declaration.d.ts",
+    "*",
+    "**/*.tsx",
+    "./src/declaration.d.ts", "src/firebase-config.ts",
   ],
 }

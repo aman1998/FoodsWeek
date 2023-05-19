@@ -1,9 +1,15 @@
+import { RecordOf } from "immutable";
+
 import { IDaysState } from "../containers/DaysContainer/store/types";
 import { ISingleDayState } from "../containers/SingleDayContainer/store/types";
+import { IAuthState } from "../containers/AuthContainer/store/types";
+import { IUserState } from "../containers/UserInfoContainer/store/types";
 
 export interface IApplicationState {
   stocks: IDaysState;
   singleDay: ISingleDayState;
+  user: IUserState;
+  auth: IAuthState;
 }
 
 export declare type IPayloadAction<P = void, T extends string = string, M = never, E = never> = {
@@ -42,5 +48,8 @@ export interface ISingleRequestErrorPayload {
 export interface IRequestHandler<T> {
   fetching: boolean;
   data: TNullable<T>;
-  error: TNullable<IRequestError>;
+  // error: TNullable<IRequestError>;
+  error: unknown;
 }
+
+export type TRecordOf<T extends object> = RecordOf<T>;

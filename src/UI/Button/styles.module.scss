@@ -1,0 +1,8 @@
+.button {
+   position: relative;
+   &__circular-progress {
+    margin-right: 4px;
+    width: 16px !important;
+    height: 16px !important;
+   }
+}

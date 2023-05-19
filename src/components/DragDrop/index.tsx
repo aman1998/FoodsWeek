@@ -1,4 +1,3 @@
-import React from "react";
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { IDragDropProps } from "./types";
