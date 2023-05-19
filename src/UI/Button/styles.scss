@@ -1,6 +1,6 @@
 .button {
    position: relative;
-   color: $white;
+   color: $white !important;
    transition: 0.3s ease-in-out !important; 
    &__circular-progress {
     margin-right: 4px;

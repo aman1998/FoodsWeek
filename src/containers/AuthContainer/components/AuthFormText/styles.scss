@@ -6,6 +6,7 @@
 }
 
 .auth-form-btn {
+    color: $blue !important;
     @media screen and (max-width: 359.99px) {
         display: inline;
         width: max-content;
