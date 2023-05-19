@@ -14,6 +14,7 @@ import { updateUserInfoFetching, resetUserInfo } from "../../UserInfoContainer/s
 import { auth } from "../../../firebase-config";
 import { IPayloadAction } from "../../../store/types";
 
+import { showNotification, ENotificationType } from "./../../../utils/notifications";
 import {
   authInfoError,
   authInfoFetching,
@@ -57,8 +58,14 @@ function* authInfo() {
     } else {
       put(resetUserInfo());
       put(changeIsAuth(false));
+      if (window.location.pathname !== "/") {
+        showNotification(ENotificationType.error, "Не удалось войти в аккаунт");
+      }
     }
   } catch (error) {
+    if (window.location.pathname !== "/") {
+      showNotification(ENotificationType.error, "Не удалось войти в аккаунт");
+    }
     yield put(authInfoError(String(error)));
   } finally {
     yield put(isAuthCheckDone(true));
@@ -77,9 +84,13 @@ function* signIn(action: IPayloadAction<IEmailPassword>) {
       yield put(signInSuccess({ id: user.uid, email: user.email || "" }));
       yield put(authInfoSuccess({ id: user.uid, email: user.email || "" }));
       yield put(changeAuthModalIsOpen(false));
+      showNotification(ENotificationType.success, "Вы успешно вошли в аккаунт!");
+    } else {
+      showNotification(ENotificationType.error, "Неверные данные!");
     }
   } catch (e) {
     yield put(signInError("Ошибка!"));
+    showNotification(ENotificationType.error, "Произошла ошибка, возможно неверные данные");
   }
 }
 
@@ -96,6 +107,9 @@ function* signUp(action: IPayloadAction<IEmailPassword>) {
       yield put(authInfoSuccess({ id: user.uid, email: user.email || "" }));
       yield put(updateUserInfoFetching({}));
       yield put(changeAuthModalIsOpen(false));
+      showNotification(ENotificationType.success, "Вы успешно вошли в аккаунт!");
+    } else {
+      showNotification(ENotificationType.error, "Неверные данные!");
     }
   } catch (e) {
     yield put(signUpError("Ошибка!"));
@@ -109,8 +123,9 @@ function* signOut(action: IPayloadAction<ISignOut>) {
     yield callback();
     yield put(resetUserInfo());
     yield put(changeIsAuth(false));
-  } catch (e) {
-    console.error(e);
+    showNotification(ENotificationType.success, "Вы успешно вышли из аккаунта!");
+  } catch {
+    showNotification(ENotificationType.error, "Произошла ошибка, повторите снова");
   }
 }
 
@@ -121,8 +136,10 @@ function* resetEmailPassword(action: IPayloadAction<TEmailPasswordReset>) {
     yield sendPasswordResetEmail(auth, email);
     yield put(changeAuthModalIsOpen(false));
     yield put(resetEmailPasswordSuccess("На почту отправлено письмо!"));
+    showNotification(ENotificationType.success, "На почту отправлено письмо!");
   } catch {
     yield put(resetEmailPasswordError("Произошла ошибка, повторите снова"));
+    showNotification(ENotificationType.error, "Произошла ошибка, возможно неверные данные");
   }
 }
 

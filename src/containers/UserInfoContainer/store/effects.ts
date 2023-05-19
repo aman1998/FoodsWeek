@@ -16,6 +16,7 @@ import { authInfoSelector } from "../../AuthContainer/store/selectors";
 import { database } from "../../../firebase-config";
 import { IPayloadAction } from "../../../store/types";
 
+import { showNotification, ENotificationType } from "./../../../utils/notifications";
 import { userInfoSelector } from "./selectors";
 
 function* userInfo() {
@@ -45,8 +46,10 @@ function* updateUserInfo(action: IPayloadAction<any>) {
     yield setDoc(userRef, { id, ...action.payload }, { merge: true });
     yield put(updateUserSuccess({ id, text: "success" }));
     yield put(userInfoSuccess({ ...user, ...action.payload }));
+    showNotification(ENotificationType.success, "Данные обновлены!");
   } catch (e) {
     yield put(updateUserError(e));
+    showNotification(ENotificationType.error, "Произошла ошибка, повторите снова");
   }
 }
 
