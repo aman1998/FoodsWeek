@@ -113,6 +113,7 @@ function* signUp(action: IPayloadAction<IEmailPassword>) {
     }
   } catch (e) {
     yield put(signUpError("Ошибка!"));
+    showNotification(ENotificationType.error, "Что-то пошло не так!");
   }
 }
 
