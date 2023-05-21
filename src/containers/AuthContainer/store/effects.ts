@@ -9,12 +9,12 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 
-import { updateUserInfoFetching, resetUserInfo } from "../../ProfileContainer/store/reducers";
+import { updateUserInfoFetching, resetUserInfo, userInfoFetching } from "../../ProfileContainer/store/reducers";
 
 import { auth } from "../../../firebase-config";
 import { IPayloadAction } from "../../../store/types";
 
-import { showNotification, ENotificationType } from "./../../../utils/notifications";
+import { showNotification, ENotificationType } from "./../../../common/utils/notifications";
 import {
   authInfoError,
   authInfoFetching,
@@ -54,6 +54,7 @@ function* authInfo() {
     if (user) {
       yield put(changeIsAuth(true));
       yield put(authInfoSuccess({ id: user.uid, email: user.email || "" }));
+      yield put(userInfoFetching());
     } else {
       put(resetUserInfo());
       put(changeIsAuth(false));
@@ -102,7 +103,7 @@ function* signUp(action: IPayloadAction<IEmailPassword>) {
       yield put(changeIsAuth(true));
       yield put(signUpSuccess({ id: user.uid, email: user.email || "" }));
       yield put(authInfoSuccess({ id: user.uid, email: user.email || "" }));
-      yield put(updateUserInfoFetching({}));
+      yield put(updateUserInfoFetching(null));
       yield put(changeAuthModalIsOpen(false));
       showNotification(ENotificationType.success, "Вы успешно вошли в аккаунт!");
     } else {

@@ -18,7 +18,7 @@ const userSlice = createSlice({
       state.userInfo.fetching = true;
     },
     userInfoSuccess(state: IUserState, action: IPayloadAction<IUserInfo>) {
-      state.userInfo.data = action.payload;
+      state.userInfo = { ...defaultState, data: action.payload };
     },
     userInfoError(state: IUserState, action) {
       state.userInfo = { ...defaultState, error: action.payload };

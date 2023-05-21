@@ -1,11 +1,11 @@
 import { put, takeLatest, all, select } from "redux-saga/effects";
 import { query, where, getDocs, collection, Query, doc, setDoc } from "firebase/firestore";
 
-import { authInfoSelector } from "../../AuthContainer/store/selectors";
+import { authInfoIDSelector } from "../../AuthContainer/store/selectors";
 
 import { database } from "../../../firebase-config";
 import { IPayloadAction } from "../../../store/types";
-import { showNotification, ENotificationType } from "../../../utils/notifications";
+import { showNotification, ENotificationType } from "../../../common/utils/notifications";
 
 import { IUserInfo } from "./types";
 import {
@@ -20,7 +20,7 @@ import { userInfoSelector } from "./selectors";
 
 function* userInfo() {
   try {
-    const { id } = yield select(authInfoSelector);
+    const id: string = yield select(authInfoIDSelector);
 
     const usersRef: Query<unknown> = yield collection(database, "users");
 
@@ -36,9 +36,9 @@ function* userInfo() {
   }
 }
 
-function* updateUserInfo(action: IPayloadAction<any>) {
+function* updateUserInfo(action: IPayloadAction<IUserInfo>) {
   try {
-    const { id } = yield select(authInfoSelector);
+    const id: string = yield select(authInfoIDSelector);
     const user: IUserInfo = yield select(userInfoSelector);
 
     const userRef = doc(database, "users", id);

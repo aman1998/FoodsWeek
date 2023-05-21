@@ -36,8 +36,8 @@ const Navigation: FC = () => {
       <ul>
         {links.map(item => (
           <>
-            {item.isPrivate && isAuth && <NavigationItem link={item.link} title={item.title} />}
-            {!item.isPrivate && <NavigationItem link={item.link} title={item.title} />}
+            {item.isPrivate && isAuth && <NavigationItem key={item.link} link={item.link} title={item.title} />}
+            {!item.isPrivate && <NavigationItem key={item.link} link={item.link} title={item.title} />}
           </>
         ))}
         <li className="navigation-item">

@@ -5,8 +5,17 @@ export interface IUserInfoDefaultData {
   text: string;
 }
 
+export interface IBodyParameters {
+  type: string;
+  value: number;
+}
+
 export interface IUserInfo {
-  id: string;
+  name: string;
+  yearBirth: number;
+  weight: IBodyParameters;
+  height: IBodyParameters;
+  activate: number;
 }
 
 export interface IUserState {

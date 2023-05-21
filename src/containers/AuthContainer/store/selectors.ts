@@ -7,6 +7,7 @@ const selectState = (state: IApplicationState) => state.auth;
 export const authInfoFetchingSelector = createSelector(selectState, state => state.authInfo.fetching);
 export const authInfoerrorSelector = createSelector(selectState, state => state.authInfo.error);
 export const authInfoSelector = createSelector(selectState, state => state.authInfo.data);
+export const authInfoIDSelector = createSelector(selectState, state => state.authInfo.data?.id);
 
 export const isAuthSelector = createSelector(selectState, state => state.isAuth);
 export const isAuthCheckDoneSelector = createSelector(selectState, state => state.isAuthCheckDone);

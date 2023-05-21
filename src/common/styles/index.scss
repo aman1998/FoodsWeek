@@ -24,6 +24,11 @@
 @import "../../containers/SingleDayContainer/styles.scss";
 @import "../../containers/SingleDayContainer/components/Skeleton/styles.scss";
 
+// Profile container
+@import "../../containers/ProfileContainer/styles.scss";
+@import "../../containers/ProfileContainer/components/ProfileForm/styles.scss";
+
+
 // Auth container 
 @import "../../containers/AuthContainer/styles.scss";
 @import "../../containers/AuthContainer/components/SignUp/styles.scss";
