@@ -10,9 +10,15 @@ export interface IBodyParameters {
   value: number;
 }
 
+export enum EGender {
+  male = "male",
+  female = "female",
+}
+
 export interface IUserInfo {
   name: string;
   yearBirth: number;
+  gender: EGender;
   weight: IBodyParameters;
   height: IBodyParameters;
   activate: number;

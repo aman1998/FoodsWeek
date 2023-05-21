@@ -83,6 +83,7 @@ function* signIn(action: IPayloadAction<IEmailPassword>) {
       yield put(authInfoSuccess({ id: user.uid, email: user.email || "" }));
       yield put(changeAuthModalIsOpen(false));
       showNotification(ENotificationType.success, "Вы успешно вошли в аккаунт!");
+      yield put(userInfoFetching());
     } else {
       showNotification(ENotificationType.error, "Неверные данные!");
     }

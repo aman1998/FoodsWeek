@@ -5,7 +5,7 @@ import { IApplicationState } from "../../../store/types";
 const selectState = (state: IApplicationState) => state.auth;
 
 export const authInfoFetchingSelector = createSelector(selectState, state => state.authInfo.fetching);
-export const authInfoerrorSelector = createSelector(selectState, state => state.authInfo.error);
+export const authInfoErrorSelector = createSelector(selectState, state => state.authInfo.error);
 export const authInfoSelector = createSelector(selectState, state => state.authInfo.data);
 export const authInfoIDSelector = createSelector(selectState, state => state.authInfo.data?.id);
 

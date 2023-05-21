@@ -10,9 +10,9 @@ import { yearsSelectOptions } from "../../../../common/utils/date";
 
 import { updateUserInfoFetchingSelector, userInfoSelector, userInfoFetchingSelector } from "../../store/selectors";
 import { updateUserInfoFetching } from "../../store/reducers";
-import { IUserInfo } from "../../store/types";
+import { EGender, IUserInfo } from "../../store/types";
 
-import { optionsActivaty, optionsUnit } from "./constants";
+import { optionsActivaty, optionsUnitWeight, optionsUnitHeight, optionsGender } from "./constants";
 import { profileSchema } from "./validations";
 
 const ProfileForm: FC = () => {
@@ -33,12 +33,13 @@ const ProfileForm: FC = () => {
     reset({
       name: user?.name || "",
       yearBirth: user?.yearBirth,
+      gender: user?.gender || EGender.female,
       height: {
         type: user?.height.type || "sm",
         value: user?.height.value || 0,
       },
       weight: {
-        type: user?.weight.type || "sm",
+        type: user?.weight.type || "kg",
         value: user?.weight.value || 60,
       },
       activate: 1,
@@ -76,6 +77,16 @@ const ProfileForm: FC = () => {
         />
       </div>
       <div className="profile-form-item">
+        <div className="profile-form-item__title">Gender</div>
+        <SelectControl
+          control={control}
+          name="gender"
+          options={optionsGender}
+          className="profile-form-item__field"
+          errorMessage={errors?.gender?.message}
+        />
+      </div>
+      <div className="profile-form-item">
         <div className="profile-form-item__title">Year</div>
         <SelectControl
           control={control}
@@ -90,9 +101,6 @@ const ProfileForm: FC = () => {
         <TextFieldControl
           name="height.value"
           type="number"
-          inputProps={{
-            maxLength: 1,
-          }}
           control={control}
           errorMessage={errors.height?.value?.message}
           className="profile-form-item__field"
@@ -100,7 +108,7 @@ const ProfileForm: FC = () => {
         <SelectControl
           control={control}
           name="height.type"
-          options={optionsUnit}
+          options={optionsUnitWeight}
           className="profile-form-item__select-field"
         />
       </div>
@@ -109,9 +117,6 @@ const ProfileForm: FC = () => {
         <TextFieldControl
           name="weight.value"
           type="number"
-          inputProps={{
-            maxLength: 1,
-          }}
           control={control}
           errorMessage={errors.weight?.value?.message}
           className="profile-form-item__field"
@@ -119,7 +124,7 @@ const ProfileForm: FC = () => {
         <SelectControl
           control={control}
           name="weight.type"
-          options={optionsUnit}
+          options={optionsUnitHeight}
           className="profile-form-item__select-field"
         />
       </div>
