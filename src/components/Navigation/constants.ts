@@ -3,7 +3,8 @@
 import { ILink } from "./types";
 
 export const links: ILink[] = [
-  { title: "Main", link: "" },
+  { title: "Main", link: "", isPrivate: false },
+  { title: "Profile", link: "/profile", isPrivate: true },
   // { title: "Monday", link: "monday" },
   // { title: "Tuesday", link: "tuesday" },
   // { title: "Wednesday", link: "wednesday" },
