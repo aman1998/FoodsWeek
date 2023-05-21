@@ -9,7 +9,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 
-import { updateUserInfoFetching, resetUserInfo } from "../../UserInfoContainer/store/reducers";
+import { updateUserInfoFetching, resetUserInfo } from "../../ProfileContainer/store/reducers";
 
 import { auth } from "../../../firebase-config";
 import { IPayloadAction } from "../../../store/types";
@@ -20,7 +20,6 @@ import {
   authInfoFetching,
   authInfoSuccess,
   changeIsAuth,
-  isAuthCheckDone,
   changeAuthModalIsOpen,
   signInError,
   signInFetching,
@@ -67,8 +66,6 @@ function* authInfo() {
       showNotification(ENotificationType.error, "Не удалось войти в аккаунт");
     }
     yield put(authInfoError(String(error)));
-  } finally {
-    yield put(isAuthCheckDone(true));
   }
 }
 

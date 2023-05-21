@@ -29,7 +29,7 @@ const Navigation: FC = () => {
     }
   };
 
-  if (!isAuthCheckDone) return <></>;
+  if (!isAuthCheckDone) return <>Loading...</>;
 
   return (
     <nav className="navigation">

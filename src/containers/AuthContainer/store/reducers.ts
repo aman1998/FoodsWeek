@@ -28,9 +28,11 @@ const authSlice = createSlice({
     },
     authInfoSuccess(state, action: IPayloadAction<IAuthInfo>) {
       state.authInfo = { ...defaultState, data: action.payload };
+      state.isAuthCheckDone = true;
     },
     authInfoError(state, action) {
       state.authInfo = { ...defaultState, error: action.payload };
+      state.isAuthCheckDone = true;
     },
 
     changeIsAuth(state, action: IPayloadAction<boolean>) {

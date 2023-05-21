@@ -1,6 +1,13 @@
 import { put, takeLatest, all, select } from "redux-saga/effects";
 import { query, where, getDocs, collection, Query, doc, setDoc } from "firebase/firestore";
 
+import { authInfoSelector } from "../../AuthContainer/store/selectors";
+
+import { database } from "../../../firebase-config";
+import { IPayloadAction } from "../../../store/types";
+import { showNotification, ENotificationType } from "../../../utils/notifications";
+
+import { IUserInfo } from "./types";
 import {
   updateUserError,
   updateUserInfoFetching,
@@ -8,15 +15,7 @@ import {
   userInfoError,
   userInfoFetching,
   userInfoSuccess,
-} from "../store/reducers";
-import { IUserInfo } from "../store/types";
-
-import { authInfoSelector } from "../../AuthContainer/store/selectors";
-
-import { database } from "../../../firebase-config";
-import { IPayloadAction } from "../../../store/types";
-
-import { showNotification, ENotificationType } from "./../../../utils/notifications";
+} from "./reducers";
 import { userInfoSelector } from "./selectors";
 
 function* userInfo() {

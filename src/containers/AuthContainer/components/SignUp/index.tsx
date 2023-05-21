@@ -9,7 +9,7 @@ import Button from "../../../../UI/Button";
 import { signUpFetchingSelector } from "../../store/selectors";
 import { signUpFetching } from "../../store/reducers";
 
-import { updateUserInfoFetchingSelector } from "../../../UserInfoContainer/store/selectors";
+import { updateUserInfoFetchingSelector } from "../../../ProfileContainer/store/selectors";
 
 import { ISignUp } from "./types";
 import { signUpSchema } from "./validations";

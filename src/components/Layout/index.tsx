@@ -7,7 +7,9 @@ import Sidebar from "../Sidebar";
 
 import AuthForm from "../../containers/AuthContainer";
 
-const Layout: FC = () => (
+import { ILayoutProps } from "./types";
+
+const Layout: FC<ILayoutProps> = ({ showStats = true }) => (
   <>
     <Header />
     <Sidebar />
@@ -16,7 +18,7 @@ const Layout: FC = () => (
         <div style={{ width: "100%" }}>
           <Outlet />
         </div>
-        <UserStats />
+        {showStats && <UserStats />}
       </div>
     </main>
     <AuthForm />

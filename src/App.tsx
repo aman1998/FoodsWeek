@@ -6,6 +6,7 @@ import { authInfoFetching } from "./containers/AuthContainer/store/reducers";
 import Layout from "./components/Layout";
 import PrivateRoute from "./components/PrivateRoute";
 import HomePage from "./pages/HomePage";
+import ProfilePage from "./pages/ProfilePage";
 import SingleDayPage from "./pages/SingleDayPage";
 import NotFound from "./pages/404";
 
@@ -23,6 +24,9 @@ const App: FC = () => {
           <Route index element={<HomePage />} />
           <Route path="/:id" element={<PrivateRoute />}>
             <Route element={<SingleDayPage />} />
+          </Route>
+          <Route path="/profile" element={<PrivateRoute />}>
+            <Route element={<ProfilePage />} />
           </Route>
           <Route path="/404" element={<NotFound />} />
         </Route>
