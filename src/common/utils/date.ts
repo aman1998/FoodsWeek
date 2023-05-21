@@ -5,35 +5,17 @@ export const day = today.getDay();
 export const month = today.getMonth();
 export const year = today.getFullYear();
 
-const getDateOptions = (dates: string[]) => dates.map(item => ({ label: item, value: Number(item) }));
+const getDateOptions = (dates: number[]) => dates.map(item => ({ label: String(item), value: item }));
 
-export const months = [
-  "Январь",
-  "Февраль",
-  "Март",
-  "Апрель",
-  "Май",
-  "Июнь",
-  "Июль",
-  "Август",
-  "Сентябрь",
-  "Октябрь",
-  "Ноябрь",
-  "Декабрь",
-];
-export const monthSelectOptions = getDateOptions(months);
-
-export const days = range(31, 1).map(String);
+export const days = range(31, 1);
 export const daysSelectOptions = getDateOptions(days);
 
-export const years = range(96, year - 96)
-  .reverse()
-  .map(String);
+export const years = range(96, year - 96).reverse();
+
 export const yearsSelectOptions = getDateOptions(years);
 
-export const birthdayYears = range(80, year - 96)
-  .reverse()
-  .map(String); // можно только 16+
+export const birthdayYears = range(80, year - 96).reverse();
+// можно только 16+
 export const birthdayYearsSelectOptions = getDateOptions(birthdayYears);
 
 export const uniqueIDWitdhDate = Date.now().toString(36) + Math.random().toString(36).substring(2);

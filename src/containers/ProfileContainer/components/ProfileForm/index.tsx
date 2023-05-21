@@ -20,7 +20,7 @@ const ProfileForm: FC = () => {
     handleSubmit,
     reset,
     control,
-    formState: { errors, isValid },
+    formState: { errors, isValid, isDirty },
   } = useForm<IUserInfo>({ mode: "onBlur", resolver: yupResolver(profileSchema) });
 
   const updateUserLoading = useSelector(updateUserInfoFetchingSelector);
@@ -58,7 +58,7 @@ const ProfileForm: FC = () => {
       <div className="profile-form__header">
         <h1 className="profile-form__title">Profile</h1>
         <Button
-          disabled={!isValid || updateUserLoading || userLoading}
+          disabled={!isValid || updateUserLoading || userLoading || !isDirty}
           type="submit"
           variant="contained"
           className="profile-form__button"
