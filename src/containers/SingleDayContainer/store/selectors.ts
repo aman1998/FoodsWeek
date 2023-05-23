@@ -11,3 +11,5 @@ export const singleDayFetchingSelector = (id: string): Selector<IApplicationStat
 
 export const singleDaySuccessSelector = (id: string): Selector<IApplicationState, TNullable<ISingleDay[]>> =>
   createSelector(selectState, (state: ISingleDayState) => state.singleDay[id]?.data);
+
+export const productAddModalisOpenSelector = createSelector(selectState, state => state.productAddModalisOpen);

@@ -23,7 +23,7 @@ const App: FC = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/:id" element={<PrivateRoute />}>
-            <Route element={<SingleDayPage />} />
+            <Route index element={<SingleDayPage />} />
           </Route>
           <Route path="/profile" element={<PrivateRoute />}>
             <Route index element={<ProfilePage />} />

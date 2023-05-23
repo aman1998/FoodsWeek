@@ -1,30 +1,36 @@
-import { AxiosResponse } from "axios";
-import { takeLatest, all, call, put } from "redux-saga/effects";
+// import { AxiosResponse } from "axios";
+import { takeLatest, all, put } from "redux-saga/effects";
 
 import { IPayloadAction } from "@store/types";
 
-import instance from "../../../common/API";
+// import instance from "../../../common/API";
 
-import { singleDayFetching, singleDaySuccess } from "./reducers";
-import { ISingleDayResponse } from "./types";
+import { singleDayFetching, singleDaySuccess, singleDayError } from "./reducers";
+// import { ISingleDayResponse } from "./types";
 
 function* singleDay(action: IPayloadAction<string>) {
   try {
-    const id = action.payload;
-    const response: AxiosResponse<ISingleDayResponse[]> = yield call(instance.get, `day/${id}/chart`, {
-      params: {
-        last: 30,
-      },
-    });
-    const data = response.data.map((item, i) => Object.assign({}, item, { number: i + 1 }));
+    // const id = action.payload;
+
+    // const response: AxiosResponse<ISingleDayResponse[]> = yield call(instance.get, `day/${id}/chart`, {
+    //   params: {
+    //     last: 30,
+    //   },
+    // });
+    // const data = response.data.map((item, i) => Object.assign({}, item, { number: i + 1 }));
     yield put(
       singleDaySuccess({
         id: action.payload,
-        data,
+        data: null,
       })
     );
   } catch (e) {
-    console.error(e);
+    const id = action.payload;
+
+    singleDayError({
+      id,
+      data: e,
+    });
   }
 }
 

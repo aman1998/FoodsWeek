@@ -42,7 +42,8 @@ export interface ISingleRequestPayload<T> {
 
 export interface ISingleRequestErrorPayload {
   id: string;
-  data: IRequestError;
+  // data: IRequestError;
+  data: unknown;
 }
 
 export interface IRequestHandler<T> {

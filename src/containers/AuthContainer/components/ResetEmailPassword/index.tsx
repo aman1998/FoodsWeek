@@ -41,7 +41,9 @@ const ResetEmailPassword: FC = () => {
         className="reset-form__field"
       />
 
-      <Button type="submit" disabled={loading} variant="contained" className="reset-form__button" text="Отправить" />
+      <Button type="submit" disabled={loading} variant="contained" className="reset-form__button">
+        Отправить
+      </Button>
     </form>
   );
 };

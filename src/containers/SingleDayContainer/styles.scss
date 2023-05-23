@@ -1,4 +1,8 @@
 .day-container {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
     &__title {
         margin-bottom: 8px;
         font-size: 24px;

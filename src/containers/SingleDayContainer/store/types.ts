@@ -14,9 +14,10 @@ export interface ISingleDay extends ISingleDayResponse {
   number: number;
 }
 
-export type TSingleDaySuccess = ISingleRequestPayload<ISingleDay[]>;
+export type TSingleDaySuccess = ISingleRequestPayload<null>;
 export type TSingleDayCount = ISingleRequestPayload<number>;
 
 export interface ISingleDayState {
   singleDay: Record<string, IRequestHandler<ISingleDay[]>>;
+  productAddModalisOpen: boolean;
 }

@@ -44,7 +44,9 @@ const UserStats: FC = () => {
           <b>Weight:</b> <span>{user?.weight.value ? `${user.weight.value} ${user.weight.type}` : "not"}</span>
         </div>
       </div>
-      <Button onClick={handleAuthState} variant="text" text="Change info" className="user-stats__btn" />
+      <Button onClick={handleAuthState} variant="text" className="user-stats__btn">
+        Change info
+      </Button>
     </aside>
   );
 };

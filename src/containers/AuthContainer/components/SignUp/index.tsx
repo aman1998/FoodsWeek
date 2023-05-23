@@ -65,13 +65,9 @@ const SignUp: FC = () => {
         errorMessage={errors?.confirm_password?.message}
       />
 
-      <Button
-        type="submit"
-        disabled={loading || updateLoading}
-        variant="contained"
-        className="signUp-form__button"
-        text="Регистрация"
-      />
+      <Button type="submit" disabled={loading || updateLoading} variant="contained" className="signUp-form__button">
+        Регистрация
+      </Button>
     </form>
   );
 };

@@ -4,7 +4,7 @@ import { FC } from "react";
 
 import { IButton } from "./types";
 
-const Button: FC<IButton> = ({ text, className, variant = "contained", ...props }) => (
+const Button: FC<IButton> = ({ children, className, variant = "contained", ...props }) => (
   <MUIButton
     {...props}
     variant={variant}
@@ -14,7 +14,7 @@ const Button: FC<IButton> = ({ text, className, variant = "contained", ...props 
       containedVariantBtn: variant === "contained",
     })}
   >
-    <span>{text}</span>
+    <span>{children}</span>
   </MUIButton>
 );
 export default Button;

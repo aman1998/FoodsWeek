@@ -1,6 +1,7 @@
-import { ButtonProps } from '@mui/material';
+import { ReactNode } from "react";
+import { ButtonProps } from "@mui/material";
 
 export interface IButton extends ButtonProps {
-  text: string;
   loading?: boolean;
+  children: ReactNode;
 }

@@ -20,21 +20,15 @@ const AuthFormText: FC<{ type: string }> = ({ type }) => {
           <>
             <p className="auth-form-text">
               Нет аккаунта?{" "}
-              <Button
-                variant="text"
-                text="Регистрация"
-                onClick={() => handleForm(EAuthTypes.signup)}
-                className="auth-form-btn"
-              />
+              <Button variant="text" onClick={() => handleForm(EAuthTypes.signup)} className="auth-form-btn">
+                Регистрация
+              </Button>
             </p>
             <p className="auth-form-text">
               Забыли пароль{" "}
-              <Button
-                variant="text"
-                text="Сброс пароля"
-                onClick={() => handleForm(EAuthTypes.reset)}
-                className="auth-form-btn"
-              />
+              <Button variant="text" onClick={() => handleForm(EAuthTypes.reset)} className="auth-form-btn">
+                Сброс пароля
+              </Button>
             </p>
           </>
         );
@@ -42,23 +36,17 @@ const AuthFormText: FC<{ type: string }> = ({ type }) => {
         return (
           <p className="auth-form-text">
             Есть аккаунт?{" "}
-            <Button
-              variant="text"
-              text="Вход в аккаунт"
-              className="auth-form-btn"
-              onClick={() => handleForm(EAuthTypes.signin)}
-            />
+            <Button variant="text" className="auth-form-btn" onClick={() => handleForm(EAuthTypes.signin)}>
+              Вход в аккаунт
+            </Button>
           </p>
         );
       case EAuthTypes.reset:
         return (
           <p className="auth-form-text">
-            <Button
-              variant="text"
-              text="Вернуться назад"
-              className="auth-form-btn"
-              onClick={() => handleForm(EAuthTypes.signin)}
-            />
+            <Button variant="text" className="auth-form-btn" onClick={() => handleForm(EAuthTypes.signin)}>
+              Вернуться назад
+            </Button>
           </p>
         );
       default:

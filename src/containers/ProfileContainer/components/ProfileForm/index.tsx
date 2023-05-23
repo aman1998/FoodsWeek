@@ -63,8 +63,9 @@ const ProfileForm: FC = () => {
           type="submit"
           variant="contained"
           className="profile-form__button"
-          text="Save"
-        />
+        >
+          Save
+        </Button>
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Name</div>

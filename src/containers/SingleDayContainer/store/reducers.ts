@@ -6,6 +6,7 @@ import { ISingleDayState, TSingleDaySuccess } from "./types";
 
 const initialState: ISingleDayState = {
   singleDay: {},
+  productAddModalisOpen: false,
 };
 
 export const stocksSlice = createSlice({
@@ -45,9 +46,13 @@ export const stocksSlice = createSlice({
         },
       };
     },
+
+    handleProductAddModalisOpen(state, action: IPayloadAction<boolean>) {
+      state.productAddModalisOpen = action.payload;
+    },
   },
 });
 
-export const { singleDayFetching, singleDayError, singleDaySuccess } = stocksSlice.actions;
+export const { singleDayFetching, singleDayError, singleDaySuccess, handleProductAddModalisOpen } = stocksSlice.actions;
 
 export default stocksSlice.reducer;

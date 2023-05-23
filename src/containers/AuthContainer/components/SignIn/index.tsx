@@ -52,7 +52,9 @@ const SignIn: FC = () => {
         className="signIn-form__field"
       />
 
-      <Button type="submit" disabled={loading} variant="contained" className="signIn-form__button" text="Войти" />
+      <Button type="submit" disabled={loading} variant="contained" className="signIn-form__button">
+        Войти
+      </Button>
     </form>
   );
 };
