@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { changeAuthModalIsOpen } from "../../containers/AuthContainer/store/reducers";
-import { isAuthSelector, authInfoFetchingSelector } from "../../containers/AuthContainer/store/selectors";
+import {
+  isAuthSelector,
+  authInfoFetchingSelector,
+  isAuthCheckDoneSelector,
+} from "../../containers/AuthContainer/store/selectors";
 import { userInfoFetchingSelector, userInfoSelector } from "../../containers/ProfileContainer/store/selectors";
 import Button from "../../UI/Button";
 
@@ -11,6 +15,7 @@ const UserStats: FC = () => {
   const user = useSelector(userInfoSelector);
   const isAuth = useSelector(isAuthSelector);
   const authLoading = useSelector(authInfoFetchingSelector);
+  const isAuthCheck = useSelector(isAuthCheckDoneSelector);
   const userInfoLoading = useSelector(userInfoFetchingSelector);
 
   const navigate = useNavigate();
@@ -24,7 +29,7 @@ const UserStats: FC = () => {
     }
   };
 
-  if (authLoading || userInfoLoading) {
+  if (authLoading || userInfoLoading || !isAuthCheck) {
     return <aside className="user-stats">Loading...</aside>;
   }
 
