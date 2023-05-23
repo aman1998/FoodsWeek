@@ -9,7 +9,7 @@ import Modal from "../../components/Modal";
 import { singleDayFetching, handleProductAddModalisOpen } from "./store/reducers";
 import { singleDayFetchingSelector, singleDaySuccessSelector, productAddModalisOpenSelector } from "./store/selectors";
 import SingleDaySkeleton from "./components/Skeleton";
-import AddProduct from "./components/AddProduct";
+import AddProductForm from "./components/AddProductForm";
 
 const SingleDayContainer: FC = () => {
   const { id = "" } = useParams<{ id: string }>();
@@ -33,7 +33,7 @@ const SingleDayContainer: FC = () => {
   return (
     <section className="day-container">
       <div className="day-container__header">
-        <h1 className="day-container__title">{id}</h1>
+        <h1 className="day-container__title">{id.toUpperCase()}</h1>
         <Button onClick={openModal}>Add Product</Button>
       </div>
       <List
@@ -44,7 +44,7 @@ const SingleDayContainer: FC = () => {
         emptyText={<span>Empty</span>}
       />
       <Modal isOpen={isOpenModal} onClose={() => dispatch(handleProductAddModalisOpen(false))}>
-        <AddProduct />
+        <AddProductForm />
       </Modal>
     </section>
   );

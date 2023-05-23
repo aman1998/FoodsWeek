@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import MUISelect from '@mui/material/Select';
+import { FC } from "react";
+import MUISelect from "@mui/material/Select";
 
-import { ISelectProps } from './types';
+import { ISelectProps } from "./types";
 
 const Select: FC<ISelectProps> = ({ children }) => <MUISelect>{children}</MUISelect>;
 
