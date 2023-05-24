@@ -8,7 +8,7 @@ import { IAutoCompleteSelected, IAutocompleteControlProps } from "./types";
 const AutocompleteControl = <O extends IAutoCompleteSelected, TField extends FieldValues>(
   props: IAutocompleteControlProps<O, TField>
 ): JSX.Element => {
-  const { options, name, control, placeholder, loading, onChange: handleOnChange, handleSearch } = props;
+  const { options, name, control, labelText, loading, onChange: handleOnChange, handleSearch } = props;
   return (
     <Controller
       name={name}
@@ -17,9 +17,14 @@ const AutocompleteControl = <O extends IAutoCompleteSelected, TField extends Fie
         <>
           <Autocomplete
             value={value ? options.find(option => value === option.id) ?? null : null}
-            getOptionLabel={option => option.label}
+            getOptionLabel={option => {
+              console.log("option =>", option);
+              return option.label;
+            }}
             onChange={(_: unknown, newValue) => {
               const resolvedId = newValue ? newValue.value : null;
+              console.log("newValue =>", newValue);
+
               onChange(resolvedId);
               handleOnChange?.(resolvedId);
             }}
@@ -32,7 +37,7 @@ const AutocompleteControl = <O extends IAutoCompleteSelected, TField extends Fie
                   const newValue = e.target.value;
                   handleSearch?.(newValue);
                 }}
-                label={error?.message || placeholder}
+                label={error?.message || labelText}
                 error={!!error}
               />
             )}

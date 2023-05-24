@@ -86,7 +86,13 @@ const ProfileForm: FC = () => {
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Height value</div>
-        <TextFieldControl name="height.value" type="number" control={control} className="profile-form-item__field" />
+        <TextFieldControl
+          name="height.value"
+          type="number"
+          InputProps={{ inputProps: { min: 1 } }}
+          control={control}
+          className="profile-form-item__field"
+        />
         <SelectControl
           control={control}
           name="height.type"
@@ -96,7 +102,13 @@ const ProfileForm: FC = () => {
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Weight value</div>
-        <TextFieldControl name="weight.value" type="number" control={control} className="profile-form-item__field" />
+        <TextFieldControl
+          name="weight.value"
+          type="number"
+          InputProps={{ inputProps: { min: 1 } }}
+          control={control}
+          className="profile-form-item__field"
+        />
         <SelectControl
           control={control}
           name="weight.type"

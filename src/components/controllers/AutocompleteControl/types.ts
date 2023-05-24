@@ -10,7 +10,7 @@ export interface IAutocompleteControlProps<O extends IAutoCompleteSelected, TFie
   name: Path<TField>;
   options: O[];
   loading?: boolean;
-  placeholder?: string;
+  labelText?: string;
   onChange?: (id: unknown) => void;
   handleSearch?: (value: string) => void;
 }

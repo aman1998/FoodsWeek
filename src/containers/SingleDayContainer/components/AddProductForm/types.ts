@@ -1,12 +1,20 @@
 export interface IAddProductForm {
   type: string;
   product: string;
+  weight: number;
 }
 
 export interface IProductOption {
   id: string;
   label: string;
   value: IProduct;
+}
+
+export enum EProductNutrientsFull {
+  energy = "Energy",
+  protein = "Protein",
+  fat = "Total lipid (fat)",
+  carbohydrate = "Carbohydrate",
 }
 
 export enum EProductNutrients {
@@ -28,14 +36,14 @@ export interface IFoodNutrient {
   value: number;
   unitName: string;
   percentDailyValue: number;
-  nutrientName: EProductNutrients;
+  nutrientName: EProductNutrientsFull;
 }
 
 export type TProductValues = Record<EProductNutrients, number>;
 export interface IProductDataValues {
   description: string;
   foodNutrients: IFoodNutrient[];
-  id: number;
+  fdcId: number;
 }
 
 export enum EProductTypes {
