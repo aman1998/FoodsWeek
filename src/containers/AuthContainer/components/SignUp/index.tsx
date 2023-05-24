@@ -19,11 +19,7 @@ const SignUp: FC = () => {
   const updateLoading = useSelector(updateUserInfoFetchingSelector);
   const dispatch = useDispatch();
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<ISignUp>({
+  const { handleSubmit, control } = useForm<ISignUp>({
     mode: "onChange",
     resolver: yupResolver(signUpSchema),
   });
@@ -41,7 +37,6 @@ const SignUp: FC = () => {
         control={control}
         autoComplete="off"
         className="signUp-form__field"
-        errorMessage={errors?.email?.message}
       />
 
       <TextFieldControl
@@ -52,7 +47,6 @@ const SignUp: FC = () => {
         control={control}
         autoComplete="off"
         className="signUp-form__field"
-        errorMessage={errors?.password?.message}
       />
 
       <TextFieldControl
@@ -62,7 +56,6 @@ const SignUp: FC = () => {
         type="password"
         control={control}
         className="signUp-form__field"
-        errorMessage={errors?.confirm_password?.message}
       />
 
       <Button type="submit" disabled={loading || updateLoading} variant="contained" className="signUp-form__button">

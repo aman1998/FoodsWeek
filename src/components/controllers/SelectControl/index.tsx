@@ -7,11 +7,11 @@ import TextField from "@mui/material/TextField";
 
 import { ISelectControlProps } from "./types";
 
-const SelectControl: FC<ISelectControlProps> = ({ name = "", control, options, errorMessage, ...props }) => (
+const SelectControl: FC<ISelectControlProps> = ({ name = "", control, options, ...props }) => (
   <Controller
     name={name}
     control={control}
-    render={({ field: { onChange, value } }) => (
+    render={({ field: { onChange, value }, fieldState: { error } }) => (
       // <FormControl className={className} error={!!errorMessage}>
       <>
         <TextField {...props} select onChange={onChange} value={value || ""}>
@@ -21,7 +21,7 @@ const SelectControl: FC<ISelectControlProps> = ({ name = "", control, options, e
             </MenuItem>
           ))}
         </TextField>
-        {!!errorMessage && <FormHelperText>{errorMessage}</FormHelperText>}
+        {!!error && <FormHelperText>{error.message}</FormHelperText>}
       </>
       // </FormControl>
     )}

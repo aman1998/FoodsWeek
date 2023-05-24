@@ -9,7 +9,6 @@ const TextFieldControl: FC<TInputControlProps> = ({
   name = "",
   labelText,
   control,
-  errorMessage,
   type = "text",
   defaultValue = "",
   ...props
@@ -18,14 +17,14 @@ const TextFieldControl: FC<TInputControlProps> = ({
     name={name}
     defaultValue={defaultValue}
     control={control}
-    render={({ field: { value, onChange } }) => (
+    render={({ field: { value, onChange }, fieldState: { error } }) => (
       <TextField
         {...props}
         value={value}
         onChange={onChange}
         type={type}
-        label={errorMessage || labelText}
-        error={!!errorMessage}
+        label={error?.message || labelText}
+        error={!!error}
         // helperText={errorMessage}
       />
     )}

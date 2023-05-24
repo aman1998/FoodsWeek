@@ -9,6 +9,13 @@ const instance = axios.create({
   },
 });
 
+export const productsInstance = axios.create({
+  baseURL: "https://api.nal.usda.gov/fdc/v1/foods",
+  params: {
+    api_key: "PoAW266Fl5425HhTv8EmthTomyaoLBHjnhaYINvr",
+  },
+});
+
 // instance.interceptors.response.use(
 //   response => response,
 //   error => {

@@ -43,10 +43,10 @@ const UserStats: FC = () => {
           <b>Gender:</b> <span>{user?.gender ? `${user.gender}` : "not"}</span>
         </div>
         <div className="user-stats__item">
-          <b>Height:</b> <span>{user?.height.value ? `${user.height.value} ${user.height.type}` : "not"}</span>
+          <b>Height:</b> <span>{user?.height?.value ? `${user.height.value} ${user.height?.type}` : "not"}</span>
         </div>
         <div className="user-stats__item">
-          <b>Weight:</b> <span>{user?.weight.value ? `${user.weight.value} ${user.weight.type}` : "not"}</span>
+          <b>Weight:</b> <span>{user?.weight?.value ? `${user.weight.value} ${user.weight?.type}` : "not"}</span>
         </div>
       </div>
       <Button onClick={handleAuthState} variant="text" className="user-stats__btn">

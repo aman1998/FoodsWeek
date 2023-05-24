@@ -20,7 +20,7 @@ const ProfileForm: FC = () => {
     handleSubmit,
     reset,
     control,
-    formState: { errors, isValid, isDirty },
+    formState: { isValid, isDirty },
   } = useForm<IUserInfo>({ mode: "onBlur", resolver: yupResolver(profileSchema) });
 
   const updateUserLoading = useSelector(updateUserInfoFetchingSelector);
@@ -35,12 +35,12 @@ const ProfileForm: FC = () => {
       yearBirth: user?.yearBirth,
       gender: user?.gender || EGender.female,
       height: {
-        type: user?.height.type || "sm",
-        value: user?.height.value || 0,
+        type: user?.height?.type || "sm",
+        value: user?.height?.value || 0,
       },
       weight: {
-        type: user?.weight.type || "kg",
-        value: user?.weight.value || 60,
+        type: user?.weight?.type || "kg",
+        value: user?.weight?.value || 60,
       },
       activate: 1,
     });
@@ -69,23 +69,11 @@ const ProfileForm: FC = () => {
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Name</div>
-        <TextFieldControl
-          name="name"
-          control={control}
-          margin="normal"
-          errorMessage={errors?.name?.message}
-          className="profile-form-item__field"
-        />
+        <TextFieldControl name="name" control={control} margin="normal" className="profile-form-item__field" />
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Gender</div>
-        <SelectControl
-          control={control}
-          name="gender"
-          options={optionsGender}
-          className="profile-form-item__field"
-          errorMessage={errors?.gender?.message}
-        />
+        <SelectControl control={control} name="gender" options={optionsGender} className="profile-form-item__field" />
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Year</div>
@@ -94,18 +82,11 @@ const ProfileForm: FC = () => {
           name="yearBirth"
           options={yearsSelectOptions}
           className="profile-form-item__field"
-          errorMessage={errors?.yearBirth?.message}
         />
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Height value</div>
-        <TextFieldControl
-          name="height.value"
-          type="number"
-          control={control}
-          errorMessage={errors.height?.value?.message}
-          className="profile-form-item__field"
-        />
+        <TextFieldControl name="height.value" type="number" control={control} className="profile-form-item__field" />
         <SelectControl
           control={control}
           name="height.type"
@@ -115,13 +96,7 @@ const ProfileForm: FC = () => {
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Weight value</div>
-        <TextFieldControl
-          name="weight.value"
-          type="number"
-          control={control}
-          errorMessage={errors.weight?.value?.message}
-          className="profile-form-item__field"
-        />
+        <TextFieldControl name="weight.value" type="number" control={control} className="profile-form-item__field" />
         <SelectControl
           control={control}
           name="weight.type"

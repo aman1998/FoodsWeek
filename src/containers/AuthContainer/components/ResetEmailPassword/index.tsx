@@ -16,11 +16,7 @@ const ResetEmailPassword: FC = () => {
   const loading = useSelector(resetEmailPasswordFetchingSelector);
   const dispatch = useDispatch();
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<TEmailPasswordReset>({
+  const { handleSubmit, control } = useForm<TEmailPasswordReset>({
     mode: "onChange",
     resolver: yupResolver(resetEmailPasswordSchema),
   });
@@ -37,7 +33,6 @@ const ResetEmailPassword: FC = () => {
         placeholder="Почта"
         control={control}
         margin="normal"
-        errorMessage={errors?.email?.message}
         className="reset-form__field"
       />
 

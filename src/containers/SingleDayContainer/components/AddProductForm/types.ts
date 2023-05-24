@@ -1,5 +1,6 @@
 export interface IAddProductForm {
   type: string;
+  productName: string;
 }
 
 export enum EProductTypes {

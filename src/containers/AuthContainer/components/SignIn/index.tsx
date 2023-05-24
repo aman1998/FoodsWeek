@@ -16,11 +16,7 @@ const SignIn: FC = () => {
   const loading = useSelector(signInFetchingSelector);
   const dispatch = useDispatch();
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<TSignIn>({
+  const { handleSubmit, control } = useForm<TSignIn>({
     mode: "onChange",
     resolver: yupResolver(signInSchema),
   });
@@ -37,7 +33,6 @@ const SignIn: FC = () => {
         placeholder="Почта"
         control={control}
         margin="normal"
-        errorMessage={errors?.email?.message}
         className="signIn-form__field"
       />
 
@@ -48,7 +43,6 @@ const SignIn: FC = () => {
         type="password"
         control={control}
         margin="dense"
-        errorMessage={errors?.password?.message}
         className="signIn-form__field"
       />
 

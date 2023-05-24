@@ -28,6 +28,10 @@ const SingleDayContainer: FC = () => {
     if (id && !data) {
       dispatch(singleDayFetching(id));
     }
+
+    return () => {
+      dispatch(handleProductAddModalisOpen(false));
+    };
   }, [dispatch, id, data]);
 
   return (
