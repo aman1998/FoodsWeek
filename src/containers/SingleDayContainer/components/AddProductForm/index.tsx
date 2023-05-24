@@ -9,22 +9,14 @@ import SelectControl from "../../../../components/controllers/SelectControl";
 import { productsInstance } from "../../../../common/API";
 
 import { addProductFormSchema } from "./validations";
-import { EProductTypes, IAddProductForm } from "./types";
+import { EProductTypes, IAddProductForm, IProductOption, IProductDataValues, EProductNutrients } from "./types";
 import { optionsAddProductType } from "./constants";
 
-interface example {
-  foodSearchCriteria: {
-    generalSearchInput: string;
-  };
-}
 const AddProductForm: FC = () => {
-  const [options, setOptions] = useState<{ id: string; label: string }[] | null>(null);
+  const [options, setOptions] = useState<IProductOption[] | null>(null);
+  const [optionsLoading, setOptionsLoading] = useState(false);
 
-  const {
-    handleSubmit,
-    control,
-    // setValue,
-  } = useForm<IAddProductForm>({
+  const { handleSubmit, control } = useForm<IAddProductForm>({
     mode: "onChange",
     defaultValues: {
       type: EProductTypes.breakfast,
@@ -32,28 +24,37 @@ const AddProductForm: FC = () => {
     resolver: yupResolver(addProductFormSchema),
   });
 
-  const handleProductChecked = (id: string | null) => {
-    console.log("id =>", id);
-  };
-
   const handleProductSearch = debounce(async (value: string) => {
+    setOptionsLoading(true);
     const response = await productsInstance(`search?query=${value}`);
-    const data: example[] = await response.data.foods;
-    const optionsArray: { id: string; label: string }[] = [];
+    setOptionsLoading(false);
+    const data: IProductDataValues[] = await response.data.foods;
+    const optionsArray: IProductOption[] = [];
 
-    data.forEach((_, i) => {
-      optionsArray.push({ id: String(i), label: String(i) });
+    data.forEach(item => {
+      optionsArray.push({
+        id: String(item.id),
+        label: item.description,
+        value: {
+          name: item.description,
+          [EProductNutrients.energy]:
+            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrients.energy)?.value || 0,
+          [EProductNutrients.protein]:
+            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrients.protein)?.value || 0,
+          [EProductNutrients.fat]:
+            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrients.fat)?.value || 0,
+          [EProductNutrients.carbohydrate]:
+            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrients.carbohydrate)?.value || 0,
+        },
+      });
     });
 
     setOptions(optionsArray);
-    console.log("response", response.data);
   }, 1000);
 
   const onSubmit = (values: IAddProductForm) => {
     console.log("values =>", values);
   };
-
-  console.log("options =>", options);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -61,9 +62,9 @@ const AddProductForm: FC = () => {
       <AutocompleteControl
         control={control}
         options={options?.length ? options : []}
-        name="productName"
-        onChange={handleProductChecked}
+        name="product"
         handleSearch={handleProductSearch}
+        loading={optionsLoading}
       />
       <Button type="submit">Add</Button>
     </form>

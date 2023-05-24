@@ -3,12 +3,14 @@ import { Control, Path, FieldValues } from "react-hook-form";
 export interface IAutoCompleteSelected {
   id: string;
   label: string;
+  value: unknown;
 }
 export interface IAutocompleteControlProps<O extends IAutoCompleteSelected, TField extends FieldValues> {
   control: Control<TField>;
   name: Path<TField>;
   options: O[];
+  loading?: boolean;
   placeholder?: string;
-  onChange?: (id: string | null) => void;
+  onChange?: (id: unknown) => void;
   handleSearch?: (value: string) => void;
 }
