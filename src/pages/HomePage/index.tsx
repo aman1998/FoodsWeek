@@ -1,3 +1,3 @@
-import DaysContainer from "../../containers/DaysContainer";
+import HomeContainer from "../../containers/HomeContainer";
 
-export default DaysContainer;
+export default HomeContainer;

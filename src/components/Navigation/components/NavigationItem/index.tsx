@@ -8,6 +8,7 @@ const NavigationItem: FC<TNavigationItem> = ({ link, title }) => (
     <NavLink
       to={link}
       className={({ isActive }) => `navigation-item__link ${isActive ? "navigation-item__link--active" : ""}`}
+      end
     >
       <div className="navigation-item__icon-wrapper">
         <img className="navigation-item__icon" src={require("../../../../common/images/monday.png")} />

@@ -23,7 +23,7 @@ const UserStats: FC = () => {
 
   const handleAuthState = (): void => {
     if (isAuth) {
-      navigate("/profile");
+      navigate("/info/profile");
     } else {
       dispatch(changeAuthModalIsOpen(true));
     }

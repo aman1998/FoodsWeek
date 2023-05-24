@@ -14,14 +14,18 @@ const PrivateRoute: FC = () => {
   const loading = useSelector(authInfoFetchingSelector);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <></>;
   }
 
   if (!loading && isAuthCheckDone && !isAuth) {
     return <Navigate to="/" />;
   }
 
-  return <Outlet />;
+  if (!loading && isAuthCheckDone && isAuth) {
+    return <Outlet />;
+  }
+
+  return <></>;
 };
 
 export default PrivateRoute;

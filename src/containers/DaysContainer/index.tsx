@@ -8,7 +8,7 @@ const DaysContainer: FC = () => (
   <section className="days-wrapper">
     <div className="days">
       {days.map(item => (
-        <DayCard key={item} title={item} link={item.toLowerCase()} />
+        <DayCard key={item} title={item} link={`/info/${item.toLowerCase()}`} />
       ))}
     </div>
     {/* <List
