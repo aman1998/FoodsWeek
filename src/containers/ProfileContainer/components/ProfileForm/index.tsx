@@ -53,7 +53,7 @@ const ProfileForm: FC = () => {
   };
 
   if (userLoading) {
-    return <>Loading...</>;
+    return <></>;
   }
 
   return (

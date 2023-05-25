@@ -1,15 +1,15 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { authInfoFetching } from "./containers/AuthContainer/store/reducers";
 import Layout from "./components/Layout";
 import PrivateRoute from "./components/PrivateRoute";
-import HomePage from "./pages/HomePage";
-import DaysPage from "./pages/DaysPage";
-import ProfilePage from "./pages/ProfilePage";
-import SingleDayPage from "./pages/SingleDayPage";
-import NotFound from "./pages/404";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const DaysPage = lazy(() => import("./pages/DaysPage"));
+const ProfilePage = lazy(() => import("./pages/ProfilePage"));
+const SingleDayPage = lazy(() => import("./pages/SingleDayPage"));
+const NotFound = lazy(() => import("./pages/404"));
 
 const App: FC = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,14 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<></>}>
+              <HomePage />
+            </Suspense>
+          }
+        />
         <Route element={<PrivateRoute />}>
           <Route path="/info" element={<Layout />}>
             <Route index element={<DaysPage />} />

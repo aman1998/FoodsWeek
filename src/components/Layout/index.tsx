@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
 import AuthForm from "containers/AuthContainer";
@@ -16,7 +16,9 @@ const Layout: FC<ILayoutProps> = ({ showStats = true }) => (
     <main className="main">
       <div className="main-wrapper">
         <div style={{ width: "100%" }}>
-          <Outlet />
+          <Suspense fallback={<></>}>
+            <Outlet />
+          </Suspense>
         </div>
         {showStats && <UserStats />}
       </div>
