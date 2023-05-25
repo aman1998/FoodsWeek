@@ -36,7 +36,14 @@ const App: FC = () => {
             <Route index path="/info/profile" element={<ProfilePage />} />
           </Route>
         </Route>
-        <Route path="/404" element={<NotFound />} />
+        <Route
+          path="/404"
+          element={
+            <Suspense fallback={<></>}>
+              <NotFound />
+            </Suspense>
+          }
+        />
         <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
     </BrowserRouter>
