@@ -6,7 +6,7 @@ import {
   isAuthSelector,
   authInfoFetchingSelector,
   isAuthCheckDoneSelector,
-} from "../../containers/AuthContainer/store/selectors";
+} from "containers/AuthContainer/store/selectors";
 
 const PrivateRoute: FC = () => {
   const isAuth = useSelector(isAuthSelector);

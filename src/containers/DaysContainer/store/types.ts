@@ -1,4 +1,4 @@
-import { IRequestHandler } from "../../../store/types";
+import { IRequestHandler } from "store/types";
 
 export enum EDays {
   AAPL = "AAPL",

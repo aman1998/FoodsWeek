@@ -3,10 +3,12 @@ import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-import Button from "../../../../UI/Button";
-import TextFieldControl from "../../../../components/controllers/TextFieldControl";
-import SelectControl from "../../../../components/controllers/SelectControl";
-import { yearsSelectOptions } from "../../../../common/utils/date";
+import TextFieldControl from "components/controllers/TextFieldControl";
+import SelectControl from "components/controllers/SelectControl";
+
+import { yearsSelectOptions } from "common/utils/date";
+
+import Button from "UI/Button";
 
 import { updateUserInfoFetchingSelector, userInfoSelector, userInfoFetchingSelector } from "../../store/selectors";
 import { updateUserInfoFetching } from "../../store/reducers";

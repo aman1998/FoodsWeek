@@ -1,7 +1,7 @@
 import { AxiosResponse, AxiosError } from "axios";
 import { takeLatest, all, call, put } from "redux-saga/effects";
 
-import instance from "../../../common/API";
+import instance from "common/API";
 
 import { stocksListFetching, stocksListError, stocksListSuccess } from "./reducers";
 import { TDaysListResponse } from "./types";

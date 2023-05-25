@@ -1,7 +1,7 @@
 import { Controller } from "react-hook-form";
 import { FC } from "react";
 
-import TextField from "../../../UI/TextField";
+import TextField from "UI/TextField";
 
 import { TInputControlProps } from "./types";
 

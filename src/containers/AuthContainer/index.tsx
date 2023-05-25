@@ -2,7 +2,7 @@ import { FC, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 
-import Modal from "../../components/Modal";
+import Modal from "components/Modal";
 
 import { authModalIsOpenSelector, authTypeSelector } from "./store/selectors";
 import { changeAuthModalIsOpen } from "./store/reducers";

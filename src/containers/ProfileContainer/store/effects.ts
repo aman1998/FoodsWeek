@@ -1,11 +1,12 @@
 import { put, takeLatest, all, select } from "redux-saga/effects";
 import { query, where, getDocs, collection, Query, doc, setDoc } from "firebase/firestore";
+import { database } from "firebase-config";
+
+import { showNotification, ENotificationType } from "common/utils/notifications";
+
+import { IPayloadAction } from "store/types";
 
 import { authInfoIDSelector } from "../../AuthContainer/store/selectors";
-
-import { database } from "../../../firebase-config";
-import { IPayloadAction } from "../../../store/types";
-import { showNotification, ENotificationType } from "../../../common/utils/notifications";
 
 import { IUserInfo } from "./types";
 import {

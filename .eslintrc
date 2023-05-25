@@ -100,42 +100,42 @@
                 "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
                 "pathGroups": [
                     {
-                        "pattern": "@containers/**",
+                        "pattern": "containers/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "@components/**",
+                        "pattern": "components/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "@common/**",
+                        "pattern": "common/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "@pages/**",
+                        "pattern": "pages/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "@public/**",
+                        "pattern": "public/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "@store/**",
+                        "pattern": "store/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "@UI/**",
+                        "pattern": "UI/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "@utils/**",
+                        "pattern": "utils/**",
                         "group": "internal",
                         "position": "after"
                     },

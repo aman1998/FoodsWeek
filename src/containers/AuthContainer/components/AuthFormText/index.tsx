@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
 
-import Button from "../../../../UI/Button";
+import Button from "UI/Button";
 
 import { EAuthTypes } from "../../types";
 import { changeAuthType } from "../../store/reducers";

@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import TextFieldControl from "../../../../components/controllers/TextFieldControl";
-import Button from "../../../../UI/Button";
+import { updateUserInfoFetchingSelector } from "containers/ProfileContainer/store/selectors";
+
+import TextFieldControl from "components/controllers/TextFieldControl";
+
+import Button from "UI/Button";
 
 import { signUpFetchingSelector } from "../../store/selectors";
 import { signUpFetching } from "../../store/reducers";
-
-import { updateUserInfoFetchingSelector } from "../../../ProfileContainer/store/selectors";
 
 import { ISignUp } from "./types";
 import { signUpSchema } from "./validations";

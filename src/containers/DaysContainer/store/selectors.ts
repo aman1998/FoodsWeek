@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-import { IApplicationState } from "../../../store/types";
+import { IApplicationState } from "store/types";
 
 import { IDaysState } from "./types";
 

@@ -1,7 +1,7 @@
 import { Controller, FieldValues } from "react-hook-form";
 import Autocomplete from "@mui/material/Autocomplete";
 
-import TextField from "../../../UI/TextField";
+import TextField from "UI/TextField";
 
 import { IAutoCompleteSelected, IAutocompleteControlProps } from "./types";
 

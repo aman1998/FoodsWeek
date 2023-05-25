@@ -1,7 +1,7 @@
 // import { AxiosResponse } from "axios";
 import { takeLatest, all, put } from "redux-saga/effects";
 
-import { IPayloadAction } from "@store/types";
+import { IPayloadAction } from "store/types";
 
 // import instance from "../../../common/API";
 

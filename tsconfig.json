@@ -3,7 +3,6 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    // "jsx": "preserve",
     "jsx": "react-jsx",
     "allowJs": true,
     "strict": true,
@@ -18,7 +17,6 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noImplicitThis": false,
-    "baseUrl": ".",
     "typeRoots": [
       "./node_modules/@types",
       "./types"
@@ -27,29 +25,26 @@
       "dom",
       "es2017"
     ],
-    "paths": {
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@containers/*": [
-        "./src/containers/*"
-      ],
-      "@common/*": [
-        "./src/common/*"
-      ],
-      "@store/*": [
-        "./src/store/*"
-      ],
-      "@api/*": [
-        "./src/common/API/*"
-      ],
-      "@UI/*": [
-        "./src/UI/*"
-      ],
-      "@utils/*": [
-        "./src/common/utils/*"
-      ],
-    },
+    "baseUrl": "src",
+    // "paths": {
+    //   "@components/*": ["components/*"],
+    //   "@containers/*": [
+    //     "./src/containers/*"
+    //   ],
+    //   "@common/*": [
+    //     "./src/common/*"
+    //   ],
+    //   "@store/*": ["store/*"],
+    //   "@api/*": [
+    //     "./src/common/API/*"
+    //   ],
+    //   "@UI/*": [
+    //     "./src/UI/*"
+    //   ],
+    //   "@utils/*": [
+    //     "./src/common/utils/*"
+    //   ],
+    // },
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
@@ -61,9 +56,5 @@
     "out",
     "node_modules",
   ],
-  "include": [
-    "*",
-    "**/*.tsx",
-    "./src/declaration.d.ts", "src/firebase-config.ts",
-  ],
+  "include": ["src"],
 }

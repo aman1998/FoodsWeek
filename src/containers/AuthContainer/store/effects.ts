@@ -8,13 +8,14 @@ import {
   signOut as signOutFirebase,
   sendPasswordResetEmail,
 } from "firebase/auth";
+import { auth } from "firebase-config";
+
+import { showNotification, ENotificationType } from "common/utils/notifications";
+
+import { IPayloadAction } from "store/types";
 
 import { updateUserInfoFetching, resetUserInfo, userInfoFetching } from "../../ProfileContainer/store/reducers";
 
-import { auth } from "../../../firebase-config";
-import { IPayloadAction } from "../../../store/types";
-
-import { showNotification, ENotificationType } from "./../../../common/utils/notifications";
 import {
   authInfoError,
   authInfoFetching,

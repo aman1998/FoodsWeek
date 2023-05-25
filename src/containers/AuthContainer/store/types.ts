@@ -1,6 +1,6 @@
-import { EAuthTypes } from "../types";
+import { TRecordOf, IRequestHandler } from "store/types";
 
-import { TRecordOf, IRequestHandler } from "../../../store/types";
+import { EAuthTypes } from "../types";
 
 export interface IAuthInfo {
   email: string;

@@ -3,11 +3,13 @@ import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { debounce } from "@mui/material";
 
-import AutocompleteControl from "../../../../components/controllers/AutocompleteControl";
-import Button from "../../../../UI/Button";
-import SelectControl from "../../../../components/controllers/SelectControl";
-import { productsInstance } from "../../../../common/API";
-import TextFieldControl from "../../../../components/controllers/TextFieldControl";
+import AutocompleteControl from "components/controllers/AutocompleteControl";
+import SelectControl from "components/controllers/SelectControl";
+import TextFieldControl from "components/controllers/TextFieldControl";
+
+import { productsInstance } from "common/API";
+
+import Button from "UI/Button";
 
 import { addProductFormSchema } from "./validations";
 import {

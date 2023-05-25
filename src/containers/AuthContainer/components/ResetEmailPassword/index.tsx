@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import Button from "../../../../UI/Button";
-import TextFieldControl from "../../../../components/controllers/TextFieldControl";
+import TextFieldControl from "components/controllers/TextFieldControl";
+
+import Button from "UI/Button";
 
 import { TEmailPasswordReset } from "../../store/types";
 import { resetEmailPasswordFetchingSelector } from "../../store/selectors";

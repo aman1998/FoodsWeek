@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { EAuthTypes } from "../types";
+import { IPayloadAction } from "store/types";
+import { defaultState } from "store/constants";
 
-import { IPayloadAction } from "../../../store/types";
-import { defaultState } from "../../../store/constants";
+import { EAuthTypes } from "../types";
 
 import { IAuthState, IAuthInfo } from "./types";
 

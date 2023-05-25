@@ -1,4 +1,4 @@
-import { IRequestHandler, ISingleRequestPayload } from "../../../store/types";
+import { IRequestHandler, ISingleRequestPayload } from "store/types";
 
 export interface ISingleDayResponse {
   symbol: string;

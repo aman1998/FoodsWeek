@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { IPayloadAction } from "../../../store/types";
-import { defaultState } from "../../../store/constants";
+import { IPayloadAction } from "store/types";
+import { defaultState } from "store/constants";
 
 import { IUserState, IUserInfo, IUserInfoDefaultData } from "./types";
 
