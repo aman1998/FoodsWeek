@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { AddProductForm, handleProductAddModalisOpen, productAddModalisOpenSelector } from "features/Profile";
+import { AddProductForm, handleProductAddModalisOpen, productAddModalisOpenSelector } from "features/User";
 
 import Button from "shared/UI/Button";
 import Modal from "shared/UI/Modal";

@@ -1,4 +1,4 @@
-import { ISingleDay } from "features/Profile/store/types";
+import { ISingleDay } from "features/User/store/types";
 
 export const getMinCount = (stonks: ISingleDay[]): number =>
   stonks.reduce((acc, item, index) => {

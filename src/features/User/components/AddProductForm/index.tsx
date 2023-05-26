@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { productsInstance } from "app/API";
 
-import { updateUserInfoFetching } from "features/Profile/store/reducers";
-import { updateUserInfoFetchingSelector } from "features/Profile/store/selectors";
+import { updateUserInfoFetching } from "features/User/store/reducers";
+import { updateUserInfoFetchingSelector, userProductsSelector } from "features/User/store/selectors";
 
 import AutocompleteControl from "shared/libs/controllers/AutocompleteControl";
 import SelectControl from "shared/libs/controllers/SelectControl";
@@ -17,7 +17,7 @@ import Button from "shared/UI/Button";
 import { addProductFormSchema } from "./validations";
 import {
   EProductTypes,
-  IAddProductForm,
+  IUserProductInfo,
   IProductOption,
   IProductDataValues,
   EProductNutrients,
@@ -30,6 +30,7 @@ const AddProductForm: FC = () => {
   const [optionsLoading, setOptionsLoading] = useState(false);
 
   const updateLoading = useSelector(updateUserInfoFetchingSelector);
+  const userProducts = useSelector(userProductsSelector) || [];
 
   const dispatch = useDispatch();
 
@@ -37,7 +38,7 @@ const AddProductForm: FC = () => {
     handleSubmit,
     control,
     formState: { isValid, isDirty },
-  } = useForm<IAddProductForm>({
+  } = useForm<IUserProductInfo>({
     mode: "onChange",
     defaultValues: {
       type: EProductTypes.breakfast,
@@ -73,8 +74,8 @@ const AddProductForm: FC = () => {
     setOptions(optionsArray);
   }, 1000);
 
-  const onSubmit = (values: IAddProductForm) => {
-    dispatch(updateUserInfoFetching(values));
+  const onSubmit = (values: IUserProductInfo) => {
+    dispatch(updateUserInfoFetching({ userProducts: [...userProducts, values] }));
   };
 
   return (

@@ -1,5 +1,7 @@
 import { IRequestHandler } from "app/store/types";
 
+import { IUserProductInfo } from "../components/AddProductForm/types";
+
 export interface IUserInfoDefaultData {
   id: string;
   text: string;
@@ -22,6 +24,7 @@ export interface IUserInfo {
   weight: IBodyParameters;
   height: IBodyParameters;
   activate: number;
+  userProducts: IUserProductInfo[];
 }
 
 export interface IUserState {

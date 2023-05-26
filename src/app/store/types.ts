@@ -1,7 +1,7 @@
 import { RecordOf } from "immutable";
 
 import { IAuthState } from "../../features/Auth/store/types";
-import { IUserState } from "../../features/Profile/store/types";
+import { IUserState } from "../../features/User/store/types";
 
 export interface IApplicationState {
   user: IUserState;

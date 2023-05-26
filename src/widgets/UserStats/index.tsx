@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { userInfoFetchingSelector, userInfoSelector } from "features/Profile";
+import { userInfoFetchingSelector, userInfoSelector } from "features/User";
 
 import Button from "shared/UI/Button";
 

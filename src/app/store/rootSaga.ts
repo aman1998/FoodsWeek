@@ -1,7 +1,7 @@
 import { all, fork } from "redux-saga/effects";
 
 import authSaga from "../../features/Auth/store/effects";
-import userSaga from "../../features/Profile/store/effects";
+import userSaga from "../../features/User/store/effects";
 
 function* rootSaga(): Generator {
   yield all([fork(authSaga)]);

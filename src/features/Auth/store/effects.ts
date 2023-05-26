@@ -13,7 +13,7 @@ import { auth } from "app/firebase/firebase-config";
 import { IPayloadAction } from "app/store/types";
 import { showNotification, ENotificationType } from "app/utils/notifications";
 
-import { updateUserInfoFetching, resetUserInfo, userInfoFetching } from "../../Profile/store/reducers";
+import { updateUserInfoFetching, resetUserInfo, userInfoFetching } from "../../User/store/reducers";
 
 import {
   authInfoError,

@@ -1,9 +1,3 @@
-export interface IAddProductForm {
-  type: string;
-  product: string;
-  weight: number;
-}
-
 export interface IProductOption {
   id: string;
   label: string;
@@ -30,6 +24,12 @@ export interface IProduct {
   [EProductNutrients.protein]: number;
   [EProductNutrients.fat]: number;
   [EProductNutrients.carbohydrate]: number;
+}
+
+export interface IUserProductInfo {
+  type: string;
+  weight: number;
+  product: IProduct;
 }
 
 export interface IFoodNutrient {

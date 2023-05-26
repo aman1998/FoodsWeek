@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { updateUserInfoFetchingSelector } from "features/Profile/store/selectors";
+import { updateUserInfoFetchingSelector } from "features/User/store/selectors";
 
 import TextFieldControl from "shared/libs/controllers/TextFieldControl";
 import Button from "shared/UI/Button";
