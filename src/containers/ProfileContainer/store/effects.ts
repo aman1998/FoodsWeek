@@ -2,8 +2,7 @@ import { put, takeLatest, all, select } from "redux-saga/effects";
 import { query, where, getDocs, collection, Query, doc, setDoc } from "firebase/firestore";
 import { database } from "firebase-config";
 import { IPayloadAction } from "app/store/types";
-
-import { showNotification, ENotificationType } from "common/utils/notifications";
+import { showNotification, ENotificationType } from "app/utils/notifications";
 
 import { authInfoIDSelector } from "../../../features/Auth/store/selectors";
 

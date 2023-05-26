@@ -11,7 +11,7 @@ const NavigationItem: FC<TNavigationItem> = ({ link, title }) => (
       end
     >
       <div className="navigation-item__icon-wrapper">
-        <img className="navigation-item__icon" src={require("common/images/monday.png")} />
+        <img className="navigation-item__icon" src={require("app/images/monday.png")} />
       </div>
       <span className="navigation-item__title">{title}</span>
     </NavLink>

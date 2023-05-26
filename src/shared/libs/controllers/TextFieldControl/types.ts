@@ -1,5 +1,4 @@
 import { StandardTextFieldProps } from "@mui/material";
-
-import { IControl } from "common/types/control";
+import { IControl } from "app/types/control";
 
 export type TInputControlProps = StandardTextFieldProps & IControl;

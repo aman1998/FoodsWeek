@@ -6,8 +6,7 @@ import AutocompleteControl from "shared/libs/controllers/AutocompleteControl";
 import SelectControl from "shared/libs/controllers/SelectControl";
 import TextFieldControl from "shared/libs/controllers/TextFieldControl";
 import Button from "shared/UI/Button";
-
-import { productsInstance } from "common/API";
+import { productsInstance } from "app/API";
 
 import { addProductFormSchema } from "./validations";
 import {

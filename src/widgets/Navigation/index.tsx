@@ -29,7 +29,7 @@ const Navigation: FC = () => {
         <li className="navigation-item">
           <a className="navigation-item__link" onClick={handleAuthState}>
             <div className="navigation-item__icon-wrapper">
-              <img className="navigation-item__icon" src={require("../../common/images/monday.png")} />
+              <img className="navigation-item__icon" src={require("../../app/images/monday.png")} />
             </div>
             <span className="navigation-item__title">Выйти</span>
           </a>

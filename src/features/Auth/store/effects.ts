@@ -10,8 +10,7 @@ import {
 } from "firebase/auth";
 import { auth } from "firebase-config";
 import { IPayloadAction } from "app/store/types";
-
-import { showNotification, ENotificationType } from "common/utils/notifications";
+import { showNotification, ENotificationType } from "app/utils/notifications";
 
 import {
   updateUserInfoFetching,

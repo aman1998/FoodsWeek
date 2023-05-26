@@ -4,7 +4,7 @@ import { StrictMode } from "react";
 
 import App from "./App";
 import { store } from "./app/store/rootStore";
-import "./common/styles/index.scss";
+import "./app/styles/index.scss";
 import MUIProvider from "./components/providers/MUIProvider";
 
 const container = document.getElementById("root") as HTMLElement;

@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import TextFieldControl from "shared/libs/controllers/TextFieldControl";
 import SelectControl from "shared/libs/controllers/SelectControl";
 import Button from "shared/UI/Button";
-
-import { yearsSelectOptions } from "common/utils/date";
+import { yearsSelectOptions } from "app/utils/date";
 
 import { updateUserInfoFetchingSelector, userInfoSelector, userInfoFetchingSelector } from "../../store/selectors";
 import { updateUserInfoFetching } from "../../store/reducers";
