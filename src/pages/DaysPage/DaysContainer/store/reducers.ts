@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { IPayloadAction, IRequestError } from "app/store/types";
 import { defaultState } from "app/store/constants";
 

@@ -1,7 +1,6 @@
 import { FC } from "react";
 
 import Navigation from "../Navigation";
-
 import Logo from "../../shared/UI/Logo";
 
 const Sidebar: FC = () => (

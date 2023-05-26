@@ -8,7 +8,6 @@ import SignIn from "../SignIn";
 import SignUp from "../SignUp";
 import AuthFormText from "../AuthFormText";
 import ResetEmailPassword from "../ResetEmailPassword";
-
 import { authModalIsOpenSelector, authTypeSelector } from "../../store/selectors";
 import { changeAuthModalIsOpen } from "../../store/reducers";
 import { EAuthTypes } from "../../types";

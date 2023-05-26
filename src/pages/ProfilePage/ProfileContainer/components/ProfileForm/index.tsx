@@ -2,10 +2,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+
+import { yearsSelectOptions } from "app/utils/date";
+
 import TextFieldControl from "shared/libs/controllers/TextFieldControl";
 import SelectControl from "shared/libs/controllers/SelectControl";
 import Button from "shared/UI/Button";
-import { yearsSelectOptions } from "app/utils/date";
 
 import { updateUserInfoFetchingSelector, userInfoSelector, userInfoFetchingSelector } from "../../store/selectors";
 import { updateUserInfoFetching } from "../../store/reducers";

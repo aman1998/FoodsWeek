@@ -1,5 +1,6 @@
 import { AxiosResponse, AxiosError } from "axios";
 import { takeLatest, all, call, put } from "redux-saga/effects";
+
 import instance from "app/API";
 
 import { stocksListFetching, stocksListError, stocksListSuccess } from "./reducers";

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 import { isAuthSelector, authInfoFetchingSelector, isAuthCheckDoneSelector } from "features/Auth/store/selectors";
 
 const PrivateRoute: FC = () => {

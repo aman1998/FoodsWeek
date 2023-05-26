@@ -1,4 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
+
 import { IApplicationState } from "app/store/types";
 
 const selectState = (state: IApplicationState) => state.user;

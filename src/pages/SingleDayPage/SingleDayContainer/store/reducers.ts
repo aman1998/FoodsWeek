@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { IPayloadAction, ISingleRequestErrorPayload } from "app/store/types";
 
 import { ISingleDayState, TSingleDaySuccess } from "./types";
