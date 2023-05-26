@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 
 // import FormControl from "@mui/material/FormControl";
-import TextField from "UI/TextField";
+import TextField from "shared/UI/TextField";
 
 import { ISelectControlProps } from "./types";
 

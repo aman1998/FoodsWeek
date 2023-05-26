@@ -2,14 +2,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { debounce } from "@mui/material";
-
-import AutocompleteControl from "components/controllers/AutocompleteControl";
-import SelectControl from "components/controllers/SelectControl";
-import TextFieldControl from "components/controllers/TextFieldControl";
+import AutocompleteControl from "shared/libs/controllers/AutocompleteControl";
+import SelectControl from "shared/libs/controllers/SelectControl";
+import TextFieldControl from "shared/libs/controllers/TextFieldControl";
+import Button from "shared/UI/Button";
 
 import { productsInstance } from "common/API";
-
-import Button from "UI/Button";
 
 import { addProductFormSchema } from "./validations";
 import {

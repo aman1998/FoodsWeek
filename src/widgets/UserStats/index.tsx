@@ -1,10 +1,9 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Button from "shared/UI/Button";
 
 import { userInfoFetchingSelector, userInfoSelector } from "containers/ProfileContainer/store/selectors";
-
-import Button from "UI/Button";
 
 const UserStats: FC = () => {
   const user = useSelector(userInfoSelector);

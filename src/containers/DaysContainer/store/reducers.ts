@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { IPayloadAction, IRequestError } from "store/types";
-import { defaultState } from "store/constants";
+import { IPayloadAction, IRequestError } from "app/store/types";
+import { defaultState } from "app/store/constants";
 
 import { IDaysState, TDaysListResponse, IDayData, EDays } from "./types";
 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import List from "../../components/List";
-import Button from "../../UI/Button";
+import Button from "../../shared/UI/Button";
 import Modal from "../../components/Modal";
 
 import { singleDayFetching, handleProductAddModalisOpen } from "./store/reducers";

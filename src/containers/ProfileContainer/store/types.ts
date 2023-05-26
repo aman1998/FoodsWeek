@@ -1,4 +1,4 @@
-import { IRequestHandler } from "store/types";
+import { IRequestHandler } from "app/store/types";
 
 export interface IUserInfoDefaultData {
   id: string;

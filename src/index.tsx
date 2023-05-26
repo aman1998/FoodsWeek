@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { StrictMode } from "react";
 
 import App from "./App";
-import { store } from "./store/rootStore";
+import { store } from "./app/store/rootStore";
 import "./common/styles/index.scss";
 import MUIProvider from "./components/providers/MUIProvider";
 

@@ -12,7 +12,7 @@ import { auth } from "firebase-config";
 
 import { showNotification, ENotificationType } from "common/utils/notifications";
 
-import { IPayloadAction } from "store/types";
+import { IPayloadAction } from "app/store/types";
 
 import { updateUserInfoFetching, resetUserInfo, userInfoFetching } from "../../ProfileContainer/store/reducers";
 

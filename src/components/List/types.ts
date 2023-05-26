@@ -1,4 +1,4 @@
-import { TNullable } from "store/types";
+import { TNullable } from "app/store/types";
 
 export interface IListProps<T> {
   preloader: JSX.Element;

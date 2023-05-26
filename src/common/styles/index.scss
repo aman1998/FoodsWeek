@@ -3,17 +3,19 @@
 @import "main";
 
 // components
-@import "components/Layout/styles.scss";
-@import "components/Header/styles.scss";
-@import "components/Sidebar/styles.scss";
 @import "components/Logo/styles.scss";
-@import "components/Navigation/styles.scss";
 @import "components/ChangePercent/styles.scss";
-@import "components/UserStats/styles.scss";
-@import "components/UserStats/Skeleton/styles.scss";
+
+// widgets
+@import "widgets/Layout/styles.scss";
+@import "widgets/Header/styles.scss";
+@import "widgets/Sidebar/styles.scss";
+@import "widgets/Navigation/styles.scss";
+@import "widgets/UserStats/styles.scss";
+@import "widgets/UserStats/Skeleton/styles.scss";
 
 // UI
-@import "UI/Button/styles.scss";
+@import "shared/UI/Button/styles.scss";
 
 // Days container
 @import "containers/DaysContainer/styles.scss";

@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { authInfoFetching } from "./containers/AuthContainer/store/reducers";
-import Layout from "./components/Layout";
+import Layout from "./widgets/Layout";
 import PrivateRoute from "./components/PrivateRoute";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const DaysPage = lazy(() => import("./pages/DaysPage"));

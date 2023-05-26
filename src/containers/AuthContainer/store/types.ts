@@ -1,4 +1,4 @@
-import { TRecordOf, IRequestHandler } from "store/types";
+import { TRecordOf, IRequestHandler } from "app/store/types";
 
 import { EAuthTypes } from "../types";
 

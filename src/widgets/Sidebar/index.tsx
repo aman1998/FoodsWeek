@@ -1,7 +1,8 @@
 import { FC } from "react";
 
-import Logo from "../Logo";
 import Navigation from "../Navigation";
+
+import Logo from "../../components/Logo";
 
 const Sidebar: FC = () => (
   <aside className="sidebar">

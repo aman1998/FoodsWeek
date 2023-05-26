@@ -1,4 +1,4 @@
-import { TNullable } from "store/types";
+import { TNullable } from "app/store/types";
 
 export const getMinValueObjectFromArray = <T>(arr: TNullable<T[]>, key: keyof T): TNullable<T> => {
   if (!Array.isArray(arr) || !arr.length || !arr.some(item => item[key])) return null;

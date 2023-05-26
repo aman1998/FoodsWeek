@@ -2,12 +2,10 @@ import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import TextFieldControl from "shared/libs/controllers/TextFieldControl";
+import Button from "shared/UI/Button";
 
 import { updateUserInfoFetchingSelector } from "containers/ProfileContainer/store/selectors";
-
-import TextFieldControl from "components/controllers/TextFieldControl";
-
-import Button from "UI/Button";
 
 import { signUpFetchingSelector } from "../../store/selectors";
 import { signUpFetching } from "../../store/reducers";
