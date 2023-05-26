@@ -31,6 +31,9 @@ const userSlice = createSlice({
     },
     updateUserSuccess(state: IUserState, action: IPayloadAction<IUserInfoDefaultData>) {
       state.updateUserInfo = { ...defaultState, data: action.payload };
+      if (state.productAddModalisOpen) {
+        state.productAddModalisOpen = false;
+      }
     },
     updateUserError(state: IUserState, action) {
       state.updateUserInfo = { ...defaultState, error: action.payload };

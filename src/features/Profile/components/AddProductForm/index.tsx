@@ -2,8 +2,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { debounce } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 
 import { productsInstance } from "app/API";
+
+import { updateUserInfoFetching } from "features/Profile/store/reducers";
+import { updateUserInfoFetchingSelector } from "features/Profile/store/selectors";
 
 import AutocompleteControl from "shared/libs/controllers/AutocompleteControl";
 import SelectControl from "shared/libs/controllers/SelectControl";
@@ -25,7 +29,15 @@ const AddProductForm: FC = () => {
   const [options, setOptions] = useState<IProductOption[] | null>(null);
   const [optionsLoading, setOptionsLoading] = useState(false);
 
-  const { handleSubmit, control } = useForm<IAddProductForm>({
+  const updateLoading = useSelector(updateUserInfoFetchingSelector);
+
+  const dispatch = useDispatch();
+
+  const {
+    handleSubmit,
+    control,
+    formState: { isValid, isDirty },
+  } = useForm<IAddProductForm>({
     mode: "onChange",
     defaultValues: {
       type: EProductTypes.breakfast,
@@ -62,7 +74,7 @@ const AddProductForm: FC = () => {
   }, 1000);
 
   const onSubmit = (values: IAddProductForm) => {
-    console.log("values =>", values);
+    dispatch(updateUserInfoFetching(values));
   };
 
   return (
@@ -75,7 +87,7 @@ const AddProductForm: FC = () => {
         name="product"
         handleSearch={handleProductSearch}
         loading={optionsLoading}
-        labelText="Product"
+        labelText="Choose product"
       />
       <TextFieldControl
         labelText="weight (G)"
@@ -86,7 +98,12 @@ const AddProductForm: FC = () => {
         type="number"
         InputProps={{ inputProps: { min: 1 } }}
       />
-      <Button type="submit" className="add-product-form__btn">
+      <Button
+        loading={updateLoading}
+        disabled={updateLoading || !isDirty || !isValid}
+        type="submit"
+        className="add-product-form__btn"
+      >
         Add
       </Button>
     </form>

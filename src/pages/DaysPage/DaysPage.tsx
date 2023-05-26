@@ -4,7 +4,7 @@ import { days } from "widgets/Navigation/constants";
 
 import DayCard from "./components/DayCard";
 
-const DaysContainer: FC = () => (
+const DaysPage: FC = () => (
   <section className="days-wrapper">
     <div className="days">
       {days.map(item => (
@@ -37,4 +37,4 @@ const DaysContainer: FC = () => (
   </section>
 );
 
-export default DaysContainer;
+export default DaysPage;

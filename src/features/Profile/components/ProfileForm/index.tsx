@@ -60,6 +60,7 @@ const ProfileForm: FC = () => {
       <div className="profile-form__header">
         <h1 className="profile-form__title">Profile</h1>
         <Button
+          loading={updateUserLoading}
           disabled={!isValid || updateUserLoading || userLoading || !isDirty}
           type="submit"
           variant="contained"
