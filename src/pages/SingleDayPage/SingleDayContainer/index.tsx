@@ -2,9 +2,9 @@ import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import List from "../../entities/List";
-import Button from "../../shared/UI/Button";
-import Modal from "../../shared/UI/Modal";
+import List from "../../../entities/List";
+import Button from "../../../shared/UI/Button";
+import Modal from "../../../shared/UI/Modal";
 
 import { singleDayFetching, handleProductAddModalisOpen } from "./store/reducers";
 import { singleDayFetchingSelector, singleDaySuccessSelector, productAddModalisOpenSelector } from "./store/selectors";

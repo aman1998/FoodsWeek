@@ -16,7 +16,7 @@ import {
   updateUserInfoFetching,
   resetUserInfo,
   userInfoFetching,
-} from "../../../containers/ProfileContainer/store/reducers";
+} from "../../../pages/ProfilePage/ProfileContainer/store/reducers";
 
 import {
   authInfoError,

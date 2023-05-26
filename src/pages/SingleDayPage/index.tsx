@@ -1,3 +1,3 @@
-import SingleDayContainer from "../../containers/SingleDayContainer";
+import SingleDayContainer from "./SingleDayContainer";
 
 export default SingleDayContainer;

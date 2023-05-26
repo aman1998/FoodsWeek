@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "shared/UI/Button";
 
-import { userInfoFetchingSelector, userInfoSelector } from "containers/ProfileContainer/store/selectors";
+import { userInfoFetchingSelector, userInfoSelector } from "pages/ProfilePage/ProfileContainer/store/selectors";
 
 const UserStats: FC = () => {
   const user = useSelector(userInfoSelector);

@@ -4,7 +4,7 @@ import { database } from "firebase-config";
 import { IPayloadAction } from "app/store/types";
 import { showNotification, ENotificationType } from "app/utils/notifications";
 
-import { authInfoIDSelector } from "../../../features/Auth/store/selectors";
+import { authInfoIDSelector } from "../../../../features/Auth/store/selectors";
 
 import { IUserInfo } from "./types";
 import {

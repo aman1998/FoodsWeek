@@ -1,3 +1,3 @@
-import NotFound from "../../containers/404";
+import NotFound from "./404Container";
 
 export default NotFound;

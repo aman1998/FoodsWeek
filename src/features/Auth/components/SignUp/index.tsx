@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import TextFieldControl from "shared/libs/controllers/TextFieldControl";
 import Button from "shared/UI/Button";
 
-import { updateUserInfoFetchingSelector } from "containers/ProfileContainer/store/selectors";
+import { updateUserInfoFetchingSelector } from "pages/ProfilePage/ProfileContainer/store/selectors";
 
 import { signUpFetchingSelector } from "../../store/selectors";
 import { signUpFetching } from "../../store/reducers";
