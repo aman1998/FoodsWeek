@@ -8,6 +8,7 @@ import { IUserState, IUserInfo, IUserInfoDefaultData } from "./types";
 const initialState: IUserState = {
   userInfo: defaultState,
   updateUserInfo: defaultState,
+  productAddModalisOpen: false,
 };
 
 const userSlice = createSlice({
@@ -39,6 +40,10 @@ const userSlice = createSlice({
       state.userInfo = defaultState;
       state.updateUserInfo = defaultState;
     },
+
+    handleProductAddModalisOpen(state, action: IPayloadAction<boolean>) {
+      state.productAddModalisOpen = action.payload;
+    },
   },
 });
 
@@ -52,6 +57,8 @@ export const {
   updateUserSuccess,
 
   resetUserInfo,
+
+  handleProductAddModalisOpen,
 } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -133,6 +133,19 @@
                 "pathGroupsExcludedImportTypes": ["builtin"],
                 "newlines-between": "always"
             }
-        ]
+        ],
+        "import/no-restricted-paths": [
+            "error",
+            {
+            "basePath": "",
+              "zones": [
+                {
+                  "target": "./index.tsx",
+                  "from": "/features/profile/**/*",
+                  "except": ["/features/profile/index.tsx"]
+                }
+              ]
+            }
+          ]
     }
 }

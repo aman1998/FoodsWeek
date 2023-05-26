@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { days } from "../../../widgets/Navigation/constants";
+import { days } from "widgets/Navigation/constants";
 
 import DayCard from "./components/DayCard";
 

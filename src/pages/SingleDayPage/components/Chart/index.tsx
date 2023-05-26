@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 
-import { ISingleDay } from "../../store/types";
+import { ISingleDay } from "features/Profile/store/types";
+
 import { getMinCount } from "../../utils";
 
 const Chart: FC<{ data: ISingleDay[] }> = ({ data }) => (

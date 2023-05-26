@@ -1,13 +1,9 @@
 import { RecordOf } from "immutable";
 
-import { IDaysState } from "../../pages/DaysPage/DaysContainer/store/types";
-import { ISingleDayState } from "../../pages/SingleDayPage/SingleDayContainer/store/types";
 import { IAuthState } from "../../features/Auth/store/types";
-import { IUserState } from "../../pages/ProfilePage/ProfileContainer/store/types";
+import { IUserState } from "../../features/Profile/store/types";
 
 export interface IApplicationState {
-  stocks: IDaysState;
-  singleDay: ISingleDayState;
   user: IUserState;
   auth: IAuthState;
 }

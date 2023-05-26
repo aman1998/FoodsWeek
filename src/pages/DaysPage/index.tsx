@@ -1,3 +1,3 @@
-import DaysContainer from "./DaysContainer";
+import DaysContainer from "./DaysPage";
 
 export default DaysContainer;

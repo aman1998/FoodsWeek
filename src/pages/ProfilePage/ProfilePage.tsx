@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import ProfileForm from "./components/ProfileForm";
+import { ProfileForm } from "features/Profile";
 
 const ProfileContainer: FC = () => (
   <section className="profile">

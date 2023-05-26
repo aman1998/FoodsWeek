@@ -11,3 +11,5 @@ export const userInfoSelector = createSelector(selectState, state => state.userI
 export const updateUserInfoFetchingSelector = createSelector(selectState, state => state.updateUserInfo.fetching);
 export const updateUserInfoSelector = createSelector(selectState, state => state.updateUserInfo.data);
 export const updateUserInfoErrorSelector = createSelector(selectState, state => state.updateUserInfo.error);
+
+export const productAddModalisOpenSelector = createSelector(selectState, state => state.productAddModalisOpen);

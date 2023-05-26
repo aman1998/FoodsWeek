@@ -2,21 +2,18 @@ import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import List from "../../../entities/List";
-import Button from "../../../shared/UI/Button";
-import Modal from "../../../shared/UI/Modal";
+// import List from "../../../entities/List";
+import { AddProductForm, handleProductAddModalisOpen, productAddModalisOpenSelector } from "features/Profile";
 
-import { singleDayFetching, handleProductAddModalisOpen } from "./store/reducers";
-import { singleDayFetchingSelector, singleDaySuccessSelector, productAddModalisOpenSelector } from "./store/selectors";
-import SingleDaySkeleton from "./components/Skeleton";
-import AddProductForm from "./components/AddProductForm";
+import Button from "shared/UI/Button";
+import Modal from "shared/UI/Modal";
+
+// import SingleDaySkeleton from "./components/Skeleton";
 
 const SingleDayContainer: FC = () => {
   const { id = "" } = useParams<{ id: string }>();
 
-  const loading = useSelector(singleDayFetchingSelector(id));
   const isOpenModal = useSelector(productAddModalisOpenSelector);
-  const data = useSelector(singleDaySuccessSelector(id));
 
   const dispatch = useDispatch();
 
@@ -24,15 +21,12 @@ const SingleDayContainer: FC = () => {
     dispatch(handleProductAddModalisOpen(true));
   };
 
-  useEffect(() => {
-    if (id && !data) {
-      dispatch(singleDayFetching(id));
-    }
-
-    return () => {
+  useEffect(
+    () => () => {
       dispatch(handleProductAddModalisOpen(false));
-    };
-  }, [dispatch, id, data]);
+    },
+    [dispatch]
+  );
 
   return (
     <section className="day-container">
@@ -40,13 +34,13 @@ const SingleDayContainer: FC = () => {
         <h1 className="day-container__title">{id.toUpperCase()}</h1>
         <Button onClick={openModal}>Add Product</Button>
       </div>
-      <List
+      {/* <List
         component={<></>}
         loading={loading}
         preloader={<SingleDaySkeleton />}
         data={data}
         emptyText={<span>Empty</span>}
-      />
+      /> */}
       <Modal isOpen={isOpenModal} onClose={() => dispatch(handleProductAddModalisOpen(false))}>
         <AddProductForm />
       </Modal>

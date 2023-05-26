@@ -1,3 +1,3 @@
-import HomeContainer from "./HomeContainer";
+import HomePage from "./HomePage";
 
-export default HomeContainer;
+export default HomePage;

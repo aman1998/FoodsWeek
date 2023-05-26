@@ -27,4 +27,19 @@ export interface IUserInfo {
 export interface IUserState {
   userInfo: IRequestHandler<IUserInfo>;
   updateUserInfo: IRequestHandler<unknown>;
+  productAddModalisOpen: boolean;
+}
+
+export interface ISingleDayResponse {
+  symbol: string;
+  changePercent: number;
+  priceDate: string;
+  uClose: number;
+  uOpen: number;
+  uHigh: number;
+  uLow: number;
+}
+
+export interface ISingleDay extends ISingleDayResponse {
+  number: number;
 }

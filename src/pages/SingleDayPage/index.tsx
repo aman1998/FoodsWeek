@@ -1,3 +1,3 @@
-import SingleDayContainer from "./SingleDayContainer";
+import SingleDayPage from "./SinglePage";
 
-export default SingleDayContainer;
+export default SingleDayPage;

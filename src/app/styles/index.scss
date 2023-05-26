@@ -14,19 +14,8 @@
 @import "shared/UI/Button/styles.scss";
 @import "shared/UI/Logo/styles.scss";
 
-// Days container
-@import "pages/DaysPage/DaysContainer/styles.scss";
-@import "pages/DaysPage/DaysContainer/components/DayCard/styles.scss";
-@import "pages/DaysPage/DaysContainer/components/Skeleton/styles.scss";
-
-// Single Day container
-@import "pages/SingleDayPage/SingleDayContainer/styles.scss";
-@import "pages/SingleDayPage/SingleDayContainer/components/Skeleton/styles.scss";
-@import "pages/SingleDayPage/SingleDayContainer/components/AddProductForm/styles.scss";
-
 // Profile container
-@import "pages/ProfilePage/ProfileContainer/styles.scss";
-@import "pages/ProfilePage/ProfileContainer/components/ProfileForm/styles.scss";
+@import "pages/ProfilePage/styles.scss";
 
 
 // Auth feature 
@@ -35,3 +24,16 @@
 @import "features/Auth/components/SignIn/styles.scss";
 @import "features/Auth/components/ResetEmailPassword/styles.scss";
 @import "features/Auth/components/AuthFormText/styles.scss";
+
+// Profile feature 
+@import "features/Profile/components/AddProductForm/styles.scss";
+@import "features/Profile/components/ProfileForm/styles.scss";
+
+// Days page
+@import "pages/DaysPage/styles.scss";
+@import "pages/DaysPage/components/DayCard/styles.scss";
+@import "pages/DaysPage/components/Skeleton/styles.scss";
+
+// SingleDay page
+@import "pages/SingleDayPage/styles.scss";
+@import "pages/SingleDayPage/components/Skeleton/styles.scss";
