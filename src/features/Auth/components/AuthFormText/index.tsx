@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
+
 import Button from "shared/UI/Button";
 
 import { EAuthTypes } from "../../types";

@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { StrictMode } from "react";
 
-import App from "./App";
+import App from "./app/App";
 import { store } from "./app/store/rootStore";
 import "./app/styles/index.scss";
 import MUIProvider from "./app/providers/MUIProvider";

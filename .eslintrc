@@ -100,17 +100,7 @@
                 "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
                 "pathGroups": [
                     {
-                        "pattern": "containers/**",
-                        "group": "internal",
-                        "position": "after"
-                    },
-                    {
-                        "pattern": "components/**",
-                        "group": "internal",
-                        "position": "after"
-                    },
-                    {
-                        "pattern": "common/**",
+                        "pattern": "app/**",
                         "group": "internal",
                         "position": "after"
                     },
@@ -120,38 +110,23 @@
                         "position": "after"
                     },
                     {
-                        "pattern": "public/**",
+                        "pattern": "widgets/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "store/**",
+                        "pattern": "features/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "UI/**",
+                        "pattern": "entities/**",
                         "group": "internal",
                         "position": "after"
                     },
                     {
-                        "pattern": "utils/**",
+                        "pattern": "shared/**",
                         "group": "internal",
-                        "position": "after"
-                    },
-                    {
-                        "pattern": "../**",
-                        "group": "parent",
-                        "position": "after"
-                    },
-                    {
-                        "pattern": "../../**",
-                        "group": "parent",
-                        "position": "after"
-                    },
-                    {
-                        "pattern": "../../../**",
-                        "group": "parent",
                         "position": "after"
                     }
                 ],
