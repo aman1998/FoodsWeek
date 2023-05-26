@@ -4,14 +4,15 @@ import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 import Modal from "components/Modal";
 
-import { authModalIsOpenSelector, authTypeSelector } from "./store/selectors";
-import { changeAuthModalIsOpen } from "./store/reducers";
-import SignIn from "./components/SignIn";
-import { EAuthTypes } from "./types";
-import SignUp from "./components/SignUp";
-import AuthFormText from "./components/AuthFormText";
-import { getTitle } from "./utils";
-import ResetEmailPassword from "./components/ResetEmailPassword";
+import SignIn from "../SignIn";
+import SignUp from "../SignUp";
+import AuthFormText from "../AuthFormText";
+import ResetEmailPassword from "../ResetEmailPassword";
+
+import { authModalIsOpenSelector, authTypeSelector } from "../../store/selectors";
+import { changeAuthModalIsOpen } from "../../store/reducers";
+import { EAuthTypes } from "../../types";
+import { getTitle } from "../../utils";
 
 const AuthForm: FC = () => {
   const isOpenModal = useSelector(authModalIsOpenSelector);

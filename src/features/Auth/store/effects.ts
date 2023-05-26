@@ -9,12 +9,15 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "firebase-config";
+import { IPayloadAction } from "app/store/types";
 
 import { showNotification, ENotificationType } from "common/utils/notifications";
 
-import { IPayloadAction } from "app/store/types";
-
-import { updateUserInfoFetching, resetUserInfo, userInfoFetching } from "../../ProfileContainer/store/reducers";
+import {
+  updateUserInfoFetching,
+  resetUserInfo,
+  userInfoFetching,
+} from "../../../containers/ProfileContainer/store/reducers";
 
 import {
   authInfoError,

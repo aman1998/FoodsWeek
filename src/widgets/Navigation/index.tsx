@@ -1,8 +1,7 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import { signOutFetching } from "containers/AuthContainer/store/reducers";
+import { signOutFetching } from "features/Auth/store/reducers";
 
 import { links } from "./constants";
 import NavigationItem from "./components/NavigationItem";

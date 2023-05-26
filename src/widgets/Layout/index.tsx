@@ -1,7 +1,6 @@
 import { FC, Suspense } from "react";
 import { Outlet } from "react-router-dom";
-
-import AuthForm from "containers/AuthContainer";
+import { AuthForm } from "features/Auth";
 
 import UserStats from "../UserStats";
 import Header from "../Header";

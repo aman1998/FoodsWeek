@@ -2,7 +2,7 @@ import { all, fork } from "redux-saga/effects";
 
 import singleDayFaga from "../../containers/SingleDayContainer/store/effects";
 import stocksSaga from "../../containers/DaysContainer/store/effects";
-import authSaga from "../../containers/AuthContainer/store/effects";
+import authSaga from "../../features/Auth/store/effects";
 import userSaga from "../../containers/ProfileContainer/store/effects";
 
 function* rootSaga(): Generator {

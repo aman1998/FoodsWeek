@@ -32,9 +32,9 @@
 @import "containers/ProfileContainer/components/ProfileForm/styles.scss";
 
 
-// Auth container 
-@import "containers/AuthContainer/styles.scss";
-@import "containers/AuthContainer/components/SignUp/styles.scss";
-@import "containers/AuthContainer/components/SignIn/styles.scss";
-@import "containers/AuthContainer/components/ResetEmailPassword/styles.scss";
-@import "containers/AuthContainer/components/AuthFormText/styles.scss";
+// Auth feature 
+@import "features/Auth/styles.scss";
+@import "features/Auth/components/SignUp/styles.scss";
+@import "features/Auth/components/SignIn/styles.scss";
+@import "features/Auth/components/ResetEmailPassword/styles.scss";
+@import "features/Auth/components/AuthFormText/styles.scss";

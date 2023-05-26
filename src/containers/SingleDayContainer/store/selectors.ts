@@ -1,5 +1,4 @@
 import { createSelector, Selector } from "@reduxjs/toolkit";
-
 import { IApplicationState, TNullable } from "app/store/types";
 
 import { ISingleDay, ISingleDayState } from "./types";

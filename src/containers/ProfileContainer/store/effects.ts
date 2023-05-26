@@ -5,7 +5,7 @@ import { IPayloadAction } from "app/store/types";
 
 import { showNotification, ENotificationType } from "common/utils/notifications";
 
-import { authInfoIDSelector } from "../../AuthContainer/store/selectors";
+import { authInfoIDSelector } from "../../../features/Auth/store/selectors";
 
 import { IUserInfo } from "./types";
 import {
