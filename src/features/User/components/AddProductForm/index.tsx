@@ -22,15 +22,16 @@ import {
   IProductDataValues,
   EProductNutrients,
   EProductNutrientsFull,
+  IAddProductFormProps,
 } from "./types";
 import { optionsAddProductType } from "./constants";
 
-const AddProductForm: FC = () => {
+const AddProductForm: FC<IAddProductFormProps> = ({ day }) => {
   const [options, setOptions] = useState<IProductOption[] | null>(null);
   const [optionsLoading, setOptionsLoading] = useState(false);
 
   const updateLoading = useSelector(updateUserInfoFetchingSelector);
-  const userProducts = useSelector(userProductsSelector) || [];
+  const userProducts = useSelector(userProductsSelector);
 
   const dispatch = useDispatch();
 
@@ -75,7 +76,8 @@ const AddProductForm: FC = () => {
   }, 1000);
 
   const onSubmit = (values: IUserProductInfo) => {
-    dispatch(updateUserInfoFetching({ userProducts: [...userProducts, values] }));
+    const newValues = { ...values, day: day };
+    dispatch(updateUserInfoFetching({ userProducts: [...userProducts, newValues] }));
   };
 
   return (

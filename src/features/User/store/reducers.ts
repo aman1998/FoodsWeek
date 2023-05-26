@@ -3,10 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IPayloadAction } from "app/store/types";
 import { defaultState } from "app/store/constants";
 
-import { IUserState, IUserInfo, IUserInfoDefaultData } from "./types";
+import { userProductsByWeekDefault } from "./contants";
+import { IUserState, IUserInfoData, IUserInfoDefaultData, TProductsByWeekDay } from "./types";
 
 const initialState: IUserState = {
   userInfo: defaultState,
+  userProducts: [],
+  userProductsByWeek: userProductsByWeekDefault,
   updateUserInfo: defaultState,
   productAddModalisOpen: false,
 };
@@ -18,7 +21,23 @@ const userSlice = createSlice({
     userInfoFetching(state: IUserState) {
       state.userInfo.fetching = true;
     },
-    userInfoSuccess(state: IUserState, action: IPayloadAction<IUserInfo>) {
+    userInfoSuccess(state: IUserState, action: IPayloadAction<IUserInfoData>) {
+      const { userProducts } = action.payload;
+      if (userProducts) {
+        const groupedData: TProductsByWeekDay = userProducts.reduce((acc, item) => {
+          const { day, ...rest } = item;
+          if (acc[day]) {
+            acc[day].push(rest);
+          } else {
+            acc[day] = [rest];
+          }
+          return acc;
+        }, {} as TProductsByWeekDay);
+
+        state.userProducts = userProducts;
+        state.userProductsByWeek = { ...state.userProductsByWeek, ...groupedData };
+      }
+
       state.userInfo = { ...defaultState, data: action.payload };
     },
     userInfoError(state: IUserState, action) {

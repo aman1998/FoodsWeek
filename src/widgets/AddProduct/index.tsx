@@ -6,7 +6,9 @@ import { AddProductForm, handleProductAddModalisOpen, productAddModalisOpenSelec
 import Button from "shared/UI/Button";
 import Modal from "shared/UI/Modal";
 
-const AddProduct: FC = () => {
+import { IAddProductProps } from "./types";
+
+const AddProduct: FC<IAddProductProps> = ({ day }) => {
   const isOpenModal = useSelector(productAddModalisOpenSelector);
 
   const dispatch = useDispatch();
@@ -27,7 +29,7 @@ const AddProduct: FC = () => {
       <Button onClick={openModal}>Add Product</Button>
 
       <Modal isOpen={isOpenModal} onClose={() => dispatch(handleProductAddModalisOpen(false))}>
-        <AddProductForm />
+        <AddProductForm day={day} />
       </Modal>
     </>
   );

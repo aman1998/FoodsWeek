@@ -7,7 +7,7 @@ import { showNotification, ENotificationType } from "app/utils/notifications";
 
 import { authInfoIDSelector } from "../../Auth/store/selectors";
 
-import { IUserInfo } from "./types";
+import { IUserInfoData } from "./types";
 import {
   updateUserError,
   updateUserInfoFetching,
@@ -36,10 +36,10 @@ function* userInfo() {
   }
 }
 
-function* updateUserInfo(action: IPayloadAction<IUserInfo>) {
+function* updateUserInfo(action: IPayloadAction<IUserInfoData>) {
   try {
     const id: string = yield select(authInfoIDSelector);
-    const user: IUserInfo = yield select(userInfoSelector);
+    const user: IUserInfoData = yield select(userInfoSelector);
 
     const userRef = doc(database, "users", id);
     yield setDoc(userRef, { id, ...action.payload }, { merge: true });

@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 // import List from "../../../entities/List";
 import AddProduct from "widgets/AddProduct";
 
+import { EWeekDays } from "features/User/store/types";
+
 // import SingleDaySkeleton from "./components/Skeleton";
 
 const SingleDayContainer: FC = () => {
@@ -13,7 +15,7 @@ const SingleDayContainer: FC = () => {
     <section className="day-container">
       <div className="day-container__header">
         <h1 className="day-container__title">{id.toUpperCase()}</h1>
-        <AddProduct />
+        <AddProduct day={id as EWeekDays} />
       </div>
       {/* <List
         component={<></>}

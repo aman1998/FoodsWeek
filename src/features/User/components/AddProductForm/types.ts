@@ -1,3 +1,9 @@
+import { EWeekDays } from "features/User/store/types";
+
+export interface IAddProductFormProps {
+  day: EWeekDays;
+}
+
 export interface IProductOption {
   id: string;
   label: string;
@@ -27,6 +33,7 @@ export interface IProduct {
 }
 
 export interface IUserProductInfo {
+  day: EWeekDays;
   type: string;
   weight: number;
   product: IProduct;

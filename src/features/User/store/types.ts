@@ -12,9 +12,21 @@ export interface IBodyParameters {
   value: number;
 }
 
+export type TProductsByWeekDay = Record<EWeekDays, Omit<IUserProductInfo, "day">[]>;
+
 export enum EGender {
   male = "male",
   female = "female",
+}
+
+export enum EWeekDays {
+  Monday = "monday",
+  Tuesday = "tuesday",
+  Wednesday = "wednesday",
+  Thursday = "thursday",
+  Friday = "friday",
+  Saturday = "saturday",
+  Sunday = "sunday",
 }
 
 export interface IUserInfo {
@@ -24,13 +36,18 @@ export interface IUserInfo {
   weight: IBodyParameters;
   height: IBodyParameters;
   activate: number;
-  userProducts: IUserProductInfo[];
+}
+
+export interface IUserInfoData extends IUserInfo {
+  userProducts?: IUserProductInfo[];
 }
 
 export interface IUserState {
   userInfo: IRequestHandler<IUserInfo>;
   updateUserInfo: IRequestHandler<unknown>;
   productAddModalisOpen: boolean;
+  userProducts: IUserProductInfo[];
+  userProductsByWeek: TProductsByWeekDay | {};
 }
 
 export interface ISingleDayResponse {
