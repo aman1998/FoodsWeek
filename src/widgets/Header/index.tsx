@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Logo from "../../components/Logo";
+import Logo from "../../shared/UI/Logo";
 
 const Header: FC = () => (
   <header className="header">

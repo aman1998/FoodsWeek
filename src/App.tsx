@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { authInfoFetching } from "./features/Auth/store/reducers";
 import Layout from "./widgets/Layout";
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoute from "./app/routers/PrivateRoute";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const DaysPage = lazy(() => import("./pages/DaysPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));

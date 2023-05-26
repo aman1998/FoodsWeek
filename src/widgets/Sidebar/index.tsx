@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import Navigation from "../Navigation";
 
-import Logo from "../../components/Logo";
+import Logo from "../../shared/UI/Logo";
 
 const Sidebar: FC = () => (
   <aside className="sidebar">

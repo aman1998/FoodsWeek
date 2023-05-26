@@ -2,10 +2,6 @@
 @import "normalize";
 @import "main";
 
-// components
-@import "components/Logo/styles.scss";
-@import "components/ChangePercent/styles.scss";
-
 // widgets
 @import "widgets/Layout/styles.scss";
 @import "widgets/Header/styles.scss";
@@ -16,6 +12,7 @@
 
 // UI
 @import "shared/UI/Button/styles.scss";
+@import "shared/UI/Logo/styles.scss";
 
 // Days container
 @import "containers/DaysContainer/styles.scss";

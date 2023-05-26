@@ -2,7 +2,7 @@ import { FC, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 
-import Modal from "components/Modal";
+import Modal from "shared/UI/Modal";
 
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
