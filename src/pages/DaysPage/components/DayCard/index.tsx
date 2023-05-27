@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 import { TDayCardProps } from "./types";
 
-const DayCard: FC<TDayCardProps> = ({ title, link, energy }) => (
+const DayCard: FC<TDayCardProps> = ({ title, link, calories }) => (
   <NavLink to={link} className="day-card" end>
     <p className="day-card__title">{title}</p>
-    <div>energy{energy}</div>
+    <div>calories{calories}</div>
   </NavLink>
 );
 

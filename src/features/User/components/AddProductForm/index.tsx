@@ -21,7 +21,7 @@ import {
   IProductOption,
   IProductDataValues,
   EProductNutrients,
-  EProductNutrientsFull,
+  EProductNutrientsResponseData,
   IAddProductFormProps,
 } from "./types";
 import { optionsAddProductType } from "./constants";
@@ -61,13 +61,14 @@ const AddProductForm: FC<IAddProductFormProps> = ({ day }) => {
         value: {
           name: item.description,
           [EProductNutrients.calories]:
-            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsFull.calories)?.value || 0,
+            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsResponseData.energy)?.value || 0,
           [EProductNutrients.protein]:
-            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsFull.protein)?.value || 0,
+            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsResponseData.protein)?.value || 0,
           [EProductNutrients.fat]:
-            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsFull.fat)?.value || 0,
+            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsResponseData.fat)?.value || 0,
           [EProductNutrients.carbohydrate]:
-            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsFull.carbohydrate)?.value || 0,
+            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsResponseData.carbohydrate)?.value ||
+            0,
         },
       });
     });

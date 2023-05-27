@@ -14,8 +14,15 @@ export interface IBodyParameters {
   value: number;
 }
 
+export interface ITotalNutrients {
+  totalCalories: number;
+  totalCarbohydrate: number;
+  totalProtein: number;
+  totalFat: number;
+}
+
 export interface IProductsByWeekDay {
-  totalEnergyByDay: number;
+  nutrients: ITotalNutrients;
   products: Omit<IUserProductInfo, "day">[];
 }
 
@@ -47,7 +54,7 @@ export interface IUserInfo {
 
 export interface IProductsShortInfo {
   day: EWeekDays;
-  totalEnergyByDay: number;
+  nutrients: ITotalNutrients;
 }
 
 export interface IUserInfoData extends IUserInfo {

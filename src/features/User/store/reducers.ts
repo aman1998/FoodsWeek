@@ -5,14 +5,14 @@ import { defaultState } from "app/store/constants";
 
 import { getFoodCaloriesByWeight } from "../utils/eneryCount";
 
-import { userProductsByWeekDaysDefault } from "./constants";
+import { defaultProductsByWeekDays, defaultProductsInWeek } from "./constants";
 import { IUserState, IUserInfoData, IUserInfoDefaultData, EWeekDays } from "./types";
 
 const initialState: IUserState = {
   userInfo: defaultState,
   userProducts: [],
-  userProductsByWeekDays: userProductsByWeekDaysDefault,
-  userProductsInWeek: [],
+  userProductsByWeekDays: defaultProductsByWeekDays,
+  userProductsInWeek: defaultProductsInWeek,
   updateUserInfo: defaultState,
   productAddModalisOpen: false,
   totalCaloriesInWeek: 0,
@@ -26,6 +26,8 @@ const userSlice = createSlice({
       state.userInfo.fetching = true;
     },
     userInfoSuccess(state: IUserState, action: IPayloadAction<IUserInfoData>) {
+      state.userInfo = { ...defaultState, data: action.payload };
+
       const { userProducts } = action.payload;
       const { userProductsByWeekDays } = state;
 
@@ -33,9 +35,12 @@ const userSlice = createSlice({
         const groupedData = userProducts.reduce(
           (acc, { day, ...rest }) => {
             const { product, weight } = rest;
+            const { nutrients } = acc[day];
 
-            const caloriesTotalCount = getFoodCaloriesByWeight(product.calories, weight);
-            acc[day].totalEnergyByDay = acc[day].totalEnergyByDay + caloriesTotalCount;
+            nutrients.totalCalories += getFoodCaloriesByWeight(product.calories, weight);
+            nutrients.totalCarbohydrate += getFoodCaloriesByWeight(product.carbohydrate, weight);
+            nutrients.totalFat += getFoodCaloriesByWeight(product.fat, weight);
+            nutrients.totalProtein += getFoodCaloriesByWeight(product.protein, weight);
 
             if (acc[day].products.length) {
               acc[day].products.push(rest);
@@ -49,13 +54,12 @@ const userSlice = createSlice({
 
         state.userProducts = userProducts;
         state.userProductsByWeekDays = groupedData;
-        state.userInfo = { ...defaultState, data: action.payload };
-        state.userProductsInWeek = Object.keys(groupedData).map(day => ({
+        state.userProductsInWeek = Object.entries(groupedData).map(([day, data]) => ({
           day: day as EWeekDays,
-          totalEnergyByDay: state.userProductsByWeekDays[day as EWeekDays]?.totalEnergyByDay,
+          nutrients: data.nutrients,
         }));
-        state.totalCaloriesInWeek = state.userProductsInWeek.reduce((acc, item) => {
-          acc += item.totalEnergyByDay;
+        state.totalCaloriesInWeek = Object.values(groupedData).reduce((acc, item) => {
+          acc += item.nutrients.totalCalories;
           return acc;
         }, 0);
       }

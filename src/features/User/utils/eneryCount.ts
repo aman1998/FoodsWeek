@@ -1,1 +1,2 @@
-export const getFoodCaloriesByWeight = (energy: number, weight: number): number => Math.round((energy / 100) * weight);
+export const getFoodCaloriesByWeight = (calories: number, weight: number): number =>
+  Math.round((calories / 100) * weight);

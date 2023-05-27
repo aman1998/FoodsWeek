@@ -10,8 +10,8 @@ export interface IProductOption {
   value: IProduct;
 }
 
-export enum EProductNutrientsFull {
-  calories = "Calories",
+export enum EProductNutrientsResponseData {
+  energy = "Energy", // calories from data
   protein = "Protein",
   fat = "Total lipid (fat)",
   carbohydrate = "Carbohydrate",
@@ -43,7 +43,7 @@ export interface IFoodNutrient {
   value: number;
   unitName: string;
   percentDailyValue: number;
-  nutrientName: EProductNutrientsFull;
+  nutrientName: EProductNutrientsResponseData;
 }
 
 export type TProductValues = Record<EProductNutrients, number>;

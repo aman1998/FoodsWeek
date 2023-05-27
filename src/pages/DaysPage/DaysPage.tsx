@@ -13,7 +13,7 @@ const DaysPage: FC = () => {
       <div className="days">
         {userProductsInWeek.map(item => (
           <DayCard
-            energy={item.totalEnergyByDay}
+            calories={item.nutrients.totalCalories}
             key={item.day}
             title={item.day.toUpperCase()}
             link={`/info/${item.day.toLowerCase()}`}
