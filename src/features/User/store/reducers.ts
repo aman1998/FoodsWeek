@@ -49,14 +49,11 @@ const userSlice = createSlice({
 
         state.userProducts = userProducts;
         state.userProductsByWeekDays = groupedData;
-
         state.userInfo = { ...defaultState, data: action.payload };
-
         state.userProductsInWeek = Object.keys(groupedData).map(day => ({
           day: day as EWeekDays,
           totalEnergyByDay: state.userProductsByWeekDays[day as EWeekDays]?.totalEnergyByDay,
         }));
-
         state.totalEnergyInWeek = state.userProductsInWeek.reduce((acc, item) => {
           acc += item.totalEnergyByDay;
           return acc;
