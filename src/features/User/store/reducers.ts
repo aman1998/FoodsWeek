@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IPayloadAction } from "app/store/types";
 import { defaultState } from "app/store/constants";
 
-import { getEnergyCountByWeight } from "../utils/eneryCount";
+import { getFoodEnergyCountByWeight } from "../utils/eneryCount";
 
 import { userProductsByWeekDaysDefault } from "./constants";
 import { IUserState, IUserInfoData, IUserInfoDefaultData, EWeekDays } from "./types";
@@ -34,7 +34,7 @@ const userSlice = createSlice({
           (acc, { day, ...rest }) => {
             const { product, weight } = rest;
 
-            const energyTotalCount = getEnergyCountByWeight(product.energy, weight);
+            const energyTotalCount = getFoodEnergyCountByWeight(product.energy, weight);
             acc[day].totalEnergyByDay = acc[day].totalEnergyByDay + energyTotalCount;
 
             if (acc[day].products.length) {
