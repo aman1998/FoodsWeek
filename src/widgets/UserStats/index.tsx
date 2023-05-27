@@ -13,7 +13,7 @@ const UserStats: FC = () => {
   const navigate = useNavigate();
 
   const navigateToProfile = (): void => {
-    navigate("/info/profile");
+    navigate("/profile");
   };
 
   if (userInfoLoading) {

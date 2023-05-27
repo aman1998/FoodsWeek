@@ -19,7 +19,7 @@ const DaysPage: FC = () => {
             totalProtein={item.nutrients.totalProtein}
             key={item.day}
             title={item.day.toUpperCase()}
-            link={`/info/${item.day.toLowerCase()}`}
+            link={`/days/${item.day.toLowerCase()}`}
           />
         ))}
       </div>

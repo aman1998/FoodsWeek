@@ -31,10 +31,10 @@ const App: FC = () => {
           }
         />
         <Route element={<PrivateRoute />}>
-          <Route path="/info" element={<Layout />}>
-            <Route index element={<DaysPage />} />
-            <Route index path="/info/:id" element={<SingleDayPage />} />
-            <Route index path="/info/profile" element={<ProfilePage />} />
+          <Route path="" element={<Layout />}>
+            <Route index path="/days" element={<DaysPage />} />
+            <Route index path="/profile" element={<ProfilePage />} />
+            <Route index path="/days/:id" element={<SingleDayPage />} />
           </Route>
         </Route>
         <Route
