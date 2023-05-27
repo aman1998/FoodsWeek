@@ -1,12 +1,27 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
-import { TDayCardProps } from "./types";
+import { IDayCardProps } from "./types";
 
-const DayCard: FC<TDayCardProps> = ({ title, link, calories }) => (
+const DayCard: FC<IDayCardProps> = ({ title, link, totalCalories, totalFat, totalProtein, totalCarbohydrate }) => (
   <NavLink to={link} className="day-card" end>
-    <p className="day-card__title">{title}</p>
-    <div>calories{calories}</div>
+    <h2 className="day-card__title">{title}</h2>
+    <div className="day-card__info">
+      <img className="day-card__icon" src={require("app/images/calories.png")} alt="totalCalories" />
+      <p className="day-card__count">{totalCalories} kcal</p>
+    </div>
+    <div className="day-card__info">
+      <img className="day-card__icon" src={require("app/images/protein.png")} alt="totalProtein" />
+      <p className="day-card__count">{totalProtein}g protein</p>
+    </div>
+    <div className="day-card__info">
+      <img className="day-card__icon" src={require("app/images/fat.png")} alt="totalFat" />
+      <p className="day-card__count">{totalFat}g fat</p>
+    </div>
+    <div className="day-card__info">
+      <img className="day-card__icon" src={require("app/images/carbohydrate.png")} alt="totalCarbohydrate" />
+      <p className="day-card__count">{totalCarbohydrate}g carbohydrate</p>
+    </div>
   </NavLink>
 );
 

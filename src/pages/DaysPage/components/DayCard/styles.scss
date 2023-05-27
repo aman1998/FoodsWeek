@@ -1,8 +1,7 @@
 .day-card {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     padding: 16px;
-    height: 80px;
     color: $gray;
     box-shadow: 0 4px 22px -6px rgb(6 5 50 / 15%);
     border-radius: 12px;
@@ -11,12 +10,17 @@
     &:hover {
         background: $blue-3;
     }
-    &__img {
+    &__info {
+        display: flex;
+        align-items: center;
+    }
+    &__title{
+        margin-bottom: 12px;
+    }
+    &__icon {
+        margin-right: 4px;
         border-radius: 8px;
         width: 30px;
         height: 30px;
-    }
-    &__title{
-        margin-left: 4px;
     }
 }
