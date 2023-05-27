@@ -11,14 +11,14 @@ export interface IProductOption {
 }
 
 export enum EProductNutrientsFull {
-  energy = "Energy",
+  calories = "Calories",
   protein = "Protein",
   fat = "Total lipid (fat)",
   carbohydrate = "Carbohydrate",
 }
 
 export enum EProductNutrients {
-  energy = "energy",
+  calories = "calories",
   protein = "protein",
   fat = "fat",
   carbohydrate = "carbohydrate",
@@ -26,7 +26,7 @@ export enum EProductNutrients {
 
 export interface IProduct {
   name: string;
-  [EProductNutrients.energy]: number;
+  [EProductNutrients.calories]: number;
   [EProductNutrients.protein]: number;
   [EProductNutrients.fat]: number;
   [EProductNutrients.carbohydrate]: number;

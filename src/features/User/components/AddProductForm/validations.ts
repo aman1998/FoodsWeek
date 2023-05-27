@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { EProductNutrients } from "./types";
 
 export const productSchema = Yup.object().shape({
-  [EProductNutrients.energy]: Yup.number().required("Required"),
+  [EProductNutrients.calories]: Yup.number().required("Required"),
   [EProductNutrients.protein]: Yup.number().required("Required"),
   [EProductNutrients.fat]: Yup.number().required("Required"),
   [EProductNutrients.carbohydrate]: Yup.number().required("Required"),

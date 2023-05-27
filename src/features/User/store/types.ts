@@ -75,7 +75,7 @@ export interface IUserState {
   userProducts: IUserProductInfo[];
   userProductsByWeekDays: TProductsByWeekDays;
   userProductsInWeek: IProductsShortInfo[];
-  totalEnergyInWeek: number;
+  totalCaloriesInWeek: number;
 }
 
 export type TUserOutputSelector<T> = OutputSelector<SelectorArray, T, (s: IApplicationState) => T>;

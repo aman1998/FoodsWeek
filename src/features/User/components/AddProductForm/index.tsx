@@ -60,8 +60,8 @@ const AddProductForm: FC<IAddProductFormProps> = ({ day }) => {
         label: item.description,
         value: {
           name: item.description,
-          [EProductNutrients.energy]:
-            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsFull.energy)?.value || 0,
+          [EProductNutrients.calories]:
+            item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsFull.calories)?.value || 0,
           [EProductNutrients.protein]:
             item.foodNutrients.find(nutr => nutr.nutrientName === EProductNutrientsFull.protein)?.value || 0,
           [EProductNutrients.fat]:

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IPayloadAction } from "app/store/types";
 import { defaultState } from "app/store/constants";
 
-import { getFoodEnergyByWeight } from "../utils/eneryCount";
+import { getFoodCaloriesByWeight } from "../utils/eneryCount";
 
 import { userProductsByWeekDaysDefault } from "./constants";
 import { IUserState, IUserInfoData, IUserInfoDefaultData, EWeekDays } from "./types";
@@ -15,7 +15,7 @@ const initialState: IUserState = {
   userProductsInWeek: [],
   updateUserInfo: defaultState,
   productAddModalisOpen: false,
-  totalEnergyInWeek: 0,
+  totalCaloriesInWeek: 0,
 };
 
 const userSlice = createSlice({
@@ -34,8 +34,8 @@ const userSlice = createSlice({
           (acc, { day, ...rest }) => {
             const { product, weight } = rest;
 
-            const energyTotalCount = getFoodEnergyByWeight(product.energy, weight);
-            acc[day].totalEnergyByDay = acc[day].totalEnergyByDay + energyTotalCount;
+            const caloriesTotalCount = getFoodCaloriesByWeight(product.calories, weight);
+            acc[day].totalEnergyByDay = acc[day].totalEnergyByDay + caloriesTotalCount;
 
             if (acc[day].products.length) {
               acc[day].products.push(rest);
@@ -54,7 +54,7 @@ const userSlice = createSlice({
           day: day as EWeekDays,
           totalEnergyByDay: state.userProductsByWeekDays[day as EWeekDays]?.totalEnergyByDay,
         }));
-        state.totalEnergyInWeek = state.userProductsInWeek.reduce((acc, item) => {
+        state.totalCaloriesInWeek = state.userProductsInWeek.reduce((acc, item) => {
           acc += item.totalEnergyByDay;
           return acc;
         }, 0);
