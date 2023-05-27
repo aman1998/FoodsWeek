@@ -3,15 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IPayloadAction } from "app/store/types";
 import { defaultState } from "app/store/constants";
 
-import { userProductsByWeekDefault } from "./contants";
-import { IUserState, IUserInfoData, IUserInfoDefaultData, TProductsByWeekDay } from "./types";
+import { getEnergyCountByWeight } from "../utils/eneryCount";
+
+import { userProductsByWeekDaysDefault } from "./constants";
+import { IUserState, IUserInfoData, IUserInfoDefaultData, EWeekDays } from "./types";
 
 const initialState: IUserState = {
   userInfo: defaultState,
   userProducts: [],
-  userProductsByWeek: userProductsByWeekDefault,
+  userProductsByWeekDays: userProductsByWeekDaysDefault,
+  userProductsInWeek: [],
   updateUserInfo: defaultState,
   productAddModalisOpen: false,
+  totalEnergyInWeek: 0,
 };
 
 const userSlice = createSlice({
@@ -23,22 +27,41 @@ const userSlice = createSlice({
     },
     userInfoSuccess(state: IUserState, action: IPayloadAction<IUserInfoData>) {
       const { userProducts } = action.payload;
+      const { userProductsByWeekDays } = state;
+
       if (userProducts) {
-        const groupedData: TProductsByWeekDay = userProducts.reduce((acc, item) => {
-          const { day, ...rest } = item;
-          if (acc[day]) {
-            acc[day].push(rest);
-          } else {
-            acc[day] = [rest];
-          }
-          return acc;
-        }, {} as TProductsByWeekDay);
+        const groupedData = userProducts.reduce(
+          (acc, { day, ...rest }) => {
+            const { product, weight } = rest;
+
+            const energyTotalCount = getEnergyCountByWeight(product.energy, weight);
+            acc[day].totalEnergyByDay = acc[day].totalEnergyByDay + energyTotalCount;
+
+            if (acc[day].products.length) {
+              acc[day].products.push(rest);
+            } else {
+              acc[day].products = [rest];
+            }
+            return acc;
+          },
+          { ...userProductsByWeekDays }
+        );
 
         state.userProducts = userProducts;
-        state.userProductsByWeek = { ...state.userProductsByWeek, ...groupedData };
-      }
+        state.userProductsByWeekDays = groupedData;
 
-      state.userInfo = { ...defaultState, data: action.payload };
+        state.userInfo = { ...defaultState, data: action.payload };
+
+        state.userProductsInWeek = Object.keys(groupedData).map(day => ({
+          day: day as EWeekDays,
+          totalEnergyByDay: state.userProductsByWeekDays[day as EWeekDays]?.totalEnergyByDay,
+        }));
+
+        state.totalEnergyInWeek = state.userProductsInWeek.reduce((acc, item) => {
+          acc += item.totalEnergyByDay;
+          return acc;
+        }, 0);
+      }
     },
     userInfoError(state: IUserState, action) {
       state.userInfo = { ...defaultState, error: action.payload };

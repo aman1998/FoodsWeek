@@ -1,4 +1,6 @@
-import { IRequestHandler } from "app/store/types";
+import { OutputSelector, SelectorArray } from "reselect";
+
+import { IApplicationState, IRequestHandler } from "app/store/types";
 
 import { IUserProductInfo } from "../components/AddProductForm/types";
 
@@ -12,7 +14,12 @@ export interface IBodyParameters {
   value: number;
 }
 
-export type TProductsByWeekDay = Record<EWeekDays, Omit<IUserProductInfo, "day">[]>;
+export interface IProductsByWeekDay {
+  totalEnergyByDay: number;
+  products: Omit<IUserProductInfo, "day">[];
+}
+
+export type TProductsByWeekDays = Record<EWeekDays, IProductsByWeekDay>;
 
 export enum EGender {
   male = "male",
@@ -38,16 +45,13 @@ export interface IUserInfo {
   activate: number;
 }
 
-export interface IUserInfoData extends IUserInfo {
-  userProducts?: IUserProductInfo[];
+export interface IProductsShortInfo {
+  day: EWeekDays;
+  totalEnergyByDay: number;
 }
 
-export interface IUserState {
-  userInfo: IRequestHandler<IUserInfo>;
-  updateUserInfo: IRequestHandler<unknown>;
-  productAddModalisOpen: boolean;
-  userProducts: IUserProductInfo[];
-  userProductsByWeek: TProductsByWeekDay | {};
+export interface IUserInfoData extends IUserInfo {
+  userProducts?: IUserProductInfo[];
 }
 
 export interface ISingleDayResponse {
@@ -63,3 +67,15 @@ export interface ISingleDayResponse {
 export interface ISingleDay extends ISingleDayResponse {
   number: number;
 }
+
+export interface IUserState {
+  userInfo: IRequestHandler<IUserInfo>;
+  updateUserInfo: IRequestHandler<unknown>;
+  productAddModalisOpen: boolean;
+  userProducts: IUserProductInfo[];
+  userProductsByWeekDays: TProductsByWeekDays;
+  userProductsInWeek: IProductsShortInfo[];
+  totalEnergyInWeek: number;
+}
+
+export type TUserOutputSelector<T> = OutputSelector<SelectorArray, T, (s: IApplicationState) => T>;
