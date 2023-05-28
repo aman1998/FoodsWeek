@@ -21,10 +21,10 @@ const CaloriesChart: FC = () => {
   return (
     <aside className="calories-chart">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={userProductsInWeek} margin={{ top: 10, right: 10, bottom: -10, left: -10 }}>
+        <BarChart data={userProductsInWeek} margin={{ top: 10, right: 10, bottom: -10, left: -15 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="day" style={{ fontSize: 10 }} interval={0} />
-          <YAxis domain={[totalCaloriesConsumedInDay, "auto"]} />
+          <YAxis domain={[totalCaloriesConsumedInDay, "auto"]} style={{ fontSize: 14 }} />
           <Tooltip />
           <ReferenceLine y={totalCaloriesConsumedInDay} stroke="#000" />
           <Bar dataKey="nutrients.totalCalories" fill="#1cb0f6">

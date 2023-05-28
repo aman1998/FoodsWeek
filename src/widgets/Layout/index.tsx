@@ -16,7 +16,7 @@ const Layout: FC<ILayoutProps> = ({ showAsides = true }) => (
     <Header />
     <Sidebar />
     <main className="main">
-      <div className="main-wrapper">
+      <div className="main-content">
         <div style={{ width: "100%" }}>
           <Suspense fallback={<></>}>
             <Outlet />
