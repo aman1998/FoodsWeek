@@ -6,7 +6,7 @@ import {
   userInfoFetchingSelector,
   userInfoSelector,
   userTotalGetCaloriesInWeekSelector,
-  userTotalGetAverageCaloriesInWeekSelector,
+  userTotalGetAverageCaloriesInDaySelector,
   userTotalExpenditureCaloriesInWeekSelector,
   userTotalExpenditureAverageCaloriesInDaySelector,
 } from "features/User/store/selectors";
@@ -17,7 +17,7 @@ const UserStats: FC = () => {
   const user = useSelector(userInfoSelector);
   const userInfoLoading = useSelector(userInfoFetchingSelector);
   const totalCaloriesBurnedInWeek = useSelector(userTotalGetCaloriesInWeekSelector);
-  const totalCaloriesBurnedInDay = useSelector(userTotalGetAverageCaloriesInWeekSelector);
+  const totalCaloriesBurnedInDay = useSelector(userTotalGetAverageCaloriesInDaySelector);
   const totalCaloriesConsumedInWeek = useSelector(userTotalExpenditureCaloriesInWeekSelector);
   const totalCaloriesConsumedInDay = useSelector(userTotalExpenditureAverageCaloriesInDaySelector);
 

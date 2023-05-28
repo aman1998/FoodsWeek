@@ -20,7 +20,7 @@ export const userProductsByWeekGroupedDaySelector = createSelector(selectState, 
 export const userProductsInWeekSelector = createSelector(selectState, state => state.userProductsInWeek);
 
 export const userTotalGetCaloriesInWeekSelector = createSelector(selectState, state => state.totalGetCaloriesInWeek);
-export const userTotalGetAverageCaloriesInWeekSelector = createSelector(
+export const userTotalGetAverageCaloriesInDaySelector = createSelector(
   selectState,
   state => state.totalGetAverageCaloriesInDay
 );
