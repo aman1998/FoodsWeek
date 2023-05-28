@@ -1,5 +1,5 @@
-export const calculatePercentage = (value: number, total: number): number => {
-  const difference = value - total;
-  const percentage = (difference / total) * 100;
+export const calculatePercentage = (actual: number, target: number): number => {
+  const deviation = actual - target;
+  const percentage = (deviation / target) * 100;
   return percentage;
 };

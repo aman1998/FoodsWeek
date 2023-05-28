@@ -6,7 +6,7 @@
     min-height: 100vh;
     z-index: 1;
     border-right: 2px solid $gray-2;
-    @media screen and (max-width: $max-lg-media) {
+    @media screen and (max-width: $max-md-media) {
         display: none;
     }
     &__logo-wrapper {
