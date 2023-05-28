@@ -1,6 +1,16 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
-import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
+import {
+  BarChart,
+  XAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Cell,
+  Bar,
+  YAxis,
+  ReferenceLine,
+} from "recharts";
 
 import { userProductsInWeekSelector, userTotalExpenditureAverageCaloriesInDaySelector } from "features/User";
 
@@ -11,19 +21,29 @@ const CaloriesChart: FC = () => {
   return (
     <aside className="calories-chart">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={userProductsInWeek}>
+        <BarChart data={userProductsInWeek} margin={{ top: 10, right: 10, bottom: -10, left: -10 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="day" style={{ fontSize: 10 }} interval={0} />
+          <YAxis domain={[totalCaloriesConsumedInDay, "auto"]} />
           <Tooltip />
-          <Line dataKey="nutrients.totalCalories" fill="#1cb0f6">
+          <ReferenceLine y={totalCaloriesConsumedInDay} stroke="#000" />
+          <Bar dataKey="nutrients.totalCalories" fill="#1cb0f6">
             {userProductsInWeek.map(item => (
               <Cell
                 key={item.day}
                 fill={item.nutrients.totalCalories >= totalCaloriesConsumedInDay ? "#137333" : "#a50e0e"}
               />
             ))}
-          </Line>
-        </LineChart>
+          </Bar>
+          {/* <Line dataKey="nutrients.totalCalories" fill="#1cb0f6">
+            {userProductsInWeek.map(item => (
+              <Cell
+                key={item.day}
+                fill={item.nutrients.totalCalories >= totalCaloriesConsumedInDay ? "#137333" : "#a50e0e"}
+              />
+            ))}
+          </Line> */}
+        </BarChart>
       </ResponsiveContainer>
     </aside>
   );
