@@ -42,25 +42,22 @@ const userSlice = createSlice({
       const { userProductsByWeekDays } = state;
 
       if (userProducts) {
-        const groupedData = userProducts.reduce(
-          (acc, { day, ...rest }) => {
-            const { product, weight } = rest;
-            const { nutrients } = acc[day];
+        const groupedData = userProducts.reduce((acc, { day, ...rest }) => {
+          const { product, weight } = rest;
+          const { nutrients } = acc[day];
 
-            nutrients.totalCalories += getFoodCaloriesByWeight(product.calories, weight);
-            nutrients.totalCarbohydrate += getFoodCaloriesByWeight(product.carbohydrate, weight);
-            nutrients.totalFat += getFoodCaloriesByWeight(product.fat, weight);
-            nutrients.totalProtein += getFoodCaloriesByWeight(product.protein, weight);
+          nutrients.totalCalories += getFoodCaloriesByWeight(product.calories, weight);
+          nutrients.totalCarbohydrate += getFoodCaloriesByWeight(product.carbohydrate, weight);
+          nutrients.totalFat += getFoodCaloriesByWeight(product.fat, weight);
+          nutrients.totalProtein += getFoodCaloriesByWeight(product.protein, weight);
 
-            if (acc[day].products.length) {
-              acc[day].products.push(rest);
-            } else {
-              acc[day].products = [rest];
-            }
-            return acc;
-          },
-          { ...userProductsByWeekDays }
-        );
+          if (acc[day].products.length) {
+            acc[day].products.push(rest);
+          } else {
+            acc[day].products = [rest];
+          }
+          return acc;
+        }, Object.assign({}, userProductsByWeekDays));
 
         state.userProducts = userProducts;
         state.userProductsByWeekDays = groupedData;

@@ -9,6 +9,15 @@ body {
         margin-left: 0;
         padding: 16px 8px;
     }
+    &-asides {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 500px;
+        @media screen and (max-width: $max-md-media) {
+            width: 100%;
+        }
+    }
 }
 
 .main-wrapper {

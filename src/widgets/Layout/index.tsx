@@ -1,6 +1,8 @@
 import { FC, Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
+import CaloriesChart from "widgets/CaloriesChart";
+
 import { AuthForm } from "features/Auth";
 
 import UserStats from "../UserStats";
@@ -9,7 +11,7 @@ import Sidebar from "../Sidebar";
 
 import { ILayoutProps } from "./types";
 
-const Layout: FC<ILayoutProps> = ({ showStats = true }) => (
+const Layout: FC<ILayoutProps> = ({ showAsides = true }) => (
   <>
     <Header />
     <Sidebar />
@@ -20,7 +22,12 @@ const Layout: FC<ILayoutProps> = ({ showStats = true }) => (
             <Outlet />
           </Suspense>
         </div>
-        {showStats && <UserStats />}
+        {showAsides && (
+          <div className="main-asides">
+            <UserStats />
+            <CaloriesChart />
+          </div>
+        )}
       </div>
     </main>
     <AuthForm />

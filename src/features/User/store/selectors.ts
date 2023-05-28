@@ -18,8 +18,9 @@ export const updateUserInfoErrorSelector = createSelector(selectState, state => 
 export const userProductsSelector = createSelector(selectState, state => state.userProducts);
 export const userProductsByWeekGroupedDaySelector = createSelector(selectState, state => state.userProductsByWeekDays);
 export const userProductsInWeekSelector = createSelector(selectState, state => state.userProductsInWeek);
-export const userTotalCaloriesInWeekSelector = createSelector(selectState, state => state.totalGetCaloriesInWeek);
-export const userTotalAverageCaloriesInWeekSelector = createSelector(
+
+export const userTotalGetCaloriesInWeekSelector = createSelector(selectState, state => state.totalGetCaloriesInWeek);
+export const userTotalGetAverageCaloriesInWeekSelector = createSelector(
   selectState,
   state => state.totalGetAverageCaloriesInDay
 );
@@ -27,7 +28,10 @@ export const userTotalExpenditureAverageCaloriesInDaySelector = createSelector(
   selectState,
   state => state.totalExpenditureAverageCaloriesInDay
 );
-export const userTotalGetCaloriesInWeekSelector = createSelector(selectState, state => state.totalGetCaloriesInWeek);
+export const userTotalExpenditureCaloriesInWeekSelector = createSelector(
+  selectState,
+  state => state.totalExpenditureCaloriesInWeek
+);
 export const userTotalAverageRecommendedCaloriesInDaySelector = createSelector(
   selectState,
   state => state.totalAverageRecommendedCaloriesInDay
