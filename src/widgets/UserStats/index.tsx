@@ -23,8 +23,6 @@ const UserStats: FC = () => {
 
   const navigate = useNavigate();
 
-  const surplusDeficit = totalCaloriesBurnedInWeek - totalCaloriesConsumedInWeek;
-
   const navigateToProfile = (): void => {
     navigate("/profile");
   };
@@ -62,12 +60,6 @@ const UserStats: FC = () => {
             <span>
               {totalCaloriesConsumedInWeek} kcal (per day {totalCaloriesConsumedInDay})
             </span>
-          </div>
-
-          <div className="user-stats__item">
-            {/* <img className="user-stats__icon" src={require("app/images/calories.png")} alt="totalCalories" /> */}
-            <b>Surplus/Deficit:</b>
-            <span>{surplusDeficit} kcal</span>
           </div>
         </div>
       </div>
