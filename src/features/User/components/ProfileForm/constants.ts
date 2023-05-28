@@ -1,4 +1,4 @@
-import { EGender } from "../../store/types";
+import { EGender, EHeightTypes, EWeightTypes } from "shared/libs/types/user";
 
 export const optionsActivaty = [
   { label: "Minimal (sedentary work)", value: "minimal" },
@@ -8,13 +8,13 @@ export const optionsActivaty = [
 ];
 
 export const optionsUnitWeight = [
-  { label: "kg", value: "kg" },
-  { label: "pounds", value: "pounds" },
+  { label: EWeightTypes.kg, value: EWeightTypes.kg },
+  { label: EWeightTypes.pounds, value: EWeightTypes.pounds },
 ];
 
 export const optionsUnitHeight = [
-  { label: "sm", value: "sm" },
-  { label: "feet", value: "feet" },
+  { label: EHeightTypes.sm, value: EHeightTypes.sm },
+  { label: EHeightTypes.feet, value: EHeightTypes.feet },
 ];
 
 export const optionsGender = [

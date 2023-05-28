@@ -1,20 +1,26 @@
-// Определение типов данных
-export type Gender = "male" | "female";
-// export type ActivityLevel = "minimal" | "moderate" | "high" | "very high";
+import { EActivityLevel, EGender, EHeightTypes, EWeightTypes } from "shared/libs/types/user";
 
 // Функция для расчета расхода калорий за день
 export const calculateDailyCalorieExpenditure = (
-  gender: Gender,
-  weight: number,
-  height: number,
+  gender: EGender,
+  weightValue: number,
+  weightType: EWeightTypes,
+  heightValue: number,
+  heightType: EHeightTypes,
   age: number,
-  activityLevel: string
+  activityLevel: EActivityLevel
 ): number => {
-  // let newHeight = height;
+  let height = heightValue;
+  let weight = weightValue;
 
-  // if (type !== "sm") {
-  //   newHeight = Math.round(height * 30.48); // пребразование фута в см
-  // }
+  if (heightType === EHeightTypes.feet) {
+    height = Math.round(heightValue * 30.48); // пребразование фута в см
+  }
+
+  if (weightType === EWeightTypes.pounds) {
+    weight = Math.round(weightValue * 0.453592); // пребразование фунта в кг
+  }
+
   let bmr: number;
 
   if (gender === "male") {
@@ -47,13 +53,23 @@ export const calculateDailyCalorieExpenditure = (
 
 // Функция для расчета расхода калорий за неделю
 export const calculateWeeklyCalorieExpenditure = (
-  gender: Gender,
-  weight: number,
-  height: number,
+  gender: EGender,
+  weightValue: number,
+  weightType: EWeightTypes,
+  heightValue: number,
+  heightType: EHeightTypes,
   age: number,
-  activityLevel: string
+  activityLevel: EActivityLevel
 ): number => {
-  const dailyCalorieExpenditure = calculateDailyCalorieExpenditure(gender, weight, height, age, activityLevel);
+  const dailyCalorieExpenditure = calculateDailyCalorieExpenditure(
+    gender,
+    weightValue,
+    weightType,
+    heightValue,
+    heightType,
+    age,
+    activityLevel
+  );
   const weeklyCalorieExpenditure = dailyCalorieExpenditure * 7;
 
   return weeklyCalorieExpenditure;

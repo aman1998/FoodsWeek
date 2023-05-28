@@ -8,13 +8,14 @@ export const month = today.getMonth();
 export const year = today.getFullYear();
 export const currentDayOfWeek = daysOfWeek[day];
 
+export const getAge = (yearBirth: number): number => year - yearBirth;
+
 const getDateOptions = (dates: number[]) => dates.map(item => ({ label: String(item), value: item }));
 
 export const days = range(31, 1);
 export const daysSelectOptions = getDateOptions(days);
 
 export const years = range(96, year - 96).reverse();
-
 export const yearsSelectOptions = getDateOptions(years);
 
 export const birthdayYears = range(80, year - 96).reverse();

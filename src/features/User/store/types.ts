@@ -2,6 +2,8 @@ import { OutputSelector, SelectorArray } from "reselect";
 
 import { IApplicationState, IRequestHandler } from "app/store/types";
 
+import { EActivityLevel, EGender, EHeightTypes, EWeightTypes } from "shared/libs/types/user";
+
 import { IUserProductInfo } from "../components/AddProductForm/types";
 
 export interface IUserInfoDefaultData {
@@ -9,8 +11,8 @@ export interface IUserInfoDefaultData {
   text: string;
 }
 
-export interface IBodyParameters {
-  type: string;
+export interface IBodyParameters<T> {
+  type: T;
   value: number;
 }
 
@@ -28,11 +30,6 @@ export interface IProductsByWeekDay {
 
 export type TProductsByWeekDays = Record<EWeekDays, IProductsByWeekDay>;
 
-export enum EGender {
-  male = "male",
-  female = "female",
-}
-
 export enum EWeekDays {
   Monday = "monday",
   Tuesday = "tuesday",
@@ -47,9 +44,9 @@ export interface IUserInfo {
   name: string;
   yearBirth: number;
   gender: EGender;
-  weight: IBodyParameters;
-  height: IBodyParameters;
-  activateLevel: string;
+  weight: IBodyParameters<EWeightTypes>;
+  height: IBodyParameters<EHeightTypes>;
+  activateLevel: EActivityLevel;
 }
 
 export interface IProductsShortInfo {

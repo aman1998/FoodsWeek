@@ -7,10 +7,11 @@ import { yearsSelectOptions } from "shared/utils/date";
 import TextFieldControl from "shared/libs/controllers/TextFieldControl";
 import SelectControl from "shared/libs/controllers/SelectControl";
 import Button from "shared/UI/Button";
+import { EActivityLevel, EGender, EHeightTypes, EWeightTypes } from "shared/libs/types/user";
 
 import { updateUserInfoFetchingSelector, userInfoSelector, userInfoFetchingSelector } from "../../store/selectors";
 import { updateUserInfoFetching } from "../../store/reducers";
-import { EGender, IUserInfo } from "../../store/types";
+import { IUserInfo } from "../../store/types";
 
 import { optionsActivaty, optionsUnitWeight, optionsUnitHeight, optionsGender } from "./constants";
 import { profileSchema } from "./validations";
@@ -35,14 +36,14 @@ const ProfileForm: FC = () => {
       yearBirth: user?.yearBirth,
       gender: user?.gender || EGender.female,
       height: {
-        type: user?.height?.type || "sm",
+        type: user?.height?.type || EHeightTypes.sm,
         value: user?.height?.value || 0,
       },
       weight: {
-        type: user?.weight?.type || "kg",
+        type: user?.weight?.type || EWeightTypes.kg,
         value: user?.weight?.value || 60,
       },
-      activateLevel: user?.activateLevel || "minimal",
+      activateLevel: user?.activateLevel || EActivityLevel.minimal,
     });
   }, [reset, user]);
 

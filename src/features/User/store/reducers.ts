@@ -4,6 +4,7 @@ import { IPayloadAction } from "app/store/types";
 import { defaultState } from "app/store/constants";
 
 import { calculateDailyCalorieExpenditure } from "shared/utils/calories";
+import { getAge } from "shared/utils/date";
 
 import { getFoodCaloriesByWeight } from "../utils/eneryCount";
 
@@ -75,10 +76,18 @@ const userSlice = createSlice({
         state.totalGetAverageCaloriesInDay = Math.round(state.totalGetCaloriesInWeek / 7);
       }
       if (state.userInfo.data) {
-        const { gender, height, weight, activateLevel } = state.userInfo.data;
+        const { gender, height, weight, activateLevel, yearBirth } = state.userInfo.data;
 
         state.totalExpenditureAverageCaloriesInDay = Math.round(
-          calculateDailyCalorieExpenditure(gender, weight.value, height.value, 25, activateLevel)
+          calculateDailyCalorieExpenditure(
+            gender,
+            weight.value,
+            weight.type,
+            height.value,
+            height.type,
+            getAge(yearBirth),
+            activateLevel
+          )
         );
         state.totalExpenditureCaloriesInWeek = Math.round(state.totalExpenditureAverageCaloriesInDay * 7);
       }
