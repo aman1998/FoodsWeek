@@ -97,7 +97,7 @@ const ProfileForm: FC = () => {
         <SelectControl
           control={control}
           name="height.type"
-          options={optionsUnitWeight}
+          options={optionsUnitHeight}
           className="profile-form-item__select-field"
         />
       </div>
@@ -113,7 +113,7 @@ const ProfileForm: FC = () => {
         <SelectControl
           control={control}
           name="weight.type"
-          options={optionsUnitHeight}
+          options={optionsUnitWeight}
           className="profile-form-item__select-field"
         />
       </div>

@@ -10,6 +10,11 @@ export const calculateDailyCalorieExpenditure = (
   age: number,
   activityLevel: string
 ): number => {
+  // let newHeight = height;
+
+  // if (type !== "sm") {
+  //   newHeight = Math.round(height * 30.48); // пребразование фута в см
+  // }
   let bmr: number;
 
   if (gender === "male") {

@@ -8,13 +8,13 @@ export const optionsActivaty = [
 ];
 
 export const optionsUnitWeight = [
-  { label: "sm", value: "sm" },
-  { label: "ft", value: "ft" },
+  { label: "kg", value: "kg" },
+  { label: "pounds", value: "pounds" },
 ];
 
 export const optionsUnitHeight = [
-  { label: "kg", value: "kg" },
-  { label: "ft", value: "ft" },
+  { label: "sm", value: "sm" },
+  { label: "feet", value: "feet" },
 ];
 
 export const optionsGender = [
