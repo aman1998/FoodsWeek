@@ -14,9 +14,9 @@ const defaultWeekDayInfo = {
 
 export const defaultProductsByWeekDays: TProductsByWeekDays = {
   [EWeekDays.Monday]: defaultWeekDayInfo,
-  [EWeekDays.Thursday]: defaultWeekDayInfo,
-  [EWeekDays.Wednesday]: defaultWeekDayInfo,
   [EWeekDays.Tuesday]: defaultWeekDayInfo,
+  [EWeekDays.Wednesday]: defaultWeekDayInfo,
+  [EWeekDays.Thursday]: defaultWeekDayInfo,
   [EWeekDays.Friday]: defaultWeekDayInfo,
   [EWeekDays.Saturday]: defaultWeekDayInfo,
   [EWeekDays.Sunday]: defaultWeekDayInfo,
