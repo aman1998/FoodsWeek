@@ -20,7 +20,7 @@ const CaloriesChart: FC = () => {
 
   return (
     <aside className="calories-chart">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height={150}>
         <BarChart data={userProductsInWeek} margin={{ top: 10, right: 10, bottom: -10, left: -15 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="day" style={{ fontSize: 10 }} interval={0} />

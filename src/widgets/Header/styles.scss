@@ -3,7 +3,7 @@
     justify-content: center;
     border-bottom: 2px solid $gray-2;
     padding: 8px;
-    @media screen and (min-width: $x-media) {
+    @media screen and (min-width: $max-lg-media) {
         display: none;
     }
 }

@@ -5,7 +5,7 @@ body {
 .main {
     margin-left: 256px;
     padding: 16px;
-    @media screen and (max-width: $max-md-media) {
+    @media screen and (max-width: $max-lg-media) {
         margin-left: 0;
         padding: 16px 8px;
     }
@@ -14,7 +14,7 @@ body {
         justify-content: space-between;
         gap: 20px;
         flex: 1;
-        @media screen and (max-width: $max-md-media) {
+        @media screen and (max-width: $max-lg-media) {
             flex-direction: column-reverse;
         }
     }
@@ -22,13 +22,16 @@ body {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        min-width: 400px;
         position: sticky;
         top: 0;
         align-self: flex-start;
         margin-top: -16px;
         padding-top: 16px;
-        @media screen and (max-width: $max-md-media) {
+        width: 450px;
+        min-width: 450px;
+        @media screen and (max-width: $max-lg-media) {
+            position: static;
+            width: 100%;
             min-width: 100%;
         }
     }
