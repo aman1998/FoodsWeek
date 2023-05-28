@@ -3,7 +3,8 @@ import { query, where, getDocs, collection, Query, doc, setDoc } from "firebase/
 
 import { database } from "app/firebase/firebase-config";
 import { IPayloadAction } from "app/store/types";
-import { showNotification, ENotificationType } from "app/utils/notifications";
+
+import { showNotification, ENotificationType } from "shared/utils/notifications";
 
 import { authInfoIDSelector } from "../../Auth/store/selectors";
 

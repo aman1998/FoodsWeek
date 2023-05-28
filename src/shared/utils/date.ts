@@ -1,9 +1,12 @@
 import range from "./range";
 
+const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 export const today = new Date();
 export const day = today.getDay();
 export const month = today.getMonth();
 export const year = today.getFullYear();
+export const currentDayOfWeek = daysOfWeek[day];
 
 const getDateOptions = (dates: number[]) => dates.map(item => ({ label: String(item), value: item }));
 

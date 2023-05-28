@@ -1,10 +1,10 @@
 import { EGender } from "../../store/types";
 
 export const optionsActivaty = [
-  { label: "Минимальный (сидячая работа)", value: 1 },
-  { label: "Средний (много хожу)", value: 2 },
-  { label: "Повышенный (физический труд)", value: 3 },
-  { label: "Высокий (тяжелый физический труд)", value: 4 },
+  { label: "Minimal (sedentary work)", value: "minimal" },
+  { label: "Moderate (moderate activity level)", value: "moderate" },
+  { label: "High (physically demanding work)", value: "high" },
+  { label: "Very high (heavy physical labor)", value: 'very high"' },
 ];
 
 export const optionsUnitWeight = [

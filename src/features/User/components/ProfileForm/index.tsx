@@ -3,8 +3,7 @@ import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-import { yearsSelectOptions } from "app/utils/date";
-
+import { yearsSelectOptions } from "shared/utils/date";
 import TextFieldControl from "shared/libs/controllers/TextFieldControl";
 import SelectControl from "shared/libs/controllers/SelectControl";
 import Button from "shared/UI/Button";
@@ -43,7 +42,7 @@ const ProfileForm: FC = () => {
         type: user?.weight?.type || "kg",
         value: user?.weight?.value || 60,
       },
-      activate: 1,
+      activateLevel: user?.activateLevel || "minimal",
     });
   }, [reset, user]);
 
@@ -122,7 +121,7 @@ const ProfileForm: FC = () => {
         <div className="profile-form-item__title">Activate</div>
         <SelectControl
           control={control}
-          name="activate"
+          name="activateLevel"
           options={optionsActivaty}
           className="profile-form-item__field"
         />

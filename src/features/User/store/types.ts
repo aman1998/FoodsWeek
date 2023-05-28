@@ -49,7 +49,7 @@ export interface IUserInfo {
   gender: EGender;
   weight: IBodyParameters;
   height: IBodyParameters;
-  activate: number;
+  activateLevel: string;
 }
 
 export interface IProductsShortInfo {
@@ -82,7 +82,12 @@ export interface IUserState {
   userProducts: IUserProductInfo[];
   userProductsByWeekDays: TProductsByWeekDays;
   userProductsInWeek: IProductsShortInfo[];
-  totalCaloriesInWeek: number;
+  totalGetCaloriesInWeek: number;
+  totalGetAverageCaloriesInDay: number;
+  totalExpenditureCaloriesInWeek: number;
+  totalExpenditureAverageCaloriesInDay: number;
+  totalRecommendedCaloriesInWeek: number;
+  totalAverageRecommendedCaloriesInDay: number;
 }
 
 export type TUserOutputSelector<T> = OutputSelector<SelectorArray, T, (s: IApplicationState) => T>;
