@@ -13,6 +13,7 @@ const HomePage: FC = () => (
       <HomeHeaderContent />
       <HomeDemonstration />
     </div>
+    <footer className="home-footer container">Copyright © 2023 AmanRossoneri98</footer>
     <AuthForm />
   </div>
 );
