@@ -6,6 +6,7 @@ import { authInfoFetching } from "../features/Auth/store/reducers";
 import Layout from "../widgets/Layout";
 
 import PrivateRoute from "./routers/PrivateRoute";
+import UnauthorizedRoute from "./routers/UnauthorizedRoute";
 const HomePage = lazy(() => import("../pages/HomePage"));
 const DaysPage = lazy(() => import("../pages/DaysPage"));
 const ProfilePage = lazy(() => import("../pages/ProfilePage"));
@@ -22,14 +23,16 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback={<></>}>
-              <HomePage />
-            </Suspense>
-          }
-        />
+        <Route element={<UnauthorizedRoute />}>
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<></>}>
+                <HomePage />
+              </Suspense>
+            }
+          />
+        </Route>
         <Route element={<PrivateRoute />}>
           <Route path="" element={<Layout />}>
             <Route index path="/days" element={<DaysPage />} />

@@ -1,5 +1,18 @@
 import { FC } from "react";
 
-const HomeContainer: FC = () => <div>Home</div>;
+import { AuthForm } from "features/Auth";
 
-export default HomeContainer;
+import HomeHeader from "./components/HomeHeader";
+import HomeHeaderContent from "./components/HomeHeaderContent";
+
+const HomePage: FC = () => (
+  <div className="home">
+    <HomeHeader />
+    <div className="container">
+      <HomeHeaderContent />
+    </div>
+    <AuthForm />
+  </div>
+);
+
+export default HomePage;

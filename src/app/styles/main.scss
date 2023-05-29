@@ -2,6 +2,13 @@ main {
     color: $gray;
 }
 
+.container {
+    width: 100%;
+    max-width: $max-container-media;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
 .modal {
     padding: 20px;
 }

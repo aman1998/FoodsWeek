@@ -1,0 +1,20 @@
+.home-header-content {
+    display: flex;
+    justify-content: space-between;
+    &__left {
+        width: 471px;
+    }
+    &__title {
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 49px;
+    }
+    &__description {
+        margin: 24px 0;
+        font-size: 16px;
+        line-height: 160%;
+    }
+    &__image {
+        max-width: 754px;
+    }
+}
