@@ -6,14 +6,23 @@ import { changeAuthModalIsOpen } from "features/Auth/store/reducers";
 import Button from "shared/UI/Button";
 import Logo from "shared/UI/Logo";
 
+import HomeNavigation from "../HomeNavigation";
+
 const HomeHeader: FC = () => {
   const dispatch = useDispatch();
   return (
     <header className="home-header-wrapper">
       <div className="container">
         <div className="home-header">
-          <Logo link="/" />
-          <Button variant="outlined" onClick={() => dispatch(changeAuthModalIsOpen(true))}>
+          <div className="home-header__logo-wrapper">
+            <Logo link="/" />
+          </div>
+          <HomeNavigation />
+          <Button
+            className="home-header__button"
+            variant="outlined"
+            onClick={() => dispatch(changeAuthModalIsOpen(true))}
+          >
             Sign UP
           </Button>
         </div>

@@ -1,3 +1,11 @@
-import ProfilePage from "./ProfilePage";
+import { FC } from "react";
 
-export default ProfilePage;
+import { ProfileForm } from "features/User";
+
+const ProfileContainer: FC = () => (
+  <section className="profile">
+    <ProfileForm />
+  </section>
+);
+
+export default ProfileContainer;
