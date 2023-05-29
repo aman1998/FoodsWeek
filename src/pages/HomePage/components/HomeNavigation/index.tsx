@@ -6,7 +6,7 @@ import { ELinks } from "pages/HomePage/types";
 const HomeNavigation: FC = () => (
   <nav className="home-navigation">
     <ul>
-      <li className="home-navigation__item">
+      <li>
         <Link to={ELinks.about} spy={true} smooth={true} offset={0} duration={1000} className="navigation__link">
           About
         </Link>
