@@ -3,7 +3,7 @@ import { FC } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-import { userTotalGetAverageCaloriesInDaySelector } from "features/User";
+import { userTotalConsumedAverageCaloriesInDaySelector } from "features/User";
 
 import ChangePercent from "shared/components/ChangePercent";
 import { currentDayOfWeek } from "shared/utils/date";
@@ -12,7 +12,7 @@ import { calculatePercentage } from "shared/utils/percent";
 import { IDayCardProps } from "./types";
 
 const DayCard: FC<IDayCardProps> = ({ title, link, totalCalories, totalFat, totalProtein, totalCarbohydrate }) => {
-  const totalCaloriesBurnedInDay = useSelector(userTotalGetAverageCaloriesInDaySelector);
+  const totalCaloriesBurnedInDay = useSelector(userTotalConsumedAverageCaloriesInDaySelector);
   return (
     <NavLink to={link} className="day-card" end>
       <h2

@@ -3,12 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IPayloadAction } from "app/store/types";
 import { defaultState } from "app/store/constants";
 
-import { calculateDailyCalorieExpenditure } from "shared/utils/calories";
+import { calculateDailyCalorieBurned } from "shared/utils/calories";
 import { getAge } from "shared/utils/date";
 
 import { getFoodCaloriesByWeight } from "../utils/eneryCount";
 
-// import { calculateWeeklyCalorieExpenditure } from "./../../../shared/utils/calories";
 import { defaultProductsByWeekDays, defaultProductsInWeek } from "./constants";
 import { IUserState, IUserInfoData, IUserInfoDefaultData, EWeekDays } from "./types";
 
@@ -20,10 +19,10 @@ const initialState: IUserState = {
   updateUserInfo: defaultState,
   productAddModalisOpen: false,
 
-  totalGetCaloriesInWeek: 0,
-  totalGetAverageCaloriesInDay: 0,
-  totalExpenditureCaloriesInWeek: 0,
-  totalExpenditureAverageCaloriesInDay: 0,
+  totalConsumedCaloriesInWeek: 0,
+  totalConsumedAverageCaloriesInDay: 0,
+  totalBurnedCaloriesInWeek: 0,
+  totalBurnedAverageCaloriesInDay: 0,
   totalRecommendedCaloriesInWeek: 0,
   totalAverageRecommendedCaloriesInDay: 0,
 };
@@ -39,25 +38,31 @@ const userSlice = createSlice({
       state.userInfo = { ...defaultState, data: action.payload };
 
       const { userProducts } = action.payload;
-      const { userProductsByWeekDays } = state;
 
       if (userProducts) {
-        const groupedData = userProducts.reduce((acc, { day, ...rest }) => {
-          const { product, weight } = rest;
-          const { nutrients } = acc[day];
+        const groupedData = userProducts.reduce(
+          (acc, { day, ...rest }) => {
+            const { product, weight } = rest;
+            const { nutrients } = acc[day];
 
-          nutrients.totalCalories += getFoodCaloriesByWeight(product.calories, weight);
-          nutrients.totalCarbohydrate += getFoodCaloriesByWeight(product.carbohydrate, weight);
-          nutrients.totalFat += getFoodCaloriesByWeight(product.fat, weight);
-          nutrients.totalProtein += getFoodCaloriesByWeight(product.protein, weight);
+            const updatedNutrients = {
+              totalCalories: nutrients.totalCalories + getFoodCaloriesByWeight(product.calories, weight),
+              totalCarbohydrate: nutrients.totalCarbohydrate + getFoodCaloriesByWeight(product.carbohydrate, weight),
+              totalFat: nutrients.totalFat + getFoodCaloriesByWeight(product.fat, weight),
+              totalProtein: nutrients.totalProtein + getFoodCaloriesByWeight(product.protein, weight),
+            };
 
-          if (acc[day].products.length) {
-            acc[day].products.push(rest);
-          } else {
-            acc[day].products = [rest];
-          }
-          return acc;
-        }, Object.assign({}, userProductsByWeekDays));
+            const updatedDay = {
+              ...acc[day],
+              nutrients: updatedNutrients,
+              products: [...(acc[day].products || []), rest],
+            };
+
+            acc[day] = updatedDay;
+            return acc;
+          },
+          { ...defaultProductsByWeekDays }
+        );
 
         state.userProducts = userProducts;
         state.userProductsByWeekDays = groupedData;
@@ -66,17 +71,18 @@ const userSlice = createSlice({
           nutrients: data.nutrients,
         }));
 
-        state.totalGetCaloriesInWeek = Object.values(groupedData).reduce((acc, item) => {
-          acc += item.nutrients.totalCalories;
-          return acc;
-        }, 0);
-        state.totalGetAverageCaloriesInDay = Math.round(state.totalGetCaloriesInWeek / 7);
+        state.totalConsumedCaloriesInWeek = Object.values(groupedData).reduce(
+          (acc, item) => acc + item.nutrients.totalCalories,
+          0
+        );
+        state.totalConsumedAverageCaloriesInDay = Math.round(state.totalConsumedCaloriesInWeek / 7);
       }
+
       if (state.userInfo.data) {
         const { gender, height, weight, activateLevel, yearBirth } = state.userInfo.data;
 
-        state.totalExpenditureAverageCaloriesInDay = Math.round(
-          calculateDailyCalorieExpenditure(
+        state.totalBurnedAverageCaloriesInDay = Math.round(
+          calculateDailyCalorieBurned(
             gender,
             weight.value,
             weight.type,
@@ -86,7 +92,7 @@ const userSlice = createSlice({
             activateLevel
           )
         );
-        state.totalExpenditureCaloriesInWeek = Math.round(state.totalExpenditureAverageCaloriesInDay * 7);
+        state.totalBurnedCaloriesInWeek = Math.round(state.totalBurnedAverageCaloriesInDay * 7);
       }
     },
     userInfoError(state: IUserState, action) {

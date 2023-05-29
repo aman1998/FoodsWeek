@@ -79,10 +79,10 @@ export interface IUserState {
   userProducts: IUserProductInfo[];
   userProductsByWeekDays: TProductsByWeekDays;
   userProductsInWeek: IProductsShortInfo[];
-  totalGetCaloriesInWeek: number;
-  totalGetAverageCaloriesInDay: number;
-  totalExpenditureCaloriesInWeek: number;
-  totalExpenditureAverageCaloriesInDay: number;
+  totalConsumedCaloriesInWeek: number;
+  totalConsumedAverageCaloriesInDay: number;
+  totalBurnedCaloriesInWeek: number;
+  totalBurnedAverageCaloriesInDay: number;
   totalRecommendedCaloriesInWeek: number;
   totalAverageRecommendedCaloriesInDay: number;
 }

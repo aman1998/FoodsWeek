@@ -19,18 +19,21 @@ export const userProductsSelector = createSelector(selectState, state => state.u
 export const userProductsByWeekGroupedDaySelector = createSelector(selectState, state => state.userProductsByWeekDays);
 export const userProductsInWeekSelector = createSelector(selectState, state => state.userProductsInWeek);
 
-export const userTotalGetCaloriesInWeekSelector = createSelector(selectState, state => state.totalGetCaloriesInWeek);
-export const userTotalGetAverageCaloriesInDaySelector = createSelector(
+export const userTotalConsumedCaloriesInWeekSelector = createSelector(
   selectState,
-  state => state.totalGetAverageCaloriesInDay
+  state => state.totalConsumedCaloriesInWeek
 );
-export const userTotalExpenditureAverageCaloriesInDaySelector = createSelector(
+export const userTotalConsumedAverageCaloriesInDaySelector = createSelector(
   selectState,
-  state => state.totalExpenditureAverageCaloriesInDay
+  state => state.totalConsumedAverageCaloriesInDay
 );
-export const userTotalExpenditureCaloriesInWeekSelector = createSelector(
+export const userTotalBurnedAverageCaloriesInDaySelector = createSelector(
   selectState,
-  state => state.totalExpenditureCaloriesInWeek
+  state => state.totalBurnedAverageCaloriesInDay
+);
+export const userTotalBurnedCaloriesInWeekSelector = createSelector(
+  selectState,
+  state => state.totalBurnedCaloriesInWeek
 );
 export const userTotalAverageRecommendedCaloriesInDaySelector = createSelector(
   selectState,

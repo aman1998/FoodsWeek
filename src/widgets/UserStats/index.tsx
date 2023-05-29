@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import {
   userInfoFetchingSelector,
   userInfoSelector,
-  userTotalGetCaloriesInWeekSelector,
-  userTotalGetAverageCaloriesInDaySelector,
-  userTotalExpenditureCaloriesInWeekSelector,
-  userTotalExpenditureAverageCaloriesInDaySelector,
+  userTotalConsumedCaloriesInWeekSelector,
+  userTotalConsumedAverageCaloriesInDaySelector,
+  userTotalBurnedCaloriesInWeekSelector,
+  userTotalBurnedAverageCaloriesInDaySelector,
 } from "features/User/store/selectors";
 
 import Button from "shared/UI/Button";
@@ -16,10 +16,10 @@ import Button from "shared/UI/Button";
 const UserStats: FC = () => {
   const user = useSelector(userInfoSelector);
   const userInfoLoading = useSelector(userInfoFetchingSelector);
-  const totalCaloriesBurnedInWeek = useSelector(userTotalGetCaloriesInWeekSelector);
-  const totalCaloriesBurnedInDay = useSelector(userTotalGetAverageCaloriesInDaySelector);
-  const totalCaloriesConsumedInWeek = useSelector(userTotalExpenditureCaloriesInWeekSelector);
-  const totalCaloriesConsumedInDay = useSelector(userTotalExpenditureAverageCaloriesInDaySelector);
+  const totalCaloriesConsumedInWeek = useSelector(userTotalConsumedCaloriesInWeekSelector);
+  const totalCaloriesConsumedInDay = useSelector(userTotalConsumedAverageCaloriesInDaySelector);
+  const totalCaloriesBurnedInWeek = useSelector(userTotalBurnedCaloriesInWeekSelector);
+  const totalCaloriesBurnedInDay = useSelector(userTotalBurnedAverageCaloriesInDaySelector);
 
   const navigate = useNavigate();
 

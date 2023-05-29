@@ -12,11 +12,11 @@ import {
   ReferenceLine,
 } from "recharts";
 
-import { userProductsInWeekSelector, userTotalExpenditureAverageCaloriesInDaySelector } from "features/User";
+import { userProductsInWeekSelector, userTotalBurnedAverageCaloriesInDaySelector } from "features/User";
 
 const CaloriesChart: FC = () => {
   const userProductsInWeek = useSelector(userProductsInWeekSelector);
-  const totalCaloriesConsumedInDay = useSelector(userTotalExpenditureAverageCaloriesInDaySelector);
+  const totalCaloriesConsumedInDay = useSelector(userTotalBurnedAverageCaloriesInDaySelector);
 
   return (
     <aside className="calories-chart">

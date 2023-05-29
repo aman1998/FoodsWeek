@@ -1,7 +1,7 @@
 import { EActivityLevel, EGender, EHeightTypes, EWeightTypes } from "shared/libs/types/user";
 
 // Функция для расчета расхода калорий за день
-export const calculateDailyCalorieExpenditure = (
+export const calculateDailyCalorieBurned = (
   gender: EGender,
   weightValue: number,
   weightType: EWeightTypes,
@@ -29,30 +29,30 @@ export const calculateDailyCalorieExpenditure = (
     bmr = 10 * weight + 6.25 * height - 5 * age - 161;
   }
 
-  let calorieExpenditure: number;
+  let calorieBurned: number;
 
   switch (activityLevel) {
     case "minimal":
-      calorieExpenditure = bmr * 1.2;
+      calorieBurned = bmr * 1.2;
       break;
     case "moderate":
-      calorieExpenditure = bmr * 1.375;
+      calorieBurned = bmr * 1.375;
       break;
     case "high":
-      calorieExpenditure = bmr * 1.55;
+      calorieBurned = bmr * 1.55;
       break;
     case "very high":
-      calorieExpenditure = bmr * 1.725;
+      calorieBurned = bmr * 1.725;
       break;
     default:
       throw new Error("Invalid activity level.");
   }
 
-  return calorieExpenditure;
+  return calorieBurned;
 };
 
 // Функция для расчета расхода калорий за неделю
-export const calculateWeeklyCalorieExpenditure = (
+export const calculateWeeklyCalorieBurned = (
   gender: EGender,
   weightValue: number,
   weightType: EWeightTypes,
@@ -61,7 +61,7 @@ export const calculateWeeklyCalorieExpenditure = (
   age: number,
   activityLevel: EActivityLevel
 ): number => {
-  const dailyCalorieExpenditure = calculateDailyCalorieExpenditure(
+  const dailyCalorieBurned = calculateDailyCalorieBurned(
     gender,
     weightValue,
     weightType,
@@ -70,7 +70,7 @@ export const calculateWeeklyCalorieExpenditure = (
     age,
     activityLevel
   );
-  const weeklyCalorieExpenditure = dailyCalorieExpenditure * 7;
+  const weeklyCalorieBurned = dailyCalorieBurned * 7;
 
-  return weeklyCalorieExpenditure;
+  return weeklyCalorieBurned;
 };
