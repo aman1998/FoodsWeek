@@ -47,19 +47,15 @@ const UserStats: FC = () => {
           <div className="user-stats__item">
             <b>Weight:</b> <span>{user?.weight?.value ? `${user.weight.value} ${user.weight?.type}` : "not"}</span>
           </div>
-          <div className="user-stats__item">
+          <div className="user-stats__item user-stats__item--kcal">
             {/* <img className="user-stats__icon" src={require("app/images/calories.png")} alt="totalCalories" /> */}
             <b>Burned:</b>
-            <span>
-              {totalCaloriesBurnedInWeek} kcal (per day {totalCaloriesBurnedInDay})
-            </span>
+            <span> {totalCaloriesBurnedInWeek}</span> kcal (per day {<span>{totalCaloriesBurnedInDay}</span>})
           </div>
-          <div className="user-stats__item">
+          <div className="user-stats__item user-stats__item--kcal">
             {/* <img className="user-stats__icon" src={require("app/images/calories.png")} alt="totalCalories" /> */}
             <b>Consumed:</b>
-            <span>
-              {totalCaloriesConsumedInWeek} kcal (per day {totalCaloriesConsumedInDay})
-            </span>
+            <span>{totalCaloriesConsumedInWeek}</span> kcal (per day {<span>{totalCaloriesConsumedInDay}</span>})
           </div>
         </div>
       </div>

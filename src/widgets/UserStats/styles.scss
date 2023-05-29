@@ -32,6 +32,12 @@
     }
     &__item {
         margin-bottom: 4px;
+        &--kcal {
+            span {
+                font-weight: 600;
+                color: $green;
+            }
+        }
     }
     &__btn {
         color: $color-main !important;
