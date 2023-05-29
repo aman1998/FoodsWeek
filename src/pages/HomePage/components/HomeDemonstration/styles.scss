@@ -2,14 +2,44 @@
     &__title {
         text-align: center;
         font-weight: 600;
-        font-size: 36px;
-        line-height: 42px;
+        font-size: 40px;
+        line-height: 49px;
     }
     &__subtitle {
         text-align: center;
         margin: 10px 0 30px 0;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 150%;
+        font-size: 18px;
+        line-height: 160%;
+        color: $gray;
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+    }
+    &-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+        &--reverse {
+            flex-direction: row-reverse;
+        }
+        &__content {
+            max-width: 532px;
+        }
+        &__title {
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        &__text {
+            color: $gray;
+            font-size: 16px;
+            line-height: 160%;
+        }
+    }
+    &__image {
+        width: 550px;
+        height: 372px;
     }
 }

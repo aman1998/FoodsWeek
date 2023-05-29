@@ -14,7 +14,7 @@ const HomeHeader: FC = () => {
         <div className="home-header">
           <Logo link="/" />
           <Button variant="outlined" onClick={() => dispatch(changeAuthModalIsOpen(true))}>
-            Sign
+            Sign UP
           </Button>
         </div>
       </div>
