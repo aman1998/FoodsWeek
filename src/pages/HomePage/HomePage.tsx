@@ -12,8 +12,8 @@ const HomePage: FC = () => (
     <HomeHeader />
     <div className="container">
       <HomeHeaderContent />
-      <HomeDemonstration />
       <HomeAdvantages />
+      <HomeDemonstration />
     </div>
     <footer className="home-footer container">Copyright © 2023 AmanRossoneri98</footer>
     <AuthForm />
