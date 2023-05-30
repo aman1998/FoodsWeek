@@ -8,7 +8,7 @@ import Button from "shared/UI/Button";
 const HomeGetStarted: FC = () => {
   const dispatch = useDispatch();
   return (
-    <section className="home-getStarted">
+    <article className="home-getStarted">
       <h2 className="home-getStarted__title">Are you interested? Then start right now!</h2>
       <Button
         className="home-getStarted__button"
@@ -18,7 +18,7 @@ const HomeGetStarted: FC = () => {
       >
         Get Started
       </Button>
-    </section>
+    </article>
   );
 };
 
