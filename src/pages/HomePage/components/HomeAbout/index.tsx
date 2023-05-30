@@ -47,9 +47,11 @@ const HomeAbout: FC = () => {
           Then you've come to the right place! Our website provides a free, simple, and convenient calorie calculator
           tool that will help you plan a healthy and balanced diet.{" "}
         </motion.div>
-        <Button onClick={openModal} className="home-about__button">
-          Get Started
-        </Button>
+        <div className="home-about__button-wrapper">
+          <Button onClick={openModal} className="home-about__button">
+            Get Started
+          </Button>
+        </div>
       </div>
       <motion.img
         variants={imgAnimation}

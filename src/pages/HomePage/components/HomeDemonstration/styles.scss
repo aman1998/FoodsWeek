@@ -1,9 +1,23 @@
 .home-demonstration {
+    @media screen and (max-width: $max-sm-media) {
+        margin-bottom: 24px;
+    }
+    @media screen and (max-width: $max-more-xs-media) {
+        margin-bottom: 16px;
+    }
     &__title {
         text-align: center;
         font-weight: 600;
         font-size: 40px;
         line-height: 49px;
+        @media screen and (max-width: $max-sm-media) {
+            font-size: 36px;
+            line-height: 40px;
+        }
+        @media screen and (max-width: $max-more-xs-media) {
+            font-size: 28px;
+            line-height: 30px;
+        }
     }
     &__subtitle {
         text-align: center;
@@ -11,19 +25,38 @@
         font-size: 18px;
         line-height: 160%;
         color: $gray;
+        @media screen and (max-width: $max-sm-media) {
+            font-size: 16px;
+            line-height: 18px;
+        }
+        @media screen and (max-width: $max-more-xs-media) {
+            margin: 10px 0;
+        }
     }
     &__list {
         display: flex;
         flex-direction: column;
         gap: 40px;
+        @media screen and (max-width: $max-sm-media) {
+            gap: 0;
+        }
     }
     &-item {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 80px;
+        @media screen and (max-width: $max-sm-media) {
+            flex-direction: column;
+            gap: 40px;
+        }
+        @media screen and (max-width: $max-more-xs-media) {
+            gap: 10px;
+        }
         &--reverse {
-            flex-direction: row-reverse;
+            @media screen and (max-width: $max-sm-media) {
+                flex-direction: column;
+            }
         }
         &__content {
             max-width: 532px;
@@ -31,15 +64,29 @@
         &__title {
             margin-bottom: 30px;
             font-size: 24px;
+            @media screen and (max-width: $max-sm-media) {
+                text-align: center;
+            }
+            @media screen and (max-width: $max-more-xs-media) {
+                margin-bottom: 10px;
+            }
         }
         &__text {
             color: $gray;
             font-size: 16px;
             line-height: 160%;
+            @media screen and (max-width: $max-sm-media) {
+                text-align: center;
+            }
+            
         }
     }
     &__image {
         width: 550px;
         height: 372px;
+        @media screen and (max-width: $max-sm-media) {
+            width: 100%;
+            height: auto;
+        }
     }
 }

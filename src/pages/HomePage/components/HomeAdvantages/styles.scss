@@ -5,6 +5,14 @@
         font-weight: 600;
         font-size: 40px;
         line-height: 49px;
+        @media screen and (max-width: $max-sm-media) {
+            font-size: 36px;
+            line-height: 40px;
+        }
+        @media screen and (max-width: $max-more-xs-media) {
+            font-size: 28px;
+            line-height: 30px;
+        }
     }
     &__subtitle {
         text-align: center;
@@ -12,6 +20,13 @@
         font-size: 18px;
         line-height: 160%;
         color: $gray;
+        @media screen and (max-width: $max-sm-media) {
+            font-size: 16px;
+            line-height: 18px;
+        }
+        @media screen and (max-width: $max-more-xs-media) {
+            margin: 10px 0;
+        }
     }
     &__list {
         display: grid;
@@ -19,6 +34,10 @@
         gap: 30px;
         grid-gap: 30px;
         width: 100%;
+        @media screen and (max-width: $max-sm-media) {
+            gap: 15px;
+            grid-gap: 15px;
+        }
     }
     &-card {
         display: flex;
@@ -29,7 +48,12 @@
         border: 1px solid #F2F2F2;
         box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.05);
         border-radius: 40px;
-        // height: 379px;
+        @media screen and (max-width: $max-sm-media) {
+            padding: 24px;
+        }
+        @media screen and (max-width: $max-more-xs-media) {
+            
+        }
         &__icon-wrapper {
             display: flex;
             align-items: center;
@@ -40,6 +64,11 @@
             width: 121px;
             height: 121px;
             border-radius: 20px;
+            @media screen and (max-width: $max-sm-media) {
+                width: 80px;
+                height: 80px;
+                font-size: 30px;
+            }
         }
         &__title {
             text-align: center;
@@ -48,6 +77,11 @@
             line-height: 30px;
             font-weight: 600;
             color: $gray;
+            @media screen and (max-width: $max-sm-media) {
+                margin: 15px 0;
+                font-size: 20px;
+                line-height: 22px;
+            }
         }
         &__text {
             text-align: center;
