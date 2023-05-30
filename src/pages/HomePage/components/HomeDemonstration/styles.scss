@@ -1,7 +1,5 @@
 .home-demonstration {
-    @media screen and (max-width: $max-sm-media) {
-        margin-bottom: 24px;
-    }
+    margin-bottom: 24px;
     @media screen and (max-width: $max-more-xs-media) {
         margin-bottom: 16px;
     }
@@ -54,6 +52,7 @@
             gap: 10px;
         }
         &--reverse {
+            flex-direction: row-reverse;
             @media screen and (max-width: $max-sm-media) {
                 flex-direction: column;
             }

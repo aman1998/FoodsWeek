@@ -1,0 +1,6 @@
+.home-header-mobile {
+    display: none;
+    @media screen and (max-width: $max-sm-media) {
+        display: block;
+    }
+}

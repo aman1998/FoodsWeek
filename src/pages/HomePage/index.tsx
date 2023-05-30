@@ -9,10 +9,12 @@ import HomeDemonstration from "./components/HomeDemonstration";
 import HomeAdvantages from "./components/HomeAdvantages";
 import { ELinks } from "./types";
 import HomeGetStarted from "./components/HomeGetStarted";
+import HomeHeaderMobile from "./components/HomeHeaderMobile";
 
 const HomePage: FC = () => (
   <div className="home">
     <HomeHeader />
+    <HomeHeaderMobile />
     <div className="container">
       <HomeHeaderContent />
       <Element name={ELinks.advantages}>
