@@ -115,7 +115,18 @@ const userSlice = createSlice({
 
     resetUserInfo(state: IUserState) {
       state.userInfo = defaultState;
+      state.userProducts = [];
+      state.userProductsByWeekDays = defaultProductsByWeekDays;
+      state.userProductsInWeek = defaultProductsInWeek;
       state.updateUserInfo = defaultState;
+      state.productAddModalisOpen = false;
+
+      state.totalConsumedCaloriesInWeek = 0;
+      state.totalConsumedAverageCaloriesInDay = 0;
+      state.totalBurnedCaloriesInWeek = 0;
+      state.totalBurnedAverageCaloriesInDay = 0;
+      state.totalRecommendedCaloriesInWeek = 0;
+      state.totalAverageRecommendedCaloriesInDay = 0;
     },
 
     handleProductAddModalisOpen(state, action: IPayloadAction<boolean>) {

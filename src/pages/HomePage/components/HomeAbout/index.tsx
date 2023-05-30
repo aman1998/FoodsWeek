@@ -6,6 +6,18 @@ import { changeAuthModalIsOpen } from "features/Auth/store/reducers";
 
 import Button from "shared/UI/Button";
 
+const animation = {
+  hidden: {
+    x: -100,
+    opacity: 0,
+  },
+  visible: (custom: number) => ({
+    x: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.2, duration: 0.5 },
+  }),
+};
+
 const HomeAbout: FC = () => {
   const dispatch = useDispatch();
 
@@ -14,18 +26,13 @@ const HomeAbout: FC = () => {
   };
 
   return (
-    <section className="home-about">
+    <motion.section viewport={{ once: true }} initial="hidden" whileInView="visible" className="home-about">
       <div className="home-about__left">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="home-about__title"
-        >
+        <motion.h1 custom={1} variants={animation} className="home-about__title">
           Manage Your Food and <br />
           Nutrition!
         </motion.h1>
-        <motion.div className="home-about__description">
+        <motion.div custom={2} variants={animation} className="home-about__description">
           Do you want to improve your nutrition, track your calories, and achieve your weight loss or maintenance goals?
           Then you've come to the right place! Our website provides a free, simple, and convenient calorie calculator
           tool that will help you plan a healthy and balanced diet.{" "}
@@ -38,7 +45,7 @@ const HomeAbout: FC = () => {
         src="https://evernote.com/c/assets/homepage-repackaging/task_hero_image@2x__ru.png?a3e901e4e88f1ef"
         className="home-about__image"
       />
-    </section>
+    </motion.section>
   );
 };
 
