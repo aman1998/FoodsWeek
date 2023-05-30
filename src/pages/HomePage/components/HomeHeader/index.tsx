@@ -10,6 +10,7 @@ import HomeNavigation from "../HomeNavigation";
 
 const HomeHeader: FC = () => {
   const dispatch = useDispatch();
+
   return (
     <header className="home-header-wrapper">
       <div className="container">

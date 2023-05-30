@@ -1,3 +1,19 @@
 .home-navigation {
-    
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 14px;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    &__link {
+        color: $gray;
+        transition: 0.3 ease;
+        &:hover {
+            color: $color-main;
+        }
+    }
 }

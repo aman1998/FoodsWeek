@@ -1,36 +1,41 @@
 import { FC } from "react";
-import { Link } from "react-scroll";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 import { ELinks } from "pages/HomePage/types";
 
 const HomeNavigation: FC = () => (
   <nav className="home-navigation">
-    <ul>
-      <li>
-        <Link to={ELinks.about} spy={true} smooth={true} offset={0} duration={1000} className="navigation__link">
+    <ul className="home-navigation__list">
+      <li className="home-navigation__item">
+        <a
+          onClick={() => {
+            scroll.scrollToTop();
+          }}
+          className="home-navigation__link"
+        >
           About
-        </Link>
+        </a>
       </li>
-      <li>
+      <li className="home-navigation__item">
         <Link
           to={ELinks.advantages}
+          offset={-70} // header height + header margin-bottom
           spy={true}
           smooth={true}
-          offset={-200}
           duration={1000}
           className="home-navigation__link"
         >
           Advantages
         </Link>
       </li>
-      <li>
+      <li className="home-navigation__item">
         <Link
           to={ELinks.demonstration}
           spy={true}
           smooth={true}
-          offset={0}
+          offset={-70}
           duration={1000}
-          className="navigation__link"
+          className="home-navigation__link"
         >
           Demonstration
         </Link>

@@ -13,9 +13,7 @@ const HomePage: FC = () => (
   <div className="home">
     <HomeHeader />
     <div className="container">
-      <Element name={ELinks.about}>
-        <HomeHeaderContent />
-      </Element>
+      <HomeHeaderContent />
       <Element name={ELinks.advantages}>
         <HomeAdvantages />
       </Element>
