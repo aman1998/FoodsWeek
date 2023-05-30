@@ -23,6 +23,8 @@ const UserStats: FC = () => {
 
   const navigate = useNavigate();
 
+  console.log("window =>", window.location.pathname);
+
   const navigateToProfile = (): void => {
     navigate("/profile");
   };
@@ -35,9 +37,11 @@ const UserStats: FC = () => {
     <aside className="user-stats">
       <div className="user-stats__header">
         <h2 className="user-stats__title">{user?.name ? `${user.name}` : "User"}</h2>
-        <Button onClick={navigateToProfile} variant="text" className="user-stats__btn">
-          Change info
-        </Button>
+        {window.location.pathname !== "/profile" && (
+          <Button onClick={navigateToProfile} variant="text" className="user-stats__btn">
+            Change info
+          </Button>
+        )}
       </div>
       <div>
         <div className="user-stats__info">
