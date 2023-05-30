@@ -19,13 +19,13 @@ const AuthFormText: FC<{ type: string }> = ({ type }) => {
         return (
           <>
             <p className="auth-form-text">
-              Нет аккаунта?{" "}
+              Нет аккаунта?
               <Button variant="text" onClick={() => handleForm(EAuthTypes.signup)} className="auth-form-btn">
                 Регистрация
               </Button>
             </p>
             <p className="auth-form-text">
-              Забыли пароль{" "}
+              Забыли пароль?
               <Button variant="text" onClick={() => handleForm(EAuthTypes.reset)} className="auth-form-btn">
                 Сброс пароля
               </Button>
@@ -35,7 +35,7 @@ const AuthFormText: FC<{ type: string }> = ({ type }) => {
       case EAuthTypes.signup:
         return (
           <p className="auth-form-text">
-            Есть аккаунт?{" "}
+            Есть аккаунт?
             <Button variant="text" className="auth-form-btn" onClick={() => handleForm(EAuthTypes.signin)}>
               Вход в аккаунт
             </Button>

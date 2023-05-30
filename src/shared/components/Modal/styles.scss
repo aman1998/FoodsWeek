@@ -1,0 +1,11 @@
+.modal {
+    .MuiPaper-root {
+        @media screen and (max-width: $max-more-xs-media) {
+            margin: 0;
+            width: 300px;
+        }
+    }
+    &-wrapper {
+        padding: 20px;
+    }
+}

@@ -14,7 +14,9 @@
 // UI
 @import "shared/UI/Button/styles.scss";
 @import "shared/UI/Logo/styles.scss";
+@import "shared/components/Modal/styles.scss";
 @import "shared/components/ChangePercent/styles.scss";
+@import "shared/components/Hamburger/styles.scss";
 
 // Profile container
 @import "pages/ProfilePage/styles.scss";
@@ -48,4 +50,5 @@
 @import 'pages/HomePage/components/HomeAdvantages/styles.scss';  
 @import 'pages/HomePage/components/HomeNavigation/styles.scss';
 @import 'pages/HomePage/components/HomeGetStarted/styles.scss';
-@import 'pages/HomePage/components/HomeHeaderMobile/styles.scss';       
+@import 'pages/HomePage/components/HomeHeaderMobile/styles.scss';    
+@import 'pages/HomePage/components/HomeDrawer/styles.scss';   

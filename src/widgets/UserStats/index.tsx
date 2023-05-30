@@ -23,8 +23,6 @@ const UserStats: FC = () => {
 
   const navigate = useNavigate();
 
-  console.log("window =>", window.location.pathname);
-
   const navigateToProfile = (): void => {
     navigate("/profile");
   };

@@ -15,8 +15,9 @@ const Modal: FC<IModal> = ({ isOpen, onClose, children, fullScreen }) => (
         borderRadius: 16,
       },
     }}
+    className="modal"
   >
-    <div className="modal">{children}</div>
+    <div className="modal-wrapper">{children}</div>
   </MUIModal>
 );
 

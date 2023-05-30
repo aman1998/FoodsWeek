@@ -1,6 +1,25 @@
-.home-header-mobile {
+.home-header-mobile-wrapper {
     display: none;
+    position: sticky;
+    top: 0;
+    padding: 15px 0;
+    z-index: 2;
+    margin-bottom: 24px;
+    box-shadow: rgb(6 5 50 / 10%) 0px 4px 30px;
+    background-color: rgba(255, 255, 255, 0.75);
+    z-index: $home-header-z-index;
+    backdrop-filter: blur(20px);
     @media screen and (max-width: $max-sm-media) {
         display: block;
     }
+}
+
+.home-header-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-header-drawer {
+    width: 300px;
 }

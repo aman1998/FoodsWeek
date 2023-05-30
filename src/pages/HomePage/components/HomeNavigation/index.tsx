@@ -3,13 +3,16 @@ import { Link, animateScroll as scroll } from "react-scroll";
 
 import { ELinks } from "pages/HomePage/types";
 
-const HomeNavigation: FC = () => (
+const HomeNavigation: FC<{ setIsOpenBurger?: (value: boolean) => void }> = ({ setIsOpenBurger }) => (
   <nav className="home-navigation">
     <ul className="home-navigation__list">
       <li className="home-navigation__item">
         <a
           onClick={() => {
             scroll.scrollToTop();
+            if (setIsOpenBurger) {
+              setIsOpenBurger(false);
+            }
           }}
           className="home-navigation__link"
         >
@@ -24,6 +27,11 @@ const HomeNavigation: FC = () => (
           smooth={true}
           duration={1000}
           className="home-navigation__link"
+          onClick={() => {
+            if (setIsOpenBurger) {
+              setIsOpenBurger(false);
+            }
+          }}
         >
           Advantages
         </Link>
@@ -36,6 +44,11 @@ const HomeNavigation: FC = () => (
           offset={-70}
           duration={1000}
           className="home-navigation__link"
+          onClick={() => {
+            if (setIsOpenBurger) {
+              setIsOpenBurger(false);
+            }
+          }}
         >
           Demonstration
         </Link>
