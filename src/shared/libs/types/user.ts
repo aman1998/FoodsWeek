@@ -11,7 +11,7 @@ export enum EActivityLevel {
 
 export enum EWeightTypes {
   kg = "kg",
-  pounds = "pounds",
+  pounds = "pounds/lbs",
 }
 
 export enum EHeightTypes {

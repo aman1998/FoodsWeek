@@ -41,7 +41,7 @@ const ProfileForm: FC = () => {
       },
       weight: {
         type: user?.weight?.type || EWeightTypes.kg,
-        value: user?.weight?.value || 60,
+        value: user?.weight?.value || 0,
       },
       activateLevel: user?.activateLevel || EActivityLevel.minimal,
     });

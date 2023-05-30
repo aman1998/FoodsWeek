@@ -49,7 +49,9 @@ function* updateUserInfo(action: IPayloadAction<IUserInfoData>) {
     showNotification(ENotificationType.success, "Данные обновлены!");
   } catch (e) {
     yield put(updateUserError(e));
-    showNotification(ENotificationType.error, "Произошла ошибка, повторите снова");
+    if (window.location.pathname !== "/days") {
+      showNotification(ENotificationType.error, "Произошла ошибка, повторите снова");
+    }
   }
 }
 

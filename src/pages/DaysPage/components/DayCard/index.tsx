@@ -26,7 +26,7 @@ const DayCard: FC<IDayCardProps> = ({ title, link, totalCalories, totalFat, tota
         <img className="day-card__icon" src={require("app/images/calories.png")} alt="totalCalories" />
         <p className="day-card__count">{totalCalories} kcal</p>
         <div className="day-card__percent-wrapper">
-          <ChangePercent percent={calculatePercentage(totalCalories, totalCaloriesBurnedInDay)} />
+          {!!totalCalories && <ChangePercent percent={calculatePercentage(totalCalories, totalCaloriesBurnedInDay)} />}
         </div>
       </div>
       <div className="day-card__info">
