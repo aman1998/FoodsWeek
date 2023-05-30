@@ -12,5 +12,5 @@ export const productSchema = Yup.object().shape({
 export const addProductFormSchema = Yup.object().shape({
   type: Yup.string().required("Required"),
   product: productSchema.required("Required"),
-  weight: Yup.number().min(1, "Min should be one!").required("Required"),
+  weight: Yup.number().min(1, "Min should be one!").required("Required").typeError("Number is not valid"),
 });

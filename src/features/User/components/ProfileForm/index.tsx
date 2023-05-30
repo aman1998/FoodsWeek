@@ -22,7 +22,7 @@ const ProfileForm: FC = () => {
     reset,
     control,
     formState: { isValid, isDirty },
-  } = useForm<IUserInfo>({ mode: "onBlur", resolver: yupResolver(profileSchema) });
+  } = useForm<IUserInfo>({ mode: "onChange", resolver: yupResolver(profileSchema) });
 
   const updateUserLoading = useSelector(updateUserInfoFetchingSelector);
   const userLoading = useSelector(userInfoFetchingSelector);
@@ -90,7 +90,6 @@ const ProfileForm: FC = () => {
         <div className="profile-form-item__title">Height value</div>
         <TextFieldControl
           name="height.value"
-          type="number"
           InputProps={{ inputProps: { min: 1 } }}
           control={control}
           className="profile-form-item__field"
@@ -106,7 +105,6 @@ const ProfileForm: FC = () => {
         <div className="profile-form-item__title">Weight value</div>
         <TextFieldControl
           name="weight.value"
-          type="number"
           InputProps={{ inputProps: { min: 1 } }}
           control={control}
           className="profile-form-item__field"

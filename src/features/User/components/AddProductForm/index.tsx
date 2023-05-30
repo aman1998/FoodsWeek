@@ -99,7 +99,6 @@ const AddProductForm: FC<IAddProductFormProps> = ({ day }) => {
         name="weight"
         defaultValue={100}
         control={control}
-        type="number"
         InputProps={{ inputProps: { min: 1 } }}
       />
       <Button
