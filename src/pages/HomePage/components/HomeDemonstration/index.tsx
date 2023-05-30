@@ -1,12 +1,25 @@
 import { FC } from "react";
+import { motion } from "framer-motion";
+
+const animation = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: (custom: number) => ({
+    opacity: 1,
+    transition: { delay: custom * 0.2, duration: 0.5 },
+  }),
+};
 
 const HomeDemonstration: FC = () => (
   <section className="home-demonstration">
     <h2 className="home-demonstration__title">Find your ideal meal plan for your goals</h2>
     <h3 className="home-demonstration__subtitle">See what FoodsWeek makes possible</h3>
     <div className="home-demonstration__list">
-      <div className="home-demonstration-item">
-        <img
+      <motion.div viewport={{ once: true }} initial="hidden" whileInView="visible" className="home-demonstration-item">
+        <motion.img
+          custom={1}
+          variants={animation}
           src="https://evernote.com/c/assets/homepage-repackaging/feature_task@2x__ru.png?d690cfa1e3d7e534"
           alt="screen"
           className="home-demonstration__image"
@@ -19,9 +32,16 @@ const HomeDemonstration: FC = () => (
             accordingly their budgets and according thir reuirements.
           </p>
         </div>
-      </div>
-      <div className="home-demonstration-item home-demonstration-item--reverse">
-        <img
+      </motion.div>
+      <motion.div
+        viewport={{ once: true }}
+        initial="hidden"
+        whileInView="visible"
+        className="home-demonstration-item home-demonstration-item--reverse"
+      >
+        <motion.img
+          custom={2}
+          variants={animation}
           src="https://evernote.com/c/assets/homepage-repackaging/feature_task@2x__ru.png?d690cfa1e3d7e534"
           alt="screen"
           className="home-demonstration__image"
@@ -34,9 +54,11 @@ const HomeDemonstration: FC = () => (
             accordingly their budgets and according thir reuirements.
           </p>
         </div>
-      </div>
-      <div className="home-demonstration-item">
-        <img
+      </motion.div>
+      <motion.div viewport={{ once: true }} initial="hidden" whileInView="visible" className="home-demonstration-item">
+        <motion.img
+          custom={3}
+          variants={animation}
           src="https://evernote.com/c/assets/homepage-repackaging/feature_task@2x__ru.png?d690cfa1e3d7e534"
           alt="screen"
           className="home-demonstration__image"
@@ -49,9 +71,16 @@ const HomeDemonstration: FC = () => (
             accordingly their budgets and according thir reuirements.
           </p>
         </div>
-      </div>
-      <div className="home-demonstration-item home-demonstration-item--reverse">
-        <img
+      </motion.div>
+      <motion.div
+        viewport={{ once: true }}
+        initial="hidden"
+        whileInView="visible"
+        className="home-demonstration-item home-demonstration-item--reverse"
+      >
+        <motion.img
+          custom={4}
+          variants={animation}
           src="https://evernote.com/c/assets/homepage-repackaging/feature_task@2x__ru.png?d690cfa1e3d7e534"
           alt="screen"
           className="home-demonstration__image"
@@ -64,7 +93,7 @@ const HomeDemonstration: FC = () => (
             accordingly their budgets and according thir reuirements.
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   </section>
 );
