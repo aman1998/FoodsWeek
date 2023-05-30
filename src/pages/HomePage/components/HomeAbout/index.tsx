@@ -18,6 +18,16 @@ const animation = {
   }),
 };
 
+const imgAnimation = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.5 },
+  },
+};
+
 const HomeAbout: FC = () => {
   const dispatch = useDispatch();
 
@@ -41,7 +51,8 @@ const HomeAbout: FC = () => {
           Get Started
         </Button>
       </div>
-      <img
+      <motion.img
+        variants={imgAnimation}
         src="https://evernote.com/c/assets/homepage-repackaging/task_hero_image@2x__ru.png?a3e901e4e88f1ef"
         className="home-about__image"
       />
