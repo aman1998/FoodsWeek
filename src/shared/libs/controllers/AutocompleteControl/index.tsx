@@ -13,18 +13,12 @@ const AutocompleteControl = <O extends IAutoCompleteSelected, TField extends Fie
     <Controller
       name={name}
       control={control}
-      render={({ field: { onChange, value }, fieldState: { error } }) => (
+      render={({ field: { onChange }, fieldState: { error } }) => (
         <>
           <Autocomplete
-            value={value ? options.find(option => value === option.id) ?? null : null}
-            getOptionLabel={option => {
-              console.log("option =>", option);
-              return option.label;
-            }}
+            getOptionLabel={option => option.label}
             onChange={(_: unknown, newValue) => {
               const resolvedId = newValue ? newValue.value : null;
-              console.log("newValue =>", newValue);
-
               onChange(resolvedId);
               handleOnChange?.(resolvedId);
             }}
