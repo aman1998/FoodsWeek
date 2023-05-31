@@ -12,11 +12,22 @@ import {
   ReferenceLine,
 } from "recharts";
 
-import { userProductsInWeekSelector, userTotalBurnedAverageCaloriesInDaySelector } from "features/User";
+import {
+  userInfoFetchingSelector,
+  userProductsInWeekSelector,
+  userTotalBurnedAverageCaloriesInDaySelector,
+} from "features/User";
+
+import CaloriesChartSkeleton from "./components/Skeleton";
 
 const CaloriesChart: FC = () => {
   const userProductsInWeek = useSelector(userProductsInWeekSelector);
   const totalCaloriesConsumedInDay = useSelector(userTotalBurnedAverageCaloriesInDaySelector);
+  const userInfoLoading = useSelector(userInfoFetchingSelector);
+
+  if (userInfoLoading) {
+    return <CaloriesChartSkeleton />;
+  }
 
   return (
     <aside className="calories-chart">

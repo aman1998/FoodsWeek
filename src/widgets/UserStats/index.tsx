@@ -13,6 +13,8 @@ import {
 
 import Button from "shared/UI/Button";
 
+import UserStatsSkeleton from "./components/Skeleton";
+
 const UserStats: FC = () => {
   const user = useSelector(userInfoSelector);
   const userInfoLoading = useSelector(userInfoFetchingSelector);
@@ -28,7 +30,7 @@ const UserStats: FC = () => {
   };
 
   if (userInfoLoading) {
-    return <aside className="user-stats">Loading...</aside>;
+    return <UserStatsSkeleton />;
   }
 
   return (

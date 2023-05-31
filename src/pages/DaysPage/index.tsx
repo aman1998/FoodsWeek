@@ -1,53 +1,18 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
 
-import { userProductsInWeekSelector } from "features/User";
+import { userInfoFetchingSelector, userProductsInWeekSelector } from "features/User";
 
-import DayCard from "./components/DayCard";
+import List from "entities/List";
+
+import DaysSkeleton from "./components/Skeleton";
+import DaysList from "./components/DaysList";
 
 const DaysPage: FC = () => {
   const userProductsInWeek = useSelector(userProductsInWeekSelector);
+  const loading = useSelector(userInfoFetchingSelector);
 
-  return (
-    <section className="days-wrapper">
-      <div className="days">
-        {userProductsInWeek.map(item => (
-          <DayCard
-            totalCalories={item.nutrients.totalCalories}
-            totalCarbohydrate={item.nutrients.totalCarbohydrate}
-            totalFat={item.nutrients.totalFat}
-            totalProtein={item.nutrients.totalProtein}
-            key={item.day}
-            title={item.day.toUpperCase()}
-            link={`/days/${item.day.toLowerCase()}`}
-          />
-        ))}
-      </div>
-      {/* <List
-            component={
-              <>
-                <DragDrop<IDayData>
-                  handleNewList={handleNewList}
-                  data={stocks || []}
-                  className="stocks"
-                  renderItem={item => (
-                    <DayCard
-                      key={item.type}
-                      logoUrl={item.logoUrl}
-                      changePercent={item.changePercent}
-                      latestPrice={item.latestPrice}
-                      type={item.type}
-                    />
-                  )}
-                />
-              </>
-            }
-            data={stocks}
-            preloader={<DaysSkeleton />}
-            loading={loading}
-          /> */}
-    </section>
-  );
+  return <List component={<DaysList />} data={userProductsInWeek} preloader={<DaysSkeleton />} loading={loading} />;
 };
 
 export default DaysPage;

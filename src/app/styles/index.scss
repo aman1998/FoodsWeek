@@ -8,8 +8,9 @@
 @import "widgets/Sidebar/styles.scss";
 @import "widgets/Navigation/styles.scss";
 @import "widgets/CaloriesChart/styles.scss";
+@import "widgets/CaloriesChart/components/Skeleton/styles.scss";
 @import "widgets/UserStats/styles.scss";
-@import "widgets/UserStats/Skeleton/styles.scss";
+@import "widgets/UserStats/components/Skeleton/styles.scss";
 
 // UI
 @import "shared/UI/Button/styles.scss";
@@ -18,8 +19,9 @@
 @import "shared/components/ChangePercent/styles.scss";
 @import "shared/components/Hamburger/styles.scss";
 
-// Profile container
+// Profile 
 @import "pages/ProfilePage/styles.scss";
+@import "pages/ProfilePage/components/Skeleton/styles.scss";
 
 
 // Auth feature 
@@ -34,7 +36,7 @@
 @import "features/User/components/ProfileForm/styles.scss";
 
 // Days page
-@import "pages/DaysPage/styles.scss";
+@import "pages/DaysPage/components/DaysList/styles.scss";
 @import "pages/DaysPage/components/DayCard/styles.scss";
 @import "pages/DaysPage/components/Skeleton/styles.scss";
 

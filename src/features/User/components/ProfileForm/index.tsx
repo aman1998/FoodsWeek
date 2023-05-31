@@ -51,9 +51,9 @@ const ProfileForm: FC = () => {
     dispatch(updateUserInfoFetching(values));
   };
 
-  if (userLoading) {
-    return <></>;
-  }
+  // if (userLoading) {
+  //   return <></>;
+  // }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="profile-form">
@@ -71,15 +71,28 @@ const ProfileForm: FC = () => {
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Name</div>
-        <TextFieldControl name="name" control={control} margin="normal" className="profile-form-item__field" />
+        <TextFieldControl
+          disabled={updateUserLoading || userLoading}
+          name="name"
+          control={control}
+          margin="normal"
+          className="profile-form-item__field"
+        />
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Gender</div>
-        <SelectControl control={control} name="gender" options={optionsGender} className="profile-form-item__field" />
+        <SelectControl
+          disabled={updateUserLoading || userLoading}
+          control={control}
+          name="gender"
+          options={optionsGender}
+          className="profile-form-item__field"
+        />
       </div>
       <div className="profile-form-item">
         <div className="profile-form-item__title">Year</div>
         <SelectControl
+          disabled={updateUserLoading || userLoading}
           control={control}
           name="yearBirth"
           options={yearsSelectOptions}
@@ -89,12 +102,14 @@ const ProfileForm: FC = () => {
       <div className="profile-form-item">
         <div className="profile-form-item__title">Height value</div>
         <TextFieldControl
+          disabled={updateUserLoading || userLoading}
           name="height.value"
           InputProps={{ inputProps: { min: 1 } }}
           control={control}
           className="profile-form-item__field"
         />
         <SelectControl
+          disabled={updateUserLoading || userLoading}
           control={control}
           name="height.type"
           options={optionsUnitHeight}
@@ -104,12 +119,14 @@ const ProfileForm: FC = () => {
       <div className="profile-form-item">
         <div className="profile-form-item__title">Weight value</div>
         <TextFieldControl
+          disabled={updateUserLoading || userLoading}
           name="weight.value"
           InputProps={{ inputProps: { min: 1 } }}
           control={control}
           className="profile-form-item__field"
         />
         <SelectControl
+          disabled={updateUserLoading || userLoading}
           control={control}
           name="weight.type"
           options={optionsUnitWeight}
@@ -119,6 +136,7 @@ const ProfileForm: FC = () => {
       <div className="profile-form-item">
         <div className="profile-form-item__title">Activate</div>
         <SelectControl
+          disabled={updateUserLoading || userLoading}
           control={control}
           name="activateLevel"
           options={optionsActivaty}
